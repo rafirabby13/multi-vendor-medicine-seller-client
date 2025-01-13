@@ -1,0 +1,36 @@
+[
+    {
+      "id": 1,
+      "category": "Temperature",
+      "title": "Digital Thermometers",
+      "image": "https://example.com/products/digital-thermometer.jpg",
+      "price": 400,
+      "currency": "BDT"
+    },
+    {
+      "id": 2,
+      "category": "Personal",
+      "title": "Face Masks (Pack of 10)",
+      "image": "https://example.com/products/face-masks.jpg",
+      "price": 300,
+      "currency": "BDT"
+    },
+    {
+      "id": 3,
+      "category": "Health",
+      "title": "Blood Pressure Monitor",
+      "image": "https://example.com/products/blood-pressure-monitor.jpg",
+      "price": 2500,
+      "currency": "BDT"
+    },
+    {
+      "id": 4,
+      "category": "Vitamins",
+      "title": "Multivitamin Tablets",
+      "image": "https://example.com/products/multivitamin.jpg",
+      "price": 800,
+      "currency": "BDT"
+    }
+    
+  ]
+  

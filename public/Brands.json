@@ -1,0 +1,33 @@
+[
+    {
+      "id": 1,
+      "name": "Square Pharma",
+      "logo": "https://example.com/logos/square-pharma.png"
+    },
+    {
+      "id": 2,
+      "name": "Beximco Pharma",
+      "logo": "https://example.com/logos/beximco-pharma.png"
+    },
+    {
+      "id": 3,
+      "name": "Renata",
+      "logo": "https://example.com/logos/renata.png"
+    },
+    {
+      "id": 4,
+      "name": "ACI Healthcare",
+      "logo": "https://example.com/logos/aci-healthcare.png"
+    },
+    {
+      "id": 5,
+      "name": "Eskayef",
+      "logo": "https://example.com/logos/eskayef.png"
+    },
+    {
+      "id": 6,
+      "name": "Aristopharma",
+      "logo": "https://example.com/logos/aristopharma.png"
+    }
+  ]
+  
