@@ -1,3 +1,4 @@
+import { FaCartPlus } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
@@ -22,7 +23,7 @@ const Navbar = () => {
               : "font-bold"
           }
         >
-          Find Tutors
+          Shop
         </NavLink>
       </li>
       <li>
@@ -33,7 +34,8 @@ const Navbar = () => {
               : "font-bold"
           }
         >
-          Add Tutorials
+          <FaCartPlus />
+
         </NavLink>
       </li>
       <li>
@@ -44,20 +46,10 @@ const Navbar = () => {
               : "font-bold"
           }
         >
-          My Tutorials
+          languages dropdown
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          className={({ isActive }) =>
-            isActive
-              ? "bg-[#439A97] font-bold text-white lg:text-lg"
-              : "font-bold"
-          }
-        >
-          My booked Tutors
-        </NavLink>
-      </li>
+      
     </>
   );
   return (
@@ -90,17 +82,17 @@ const Navbar = () => {
               </ul>
             </div>
             <a className=" hidden lg:flex text-3xl xl:text-4xl font-extrabold">
-              TutorBridge
+            MediMarket
             </a>
           </div>
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal font-semibold flex items-center  xl:text-xl px-1">
+            <ul className="menu menu-horizontal font-semibold flex items-center gap-3  xl:text-xl px-1">
               {items}
             </ul>
           </div>
           <div className="navbar-end">
             <Link className=" border-none p-1 lg:text-xl xl:btn text-sm bg-[#439A97] xl:bg-[#439A97] text-white xl:text-white">
-              Login
+            Join US
             </Link>
           </div>
         </div>
