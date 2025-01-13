@@ -2,6 +2,7 @@
 import Footer from "../../Shared/Footer.jsx";
 import Navbar from "../../Shared/Navbar.jsx";
 import Banner from "./Banner.jsx";
+import DiscountProducts from "./DiscountProducts/DiscountProducts.jsx";
 import MedicineCategory from "./MedicineCategory/MedicineCategory.jsx";
 
 const Home = () => {
@@ -9,6 +10,7 @@ const Home = () => {
         <div>
            <Banner/>
            <MedicineCategory/>
+           <DiscountProducts/>
             {/* <Footer/> */}
         </div>
     );
