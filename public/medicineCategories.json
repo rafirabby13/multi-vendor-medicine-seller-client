@@ -1,0 +1,63 @@
+[
+    {
+      "id": 1,
+      "name": "Pain Relief",
+      "image": "https://example.com/images/pain-relief.jpg",
+      "medicineCount": 120
+    },
+    {
+      "id": 2,
+      "name": "Skin Care",
+      "image": "https://example.com/images/skin-care.jpg",
+      "medicineCount": 85
+    },
+    {
+      "id": 3,
+      "name": "Heart Care",
+      "image": "https://example.com/images/heart-care.jpg",
+      "medicineCount": 95
+    },
+    {
+      "id": 4,
+      "name": "Diabetes",
+      "image": "https://example.com/images/diabetes.jpg",
+      "medicineCount": 110
+    },
+    {
+      "id": 5,
+      "name": "Allergies",
+      "image": "https://example.com/images/allergies.jpg",
+      "medicineCount": 60
+    },
+    {
+      "id": 6,
+      "name": "Cough & Cold",
+      "image": "https://example.com/images/cough-cold.jpg",
+      "medicineCount": 140
+    },
+    {
+      "id": 7,
+      "name": "Vitamins & Supplements",
+      "image": "https://example.com/images/vitamins-supplements.jpg",
+      "medicineCount": 200
+    },
+    {
+      "id": 8,
+      "name": "Eye Care",
+      "image": "https://example.com/images/eye-care.jpg",
+      "medicineCount": 45
+    },
+    {
+      "id": 9,
+      "name": "Dental Care",
+      "image": "https://example.com/images/dental-care.jpg",
+      "medicineCount": 80
+    },
+    {
+      "id": 10,
+      "name": "Child Care",
+      "image": "https://example.com/images/child-care.jpg",
+      "medicineCount": 70
+    }
+  ]
+  
