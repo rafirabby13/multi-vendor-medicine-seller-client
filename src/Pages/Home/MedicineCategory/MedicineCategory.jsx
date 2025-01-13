@@ -7,7 +7,7 @@ const MedicineCategory = () => {
     fetch("medicineCategories.json")
       .then((data) => data.json())
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setMedicineCategoryData(res);
       });
   }, []);

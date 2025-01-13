@@ -16,7 +16,7 @@ const DiscountProducts = () => {
   }, []);
   return (
     <div>
-        <h1 className="text-5xl">Discount Products</h1>
+      <h1 className="text-5xl">Discount Products</h1>
       <div>
         <Swiper
           spaceBetween={30}
@@ -33,15 +33,18 @@ const DiscountProducts = () => {
           className="mySwiper"
         >
           {discountProducts?.map(
-            ({
-              id,
-              name,
-              image,
-              originalPrice,
-              discountPrice,
-              discountPercentage,
-            }) => (
-              <SwiperSlide key={id}>
+            (
+              {
+                
+                name,
+                image,
+                originalPrice,
+                discountPrice,
+                discountPercentage,
+              },
+              index
+            ) => (
+              <SwiperSlide key={index}>
                 <div className="p-4 bg-white shadow-lg rounded-lg flex flex-col items-center">
                   <img
                     src={image}

@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 const PoularBrandsCards = ({ brand }) => {
-  console.log(brand);
+  // console.log(brand);
   const { logo, name } = brand;
   return (
     <div>

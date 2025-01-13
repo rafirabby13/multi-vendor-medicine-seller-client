@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 const BrandProductsCard = ({ product }) => {
-  console.log(product);
+  // console.log(product);
   const { image, currency, price, category, title } = product;
   return (
     <div>
