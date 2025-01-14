@@ -1,4 +1,3 @@
-import { useState } from "react";
 import useCart from "../../hooks/useCart.jsx";
 import useAxiosSecure from "../../hooks/useAxiosSecure.jsx";
 import { FaRegTrashAlt } from "react-icons/fa";
@@ -47,7 +46,7 @@ const Cart = () => {
       if (result.isConfirmed) {
         axiosSecure.delete(`/cart/${item._id}`).then((res) => {
           if (res.data.deletedCount > 0) {
-            refetch()
+            refetch();
             Swal.fire({
               title: "Deleted!",
               text: "Your file has been deleted.",
@@ -58,11 +57,41 @@ const Cart = () => {
       }
     });
   };
+
+  const handleClearCart = () => {
+    if (cart.length > 0) {
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          axiosSecure.delete("/cart").then((res) => {
+            if (res.data.deletedCount > 0) {
+              refetch();
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
+            }
+          });
+        }
+      });
+    }
+  };
+
   return (
     <div>
       <div className="flex items-center justify-between py-10">
-        <h1 className="text-5xl">Total : ${totalPrice}</h1>
-        <button className="btn">Clear Cart X</button>
+        <h1 className="text-5xl">Total Items: {cart.length}</h1>
+        <button onClick={handleClearCart} className="btn">
+          Clear Cart X
+        </button>
       </div>
       <div className="overflow-x-auto">
         <table className="table">
@@ -145,6 +174,22 @@ const Cart = () => {
             {/* row 1 */}
           </tbody>
         </table>
+      </div>
+
+      <div>
+        <div className="flex items-center justify-between text-4xl">
+          <h1>Total Items:</h1>
+          <h1>{cart?.length}</h1>
+        </div>
+        <div className="flex items-center justify-between text-4xl">
+          <h1>Total Amount:</h1>
+          <h1>$ {totalPrice}</h1>
+        </div>
+        <div className="flex justify-end">
+          <button onClick={handleClearCart} className="btn">
+            Clear Cart X
+          </button>
+        </div>
       </div>
     </div>
   );
