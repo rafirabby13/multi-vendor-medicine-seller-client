@@ -1,10 +1,24 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import useAuth from "../../hooks/useAuth.jsx";
 
 const Login = () => {
+  const {loginUser,setUser} = useAuth()
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    loginUser(data.email, data.password)
+      .then((res) => {
+        setUser(res.user);
+        console.log(res.user);
+        // toast.success("Login Successfully");
+
+        // navigate(location?.state ? location.state : "/");
+      })
+      .catch((err) => {
+        // toast.error(err.message);
+      });
+  };
   return (
     <div>
      

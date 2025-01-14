@@ -1,8 +1,9 @@
+/* eslint-disable no-unused-vars */
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth.jsx";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 const Register = () => {

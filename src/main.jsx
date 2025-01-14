@@ -1,12 +1,23 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import { RouterProvider } from 'react-router-dom'
-import { router } from './Routes/Routes.jsx'
-import AuthProviders from './Context/AuthProviders.jsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./Routes/Routes.jsx";
+import AuthProviders from "./Context/AuthProviders.jsx";
+import {
+  QueryClient,
+  QueryClientProvider,
 
-createRoot(document.getElementById('root')).render(
+} from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <AuthProviders><RouterProvider router={router}></RouterProvider></AuthProviders>
-  </StrictMode>,
-)
+    <QueryClientProvider client={queryClient}>
+     
+      <AuthProviders>
+        <RouterProvider router={router}></RouterProvider>
+      </AuthProviders>
+    </QueryClientProvider>
+  </StrictMode>
+);

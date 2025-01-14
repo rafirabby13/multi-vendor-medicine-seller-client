@@ -3,8 +3,8 @@ import { Link, NavLink } from "react-router-dom";
 import useAuth from "../hooks/useAuth.jsx";
 import { useState } from "react";
 const Navbar = () => {
-  const { user } = useAuth();
-  const [hidden, setHidden] = useState(false);
+  const { user,logoutUser } = useAuth();
+  const [hidden, setHidden] = useState(true);
 
   const items = (
     <>
@@ -21,6 +21,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
+        to='/shop'
           className={({ isActive }) =>
             isActive
               ? "bg-[#439A97] font-bold text-white lg:text-lg"
@@ -54,6 +55,17 @@ const Navbar = () => {
       </li>
     </>
   );
+
+  const handleLogout=()=>{
+    logoutUser()
+    .then(()=>{
+      console.log('logged out');
+    })
+    .catch(err=>{
+      console.log(err);
+    })
+
+  }
   return (
     <div>
       <div>
@@ -102,33 +114,43 @@ const Navbar = () => {
                     src={user?.photoURL}
                     alt=""
                   />
-                  {hidden && (
+                  {!hidden && (
                     <div className="flex flex-col absolute top-20 right-0   items-center gap-4 p-4 bg-gray-100 rounded-lg shadow-md w-[200px]">
                       {/* Update Profile Button */}
-                      <button className="btn btn-primary px-6 py-2 text-white rounded-md hover:bg-blue-700 transition">
+                      <button   className="btn btn-primary px-6 py-2 text-white rounded-md hover:bg-blue-700 transition w-full">
                         Update Profile
                       </button>
 
                       {/* Dashboard Button */}
-                      <button className="btn btn-secondary px-6 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-600 transition">
+                      <button   className="btn btn-secondary px-6 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-600 transition w-full">
                         Dashboard
                       </button>
 
                       {/* Logout Button */}
-                      <button className="btn btn-danger px-6 py-2 bg-red-600 text-white rounded-md hover:bg-red-500 transition">
+                      <button   onClick={handleLogout} className="btn btn-danger px-6 py-2 bg-red-600 text-white rounded-md hover:bg-red-500 transition w-full">
                         Logout
                       </button>
                     </div>
                   )}
+                   <button
+                onClick={handleLogout}
+                className=" border-none p-1 lg:text-xl xl:btn text-sm bg-[#439A97] xl:bg-[#439A97] text-white xl:text-white"
+              >
+                Logout
+              </button>
                 </div>
               </>
             ) : (
-              <Link
+             <div>
+               <Link
                 to="/login"
                 className=" border-none p-1 lg:text-xl xl:btn text-sm bg-[#439A97] xl:bg-[#439A97] text-white xl:text-white"
               >
                 Join US
               </Link>
+             
+             </div>
+              
             )}
           </div>
         </div>
