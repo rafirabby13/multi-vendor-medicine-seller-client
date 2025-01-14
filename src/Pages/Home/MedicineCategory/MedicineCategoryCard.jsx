@@ -1,11 +1,15 @@
 /* eslint-disable react/prop-types */
 
+import { Link } from "react-router-dom";
+
 const MedicineCategoryCard = ({medicine}) => {
     const {image,medicineCount,name,id} = medicine;
+    // console.log(medicine);
     // const {}
+    
     return (
         <div>
-            <div
+           <Link to={`/medicineDetail/${name}`}> <div
             key={id}
             className="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300"
           >
@@ -23,7 +27,7 @@ const MedicineCategoryCard = ({medicine}) => {
                 View More
               </button>
             </div>
-          </div>
+          </div></Link>
         </div>
     );
 };

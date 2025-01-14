@@ -4,6 +4,7 @@ import Home from "../Pages/Home/Home.jsx";
 import Login from "../Pages/Login/Login.jsx";
 import Register from "../Pages/Register/Register.jsx";
 import Shop from "../Pages/Shop/Shop.jsx";
+import MedicineDetail from "../Pages/MedicineDetail/MedicineDetail.jsx";
 
 export const router = createBrowserRouter([
     {
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
             {
                 path: 'shop',
                 element: <Shop/>
+            },
+            {
+                path: 'medicineDetail/:category',
+                element: <MedicineDetail/>
             }
         ]
     }
