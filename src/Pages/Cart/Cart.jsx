@@ -2,6 +2,7 @@ import useCart from "../../hooks/useCart.jsx";
 import useAxiosSecure from "../../hooks/useAxiosSecure.jsx";
 import { FaRegTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const [cart, refetch] = useCart();
@@ -189,6 +190,11 @@ const Cart = () => {
           <button onClick={handleClearCart} className="btn">
             Clear Cart X
           </button>
+        </div>
+        <div className="flex justify-end">
+          <Link to='/payment'  className="btn">
+            Payment
+          </Link>
         </div>
       </div>
     </div>

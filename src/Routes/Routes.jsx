@@ -6,6 +6,7 @@ import Register from "../Pages/Register/Register.jsx";
 import Shop from "../Pages/Shop/Shop.jsx";
 import MedicineDetail from "../Pages/MedicineDetail/MedicineDetail.jsx";
 import Cart from "../Pages/Cart/Cart.jsx";
+import Payment from "../Pages/Payment/Payment.jsx";
 
 export const router = createBrowserRouter([
     {
@@ -35,6 +36,11 @@ export const router = createBrowserRouter([
             {
                 path: 'cart',
                 element: <Cart/>
+            }
+            ,
+            {
+                path: 'payment',
+                element: <Payment/>
             }
         ]
     }
