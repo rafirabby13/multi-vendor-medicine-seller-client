@@ -2,9 +2,12 @@ import { FaCartPlus } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../hooks/useAuth.jsx";
 import { useState } from "react";
+import useCart from "../hooks/useCart.jsx";
 const Navbar = () => {
   const { user,logoutUser } = useAuth();
   const [hidden, setHidden] = useState(true);
+  const [cart] = useCart()
+  // console.log(cart);
 
   const items = (
     <>
@@ -32,14 +35,14 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink
+        <NavLink to='/cart'
           className={({ isActive }) =>
             isActive
               ? "bg-[#439A97] font-bold text-white lg:text-lg"
               : "font-bold"
           }
         >
-          <FaCartPlus />
+          <FaCartPlus /> <span>{cart?.length}</span>
         </NavLink>
       </li>
       <li>

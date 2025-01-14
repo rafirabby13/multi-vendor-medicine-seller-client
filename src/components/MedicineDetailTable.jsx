@@ -1,26 +1,34 @@
 /* eslint-disable react/prop-types */
 import { FaEye } from "react-icons/fa";
 import Swal from "sweetalert2";
+import useAuth from "../hooks/useAuth.jsx";
+import { useNavigate } from "react-router-dom";
+import useAxiosSecure from "../hooks/useAxiosSecure.jsx";
+import useCart from "../hooks/useCart.jsx";
 
-const MedicineDetailTable = ({products}) => {
-    // console.log(products);
-    const handleDetail = (item) => {
-        console.log(item);
-        const {
-          name,
-          category,
-          generic,
-          manufacturer,
-          therapeuticClass,
-          indications,
-          pharmacology,
-          dosage,
-          price,
-          image,
-        } = item;
-        Swal.fire({
-          title: "Product Details",
-          html: `
+const MedicineDetailTable = ({ products }) => {
+  // console.log(products);
+  const navigate = useNavigate();
+  const { user } = useAuth();
+  const axiosSecure = useAxiosSecure();
+  const [,refetch] = useCart()
+  const handleDetail = (item) => {
+    console.log(item);
+    const {
+      name,
+      category,
+      generic,
+      manufacturer,
+      therapeuticClass,
+      indications,
+      pharmacology,
+      dosage,
+      price,
+      image,
+    } = item;
+    Swal.fire({
+      title: "Product Details",
+      html: `
         <div style="text-align: left;">
           <h3 style="color: #2c3e50;">${name}</h3>
           <img src="${image}" alt="${name}" style="width: 100%; max-width: 300px; height: auto; margin: 10px 0;">
@@ -34,22 +42,43 @@ const MedicineDetailTable = ({products}) => {
           <p><strong>Price:</strong> $${price}</p>
         </div>
       `,
-          showCloseButton: true,
-          showConfirmButton: false,
-          width: 600,
-          padding: "1rem",
-          background: "#f9f9f9",
-          customClass: {
-            popup: "swal-custom-popup",
-            title: "swal-custom-title",
-            htmlContainer: "swal-custom-html",
-          },
+      showCloseButton: true,
+      showConfirmButton: false,
+      width: 600,
+      padding: "1rem",
+      background: "#f9f9f9",
+      customClass: {
+        popup: "swal-custom-popup",
+        title: "swal-custom-title",
+        htmlContainer: "swal-custom-html",
+      },
+    });
+  };
+
+  const handleSelectAddToCart = (item) => {
+    const postedData = {...item, email: user?.email}
+    if (user && user.email) {
+      
+        axiosSecure.post("/cart", postedData).then((res) => {
+          if (res.data.insertedId) {
+            // console.log(res.data);
+            Swal.fire({
+              title: "Added to cart!",
+            
+              icon: "success",
+            });
+          }
         });
-      };
-    
-    return (
-        <div>
-            <div className="overflow-x-auto">
+        refetch()
+      
+    } else {
+      navigate("/login");
+    }
+  };
+
+  return (
+    <div>
+      <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
           <thead>
@@ -67,9 +96,7 @@ const MedicineDetailTable = ({products}) => {
           <tbody>
             {products?.map((product, i) => (
               <tr key={i}>
-                <th>
-                 { i+1}
-                </th>
+                <th>{i + 1}</th>
                 <td>
                   <div className="flex items-center gap-3">
                     <div className="avatar">
@@ -95,7 +122,12 @@ const MedicineDetailTable = ({products}) => {
                   </button>
                 </th>
                 <th>
-                  <button className="btn btn-ghost btn-xs">Select</button>
+                  <button
+                    onClick={() => handleSelectAddToCart(product)}
+                    className="btn btn-ghost btn-xs"
+                  >
+                    Select
+                  </button>
                 </th>
                 <th>
                   <button
@@ -111,8 +143,8 @@ const MedicineDetailTable = ({products}) => {
           </tbody>
         </table>
       </div>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default MedicineDetailTable;

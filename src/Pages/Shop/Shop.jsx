@@ -1,4 +1,3 @@
-import { FaEye } from "react-icons/fa";
 import useShop from "../../hooks/useShop.jsx";
 
 import MedicineDetailTable from "../../components/MedicineDetailTable.jsx";
