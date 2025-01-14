@@ -191,11 +191,13 @@ const Cart = () => {
             Clear Cart X
           </button>
         </div>
-        <div className="flex justify-end">
-          <Link to='/payment'  className="btn">
-            Payment
-          </Link>
-        </div>
+        {
+            cart.length > 0 && <div className="flex justify-end">
+            <Link to='/payment'  className="btn">
+              Payment
+            </Link>
+          </div>
+        }
       </div>
     </div>
   );

@@ -4,6 +4,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure.jsx";
 import useCart from "../../hooks/useCart.jsx";
 import useAuth from "../../hooks/useAuth.jsx";
 import Swal from "sweetalert2";
+import moment from "moment";
 
 const Checkout = () => {
   const stripe = useStripe();
@@ -19,12 +20,14 @@ const Checkout = () => {
     0
   );
   useEffect(() => {
-    axiosSecure
+    if (totalPrice > 0) {
+        axiosSecure
       .post("/create-payment-intent", { price: totalPrice })
       .then((res) => {
         setClientSecret(res.data.clientSecret);
         // console.log(res.data.clientSecret);
       });
+    }
   }, [axiosSecure, totalPrice]);
 
   const handleSubmit = async (event) => {
@@ -53,9 +56,9 @@ const Checkout = () => {
     });
 
     if (error) {
-      console.log("[error]", error);
+    //   console.log("[error]", error);
     } else {
-      console.log("[PaymentMethod]", paymentMethod);
+    //   console.log("[PaymentMethod]", paymentMethod);
     }
     // confirm payment
     const { paymentIntent, error: confirmError } =
@@ -69,9 +72,9 @@ const Checkout = () => {
         },
       });
     if (confirmError) {
-      console.log("[error]", confirmError);
+    //   console.log("[error]", confirmError);
     } else {
-      console.log(paymentIntent, confirmError);
+    //   console.log(paymentIntent, confirmError);
       if (paymentIntent.status == 'succeeded') {
         setTransactionId(paymentIntent.id)
         Swal.fire({
@@ -82,6 +85,29 @@ const Checkout = () => {
             showConfirmButton: false,
             timer: 1500
           });
+        //   console.log(moment().utc().format("dddd, MMMM Do YYYY, h:mm:ss a"));
+        //   save the payment Info to DB
+        const paymentInfo ={
+            email: user?.email,
+            price: totalPrice,
+            transactionId: transactionId,
+            date: moment().utc().format("dddd, MMMM Do YYYY, h:mm:ss a"),
+            cartId: cart?.map(item=> item._id),
+            status: 'pending'
+
+        }
+       const res = await axiosSecure.post('/payments', paymentInfo)
+       console.log(res.data);
+       if (res.data.deletedResult.deletedCount > 0) {
+        refetch()
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Your work has been saved",
+            showConfirmButton: false,
+            timer: 1500
+          });
+       }
       }
     }
   };
