@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth.jsx";
 
 const Login = () => {
-  const {loginUser,setUser} = useAuth()
+  const {loginUser,setUser,googleLogin} = useAuth()
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   const location = useLocation();
@@ -12,8 +12,8 @@ const Login = () => {
     loginUser(data.email, data.password)
       .then((res) => {
         setUser(res.user);
-        console.log(res.user);
-        console.log("Login Successfully");
+        // console.log(res.user);
+        // console.log("Login Successfully");
 
         navigate(location?.state ? location.state : "/");
       })
@@ -21,6 +21,21 @@ const Login = () => {
         // toast.error(err.message);
       });
   };
+
+
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then((res) => {
+        console.log(res.user);
+        // toast.success("Login Successfully");
+        setUser(res.user);
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((err) => {
+        // toast.error(err.message);
+      });
+  };
+
   return (
     <div>
      
@@ -74,6 +89,15 @@ const Login = () => {
                 <button className="btn btn-primary">Login</button>
               </div>
             </form>
+            <div className="divider divider-accent">OR</div>
+          <div className="text-center w-full">
+            <button
+              className="border-2 w-3/4 p-2 md:p-4 mb-10  md:text-2xl font-semibold rounded-lg bg-[#439A97] shadow-red-400 shadow-sm text-white"
+              onClick={handleGoogleLogin}
+            >
+              Sign In With Google
+            </button>
+          </div>
           </div>
         </div>
       </div>

@@ -1,16 +1,47 @@
 import { FaEye } from "react-icons/fa";
 import useManageUsers from "../../../hooks/useManageUsers.jsx";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
+import useAxiosSecure from "../../../hooks/useAxiosSecure.jsx";
 
 const ManageUsers = () => {
-  const [users] = useManageUsers();
-//   console.log(users);
+  const [users, refetch] = useManageUsers();
+  // console.log(users);
+
+const axiosSecure = useAxiosSecure()
+
 
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data,userIndex) => {
+  const onSubmit = (data,name,id,userIndex) => {
     const role = 'role_' + `${userIndex}`
 
-    console.log(data[role])
+    const updateRole = data[role]
+
+    console.log(updateRole, id)
+    Swal.fire({
+      title: `Sure to make ${name} ${updateRole}`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes...."
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.post(`/user/role/${id}`, {updateRole})
+        .then(res=>{
+          console.log(res.data);
+          if (res.data.modifiedCount > 0) {
+            refetch()
+            Swal.fire({
+              title: "Updated!",
+              icon: "success"
+            });
+          }
+          
+        })
+        
+      }
+    });
    
 };
 
@@ -59,7 +90,7 @@ const ManageUsers = () => {
                   </button>
                 </th>
                 <th>
-                  <form onSubmit={handleSubmit((data)=>onSubmit(data, i))}>
+                  <form onSubmit={handleSubmit((data)=>onSubmit(data,product.name? product.name : 'anonymous', product._id,i))}>
                     <select {...register(`role_${i}`)}>
                       <option value="admin">Admin</option>
                       <option value="seller">Seller</option>

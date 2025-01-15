@@ -7,7 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 const Register = () => {
-  const { registerUser, updateUser } = useAuth();
+  const { registerUser, updateUser, googleLogin, setUser } = useAuth();
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   const onSubmit = (data) => {
@@ -43,6 +43,20 @@ const Register = () => {
         }
       });
   };
+
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then((res) => {
+        console.log(res.user);
+        // toast.success("Login Successfully");
+        setUser(res.user);
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((err) => {
+        // toast.error(err.message);
+      });
+  };
+
   return (
     <div>
       <div className="hero bg-base-200 min-h-screen">
@@ -114,6 +128,15 @@ const Register = () => {
                 <button className="btn btn-primary">Register</button>
               </div>
             </form>
+            <div className="divider divider-accent">OR</div>
+            <div className="text-center w-full">
+              <button
+                className="border-2 w-3/4 p-2 md:p-4 mb-10  md:text-2xl font-semibold rounded-lg bg-[#439A97] shadow-red-400 shadow-sm text-white"
+                onClick={handleGoogleLogin}
+              >
+                Sign In With Google
+              </button>
+            </div>
           </div>
         </div>
       </div>

@@ -16,6 +16,7 @@ const AuthProviders = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
   const axiosPublic = useAxiosPublic();
+  
 
   const googleProvider = new GoogleAuthProvider();
   const registerUser = (email, password) => {
@@ -47,7 +48,7 @@ const AuthProviders = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      console.log(currentUser);
+      // console.log(currentUser);
       setUser(currentUser);
       if (currentUser) {
         const userData = {
@@ -57,10 +58,23 @@ const AuthProviders = ({ children }) => {
           role: "user",
         };
         axiosPublic.post("/users", userData).then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
         });
+
+        const userEmail = { email: currentUser.email };
+
+        axiosPublic.post("/jwt", userEmail).then((res) => {
+          // console.log(res.data);
+          if (res.data.token) {
+            localStorage.setItem("access-token", res.data.token);
+          }
+        });
+        setLoading(false);
+      } else {
+        localStorage.removeItem("access-token");
+
+        setLoading(false);
       }
-      setLoading(false);
     });
 
     return () => {
@@ -77,7 +91,7 @@ const AuthProviders = ({ children }) => {
     user,
     setUser,
     loading,
-    setLoading
+    setLoading,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

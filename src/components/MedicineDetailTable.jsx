@@ -62,6 +62,7 @@ const MedicineDetailTable = ({ products }) => {
         axiosSecure.post("/cart", postedData).then((res) => {
           if (res.data.insertedId) {
             // console.log(res.data);
+            refetch()
             Swal.fire({
               title: "Added to cart!",
             
@@ -69,7 +70,7 @@ const MedicineDetailTable = ({ products }) => {
             });
           }
         });
-        refetch()
+        
       
     } else {
       navigate("/login");
