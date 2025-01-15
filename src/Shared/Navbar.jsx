@@ -12,7 +12,7 @@ const Navbar = () => {
   const items = (
     <>
       <li>
-        <NavLink
+        <NavLink to='/'
           className={({ isActive }) =>
             isActive
               ? "bg-[#439A97] font-bold text-white lg:text-lg"
@@ -43,6 +43,18 @@ const Navbar = () => {
           }
         >
           <FaCartPlus /> <span>{cart?.length}</span>
+        </NavLink>
+      </li>
+      <li>
+        <NavLink 
+        to='/dashboard'
+          className={({ isActive }) =>
+            isActive
+              ? "bg-[#439A97] font-bold text-white lg:text-lg"
+              : "font-bold"
+          }
+        >
+          Dashboard
         </NavLink>
       </li>
       <li>

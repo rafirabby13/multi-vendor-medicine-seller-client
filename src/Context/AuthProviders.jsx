@@ -10,10 +10,12 @@ import {
   updateProfile,
 } from "firebase/auth";
 import auth from "../Firebase/firebase.init.js";
+import useAxiosPublic from "../hooks/useAxiosPublic.jsx";
 export const AuthContext = createContext(null);
 const AuthProviders = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
+  const axiosPublic = useAxiosPublic();
 
   const googleProvider = new GoogleAuthProvider();
   const registerUser = (email, password) => {
@@ -30,13 +32,13 @@ const AuthProviders = ({ children }) => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
-  const updateUser = (name, photo)=>{
-    setLoading(true)
+  const updateUser = (name, photo) => {
+    setLoading(true);
     return updateProfile(auth.currentUser, {
-        displayName: name,
-        photoURL: photo
-    })
-  }
+      displayName: name,
+      photoURL: photo,
+    });
+  };
 
   const logoutUser = () => {
     setLoading(true);
@@ -44,17 +46,28 @@ const AuthProviders = ({ children }) => {
   };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser)=>{
-        console.log(currentUser);
-        setUser(currentUser)
-        setLoading(false)
-    })
-  
-    return ()=>{
-        unsubscribe()
-    }
-  }, [])
-  
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      console.log(currentUser);
+      setUser(currentUser);
+      if (currentUser) {
+        const userData = {
+          name: currentUser.displayName,
+          email: currentUser.email,
+          image: currentUser.photoURL,
+          role: "user",
+        };
+        axiosPublic.post("/users", userData).then((res) => {
+          console.log(res.data);
+        });
+      }
+      setLoading(false);
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, [axiosPublic]);
+
   const authInfo = {
     registerUser,
     loginUser,
@@ -62,7 +75,9 @@ const AuthProviders = ({ children }) => {
     googleLogin,
     updateUser,
     user,
-    loading
+    setUser,
+    loading,
+    setLoading
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

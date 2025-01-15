@@ -2,13 +2,14 @@
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth.jsx";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 const Register = () => {
   const { registerUser, updateUser } = useAuth();
   const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
   const onSubmit = (data) => {
     // console.log(data);
     const formData = { image: data.image[0] };
@@ -30,6 +31,7 @@ const Register = () => {
               updateUser(data.name, photoURL)
                 .then(() => {
                   console.log("updated");
+                  navigate(location?.state ? location.state : "/");
                 })
                 .catch((err) => {
                   console.log(err);

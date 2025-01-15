@@ -7,6 +7,10 @@ import Shop from "../Pages/Shop/Shop.jsx";
 import MedicineDetail from "../Pages/MedicineDetail/MedicineDetail.jsx";
 import Cart from "../Pages/Cart/Cart.jsx";
 import Payment from "../Pages/Payment/Payment.jsx";
+import DashboardLayout from "../Layout/DashboardLayout.jsx";
+import AdminHome from "../Pages/Dashboard/AdminHome/AdminHome.jsx";
+import ManageUsers from "../Pages/Dashboard/ManageUsers/ManageUsers.jsx";
+import PrivateRoute from "./PrivateRoute.jsx";
 
 export const router = createBrowserRouter([
     {
@@ -35,12 +39,26 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'cart',
-                element: <Cart/>
+                element: <PrivateRoute><Cart/></PrivateRoute>
             }
             ,
             {
                 path: 'payment',
                 element: <Payment/>
+            }
+        ]
+    },
+    {
+        path: 'dashboard',
+        element: <DashboardLayout/>,
+        children: [
+            {
+                path: '',
+                element: <AdminHome/>
+            },
+            {
+                path: 'users',
+                element: <ManageUsers/>
             }
         ]
     }
