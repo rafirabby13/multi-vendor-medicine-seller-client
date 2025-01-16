@@ -3,8 +3,8 @@
 import { Link } from "react-router-dom";
 
 const MedicineCategoryCard = ({medicine}) => {
-    const {image,medicineCount,name,id} = medicine;
-    // console.log(medicine);
+    const {image,name,id} = medicine;
+    console.log(medicine);
     // const {}
     
     return (
@@ -20,9 +20,7 @@ const MedicineCategoryCard = ({medicine}) => {
             />
             <div className="p-4">
               <h3 className="text-lg font-semibold">{name}</h3>
-              <p className="text-sm text-gray-500">
-                {medicineCount} medicines available
-              </p>
+              
               <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
                 View More
               </button>

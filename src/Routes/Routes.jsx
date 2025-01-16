@@ -13,6 +13,8 @@ import AskBannerAd from "../Pages/Dashboard/Seller/AskBanner/AskBannerAd.jsx";
 import AdminHome from "../Pages/Dashboard/Admin/AdminHome/AdminHome.jsx";
 import ManageUsers from "../Pages/Dashboard/Admin/ManageUsers/ManageUsers.jsx";
 import ManageBannerAd from "../Pages/Dashboard/Admin/BannerAdvertise/ManageBannerAd.jsx";
+import ManageCategory from "../Pages/Dashboard/Admin/ManageCategory/ManageCategory.jsx";
+import UpdateMedicineCategory from "../Pages/Dashboard/Admin/ManageCategory/UpdateMedicineCategory.jsx";
 
 export const router = createBrowserRouter([
     {
@@ -69,6 +71,14 @@ export const router = createBrowserRouter([
             {
                 path: 'manageBannerAdd',
                 element: <ManageBannerAd/>
+            },
+            {
+                path: 'medicineCategory',
+                element: <ManageCategory/>
+            },
+            {
+                path: 'updateMedicineCategory/:id',
+                element: <UpdateMedicineCategory/>
             },
             
         ]

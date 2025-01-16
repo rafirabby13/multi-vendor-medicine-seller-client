@@ -1,21 +1,16 @@
-import { useEffect, useState } from "react";
+/* eslint-disable no-unused-vars */
+
 import MedicineCategoryCard from "./MedicineCategoryCard.jsx";
+import useMedicineCategory from "../../../hooks/useMedicineCategory.jsx";
 
 const MedicineCategory = () => {
-  const [medicineCategoryData, setMedicineCategoryData] = useState([]);
-  useEffect(() => {
-    fetch("medicineCategories.json")
-      .then((data) => data.json())
-      .then((res) => {
-        // console.log(res);
-        setMedicineCategoryData(res);
-      });
-  }, []);
+ 
+  const [medicineCategory, refetch] = useMedicineCategory();
   return (
     <div>
-      <h1 className="text-5xl">Medicine : {medicineCategoryData.length}</h1>
+      <h1 className="text-5xl">Medicine : {medicineCategory.length}</h1>
       <div className="grid grid-cols-4 gap-4">
-        {medicineCategoryData?.map((data, i) => (
+        {medicineCategory?.map((data, i) => (
           <MedicineCategoryCard key={i} medicine={data}></MedicineCategoryCard>
         ))}
       </div>

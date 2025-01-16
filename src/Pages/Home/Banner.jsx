@@ -14,7 +14,7 @@ const Banner = () => {
   useEffect(() => {
     axiosPublic.get('/banner/active')
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setBannerData(res.data);
       })
       .catch(err=>{
