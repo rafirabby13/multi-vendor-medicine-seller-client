@@ -1,8 +1,8 @@
 import { FaEye } from "react-icons/fa";
-import useManageUsers from "../../../hooks/useManageUsers.jsx";
+import useManageUsers from "../../../../hooks/useManageUsers.jsx";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import useAxiosSecure from "../../../hooks/useAxiosSecure.jsx";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure.jsx";
 
 const ManageUsers = () => {
   const [users, refetch] = useManageUsers();

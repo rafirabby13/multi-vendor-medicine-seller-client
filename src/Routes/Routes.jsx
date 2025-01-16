@@ -8,9 +8,11 @@ import MedicineDetail from "../Pages/MedicineDetail/MedicineDetail.jsx";
 import Cart from "../Pages/Cart/Cart.jsx";
 import Payment from "../Pages/Payment/Payment.jsx";
 import DashboardLayout from "../Layout/DashboardLayout.jsx";
-import AdminHome from "../Pages/Dashboard/AdminHome/AdminHome.jsx";
-import ManageUsers from "../Pages/Dashboard/ManageUsers/ManageUsers.jsx";
 import PrivateRoute from "./PrivateRoute.jsx";
+import AskBannerAd from "../Pages/Dashboard/Seller/AskBanner/AskBannerAd.jsx";
+import AdminHome from "../Pages/Dashboard/Admin/AdminHome/AdminHome.jsx";
+import ManageUsers from "../Pages/Dashboard/Admin/ManageUsers/ManageUsers.jsx";
+import ManageBannerAd from "../Pages/Dashboard/Admin/BannerAdvertise/ManageBannerAd.jsx";
 
 export const router = createBrowserRouter([
     {
@@ -59,7 +61,16 @@ export const router = createBrowserRouter([
             {
                 path: 'users',
                 element: <ManageUsers/>
-            }
+            },
+            {
+                path: 'askBannerAd',
+                element: <AskBannerAd/>
+            },
+            {
+                path: 'manageBannerAdd',
+                element: <ManageBannerAd/>
+            },
+            
         ]
     }
 ])

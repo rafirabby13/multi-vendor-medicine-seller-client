@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
-import useCart from "../../../hooks/useCart.jsx";
-import useTotalPayment from "../../../hooks/useTotalPayment.jsx";
+import useCart from "../../../../hooks/useCart.jsx";
+import useTotalPayment from "../../../../hooks/useTotalPayment.jsx";
 
 const AdminHome = () => {
   const [totalPaid, refetch] = useTotalPayment();

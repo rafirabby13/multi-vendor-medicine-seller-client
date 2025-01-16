@@ -4,16 +4,23 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import useAxiosPublic from "../../hooks/useAxiosPublic.jsx";
+import useManageBanner from "../../hooks/useManageBanner.jsx";
 const Banner = () => {
+  
   const [bannerData, setBannerData] = useState([]);
+  const axiosPublic = useAxiosPublic()
+ 
   useEffect(() => {
-    fetch("banner.json")
-      .then((data) => data.json())
+    axiosPublic.get('/banner/active')
       .then((res) => {
-        // console.log(res);
-        setBannerData(res);
-      });
-  }, []);
+        console.log(res.data);
+        setBannerData(res.data);
+      })
+      .catch(err=>{
+        console.log(err);
+      })
+  }, [axiosPublic]);
   return (
     <div>
       <Swiper
@@ -35,9 +42,10 @@ const Banner = () => {
             <div className="lg:px-20 flex py-2 md:py-0 md:flex-row flex-col items-center md:gap-10   banner ">
               <div className=" p-2  md:w-2/5  space-y-4 ">
                 <h1 className=" md:text-2xl lg:text-4xl font-bold">
-                  {banner?.headline}
+                  {banner?.heading}
                 </h1>
-                <p className="md:text-xl text-sm">{banner?.subHeadline}</p>
+                <p className="md:text-xl text-sm">{banner?.description}</p>
+                <p className="md:text-xl text-sm">{banner?.discount}</p>
                 <button className="p-1 px-6 md:py-3  text-white font-semibold rounded-lg bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 transition-shadow shadow-lg hover:shadow-xl">
                   Explore
                 </button>
