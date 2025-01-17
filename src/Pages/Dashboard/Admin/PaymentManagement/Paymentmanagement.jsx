@@ -8,7 +8,7 @@ const Paymentmanagement = () => {
 
   const axiosSecure = useAxiosSecure();
   const handleAcceptPayment = (item) => {
-    console.log(item);
+
 
     Swal.fire({
       title: "Accept the payment?",

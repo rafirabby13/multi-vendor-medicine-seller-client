@@ -19,6 +19,7 @@ import Paymentmanagement from "../Pages/Dashboard/Admin/PaymentManagement/Paymen
 import MyPayment from "../Pages/Dashboard/Users/User/MyPayment.jsx";
 import ManageMedicine from "../Pages/Dashboard/Seller/ManageMedicine/ManageMedicine.jsx";
 import SellerPaymentHistory from "../Pages/Dashboard/Seller/SellerPayment/SellerPaymentHistory.jsx";
+import SalesReport from "../Pages/Dashboard/Admin/SalesReport/SalesReport.jsx";
 
 export const router = createBrowserRouter([
     {
@@ -99,6 +100,10 @@ export const router = createBrowserRouter([
             {
                 path: 'paymentHistorySeller',
                 element: <SellerPaymentHistory/>
+            },
+            {
+                path: 'salesReport',
+                element: <SalesReport/>
             },
             
             
