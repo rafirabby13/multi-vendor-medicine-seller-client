@@ -5,13 +5,16 @@ import useAuth from "../hooks/useAuth.jsx";
 import { useNavigate } from "react-router-dom";
 import useAxiosSecure from "../hooks/useAxiosSecure.jsx";
 import useCart from "../hooks/useCart.jsx";
+import useUsersRole from "../hooks/useUsersRole.jsx";
 
 const MedicineDetailTable = ({ products }) => {
   // console.log(products);
   const navigate = useNavigate();
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
-  const [,refetch] = useCart()
+  const [, refetch] = useCart();
+  const [role] = useUsersRole();
+
   const handleDetail = (item) => {
     console.log(item);
     const {
@@ -56,22 +59,19 @@ const MedicineDetailTable = ({ products }) => {
   };
 
   const handleSelectAddToCart = (item) => {
-    const postedData = {...item, email: user?.email}
+    const postedData = { ...item, email: user?.email };
     if (user && user.email) {
-      
-        axiosSecure.post("/cart", postedData).then((res) => {
-          if (res.data.insertedId) {
-            // console.log(res.data);
-            refetch()
-            Swal.fire({
-              title: "Added to cart!",
-            
-              icon: "success",
-            });
-          }
-        });
-        
-      
+      axiosSecure.post("/cart", postedData).then((res) => {
+        if (res.data.insertedId) {
+          // console.log(res.data);
+          refetch();
+          Swal.fire({
+            title: "Added to cart!",
+
+            icon: "success",
+          });
+        }
+      });
     } else {
       navigate("/login");
     }
@@ -123,13 +123,22 @@ const MedicineDetailTable = ({ products }) => {
                   </button>
                 </th>
                 <th>
-                  <button
-                    onClick={() => handleSelectAddToCart(product)}
-                    className="btn btn-ghost btn-xs"
-                  >
-                    Select
+                  <button className="btn btn-ghost btn-xs">
+                    {product.sellerEmail}
                   </button>
                 </th>
+                {role === "admin" || role === "seller" ? (
+                  ""
+                ) : (
+                  <th>
+                    <button
+                      onClick={() => handleSelectAddToCart(product)}
+                      className="btn btn-ghost btn-xs"
+                    >
+                      Select
+                    </button>
+                  </th>
+                )}
                 <th>
                   <button
                     onClick={() => handleDetail(product)}

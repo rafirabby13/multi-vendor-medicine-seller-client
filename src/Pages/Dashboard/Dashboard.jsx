@@ -1,14 +1,15 @@
 import { NavLink } from "react-router-dom";
 import useUsersRole from "../../hooks/useUsersRole.jsx";
+import Loading from "../../components/Loading.jsx";
 
 const Dashboard = () => {
-  const [data] = useUsersRole();
-  // console.log(data);
-  // const role = data.role
-
+  const [role, refetch, isLoading] = useUsersRole();
+  console.log(role);
+  // const role = role.role
+ 
   return (
     <div>
-      {data === "admin" && (
+      {role === "admin" && (
         <div className="border-2 min-h-screen flex flex-col gap-8  mx-10">
           <p className="bg-orange-400 p-3">
             <NavLink
@@ -48,7 +49,7 @@ const Dashboard = () => {
           </p>
           <p className="bg-orange-400 p-3">
             <NavLink
-              to="/"
+              to="/dashboard/paymentManagement"
               className={({ isActive }) =>
                 isActive
                   ? "bg-[#439A97] font-bold text-white lg:text-lg"
@@ -96,7 +97,7 @@ const Dashboard = () => {
           </p>
         </div>
       )}
-      {data === "seller" && (
+      {role === "seller" && (
         <div className="border-2 min-h-screen flex flex-col gap-8  mx-10">
           <p className="bg-orange-400 p-3">
             <NavLink
@@ -160,11 +161,11 @@ const Dashboard = () => {
           </p>
         </div>
       )}
-      {data === "user" && (
+      {role === "user" && (
         <div className="border-2 min-h-screen flex flex-col gap-8  mx-10">
           <p className="bg-orange-400 p-3">
             <NavLink
-              to="/dashboard"
+              to="/dashboard/myPayment"
               className={({ isActive }) =>
                 isActive
                   ? "bg-[#439A97] p-3 font-bold text-white lg:text-lg"

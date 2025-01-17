@@ -2,10 +2,11 @@
 
 import MedicineCategoryCard from "./MedicineCategoryCard.jsx";
 import useMedicineCategory from "../../../hooks/useMedicineCategory.jsx";
+import useMedicineCategoryPublic from "../../../hooks/useMedicineCategoryPublic.jsx";
 
 const MedicineCategory = () => {
  
-  const [medicineCategory, refetch] = useMedicineCategory();
+  const [medicineCategory, refetch] = useMedicineCategoryPublic();
   return (
     <div>
       <h1 className="text-5xl">Medicine : {medicineCategory.length}</h1>

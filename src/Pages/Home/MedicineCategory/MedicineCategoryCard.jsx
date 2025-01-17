@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const MedicineCategoryCard = ({medicine}) => {
     const {image,name,id} = medicine;
-    console.log(medicine);
+    // console.log(medicine);
     // const {}
     
     return (

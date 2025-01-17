@@ -1,50 +1,60 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import useAuth from '../hooks/useAuth.jsx'
+import useAuth from "../hooks/useAuth.jsx";
+import { useEffect, useState } from "react";
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000'
-})
+  baseURL: "http://localhost:5000",
+});
 const useAxiosSecure = () => {
-    const {logoutUser} = useAuth()
-    // Add a request interceptor
-    const navigate = useNavigate()
+  const { logoutUser } = useAuth();
+  // Add a request interceptor
+  const navigate = useNavigate();
+  const [shouldNavigate, setShouldNavigate] = useState(false);
 
-    axiosSecure.interceptors.request.use(function(config){
-        console.log('req stop by interceptor');
-        const token = localStorage.getItem('access-token')
-        config.headers.authorization = `Bearer ${token}`
-        return config;
+  axiosSecure.interceptors.request.use(
+    function (config) {
+      // console.log('req stop by interceptor');
+      const token = localStorage.getItem("access-token");
+      config.headers.authorization = `Bearer ${token}`;
+      return config;
+    },
+    function (error) {
+      return Promise.reject(error);
+    }
+  );
 
-    }, function(error){
-        return Promise.reject(error)
-    })
+  // Add a response interceptor
 
-    // Add a response interceptor
+  axiosSecure.interceptors.response.use(
+    function (res) {
+        // setShouldNavigate(false);
 
-    axiosSecure.interceptors.response.use(function(res){
-        return res;
-    }, async (err)=>{
-        
-      
-        const status = err.response.status;
-       
+      return res;
+    },
+    async (err) => {
+      const status = err.response.status;
 
-        if (status == 401 || status === 403) {
-            await logoutUser()
-            navigate('/login')
-
-            
+      if (status == 401 || status === 403) {
+        try {
+          await logoutUser();
+          
+          setShouldNavigate(true);
+        } catch (error) {
+          console.error("Error during logout:", error);
         }
+      }
 
-        return Promise.reject(err);
+      return Promise.reject(err);
+    }
+  );
+  useEffect(() => {
+    if (shouldNavigate) {
+      navigate("/login");
+    }
+  }, [shouldNavigate, navigate]);
 
-
-    })
-
-    return axiosSecure;
+  return axiosSecure;
 };
 
 export default useAxiosSecure;
-
-
