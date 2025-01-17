@@ -17,6 +17,7 @@ import ManageCategory from "../Pages/Dashboard/Admin/ManageCategory/ManageCatego
 import UpdateMedicineCategory from "../Pages/Dashboard/Admin/ManageCategory/UpdateMedicineCategory.jsx";
 import Paymentmanagement from "../Pages/Dashboard/Admin/PaymentManagement/Paymentmanagement.jsx";
 import MyPayment from "../Pages/Dashboard/Users/User/MyPayment.jsx";
+import ManageMedicine from "../Pages/Dashboard/Seller/ManageMedicine/ManageMedicine.jsx";
 
 export const router = createBrowserRouter([
     {
@@ -90,6 +91,11 @@ export const router = createBrowserRouter([
                 path: 'myPayment',
                 element: <MyPayment/>
             },
+            {
+                path: 'manageMedicine',
+                element: <ManageMedicine/>
+            },
+            
             
         ]
     }

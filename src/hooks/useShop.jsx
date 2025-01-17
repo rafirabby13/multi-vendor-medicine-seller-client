@@ -1,17 +1,20 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+
+
+import useAxiosPublic from "./useAxiosPublic.jsx";
 
 const useShop =  () => {
-  const {data: products=[]} = useQuery({
+  const axiosPublic = useAxiosPublic()
+  const {data: products=[], refetch} = useQuery({
     queryKey: ['shop'],
     queryFn: async ()=>{
-        const res = await axios.get('/shop.json')
+        const res = await axiosPublic.get('/shop')
         return res.data
 
     }
 
   })
-  return [products]
+  return [products, refetch]
 
 };
 

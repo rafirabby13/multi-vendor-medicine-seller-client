@@ -8,7 +8,7 @@ import useCart from "../hooks/useCart.jsx";
 import useUsersRole from "../hooks/useUsersRole.jsx";
 
 const MedicineDetailTable = ({ products }) => {
-  // console.log(products);
+  console.log(products);
   const navigate = useNavigate();
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
@@ -16,7 +16,7 @@ const MedicineDetailTable = ({ products }) => {
   const [role] = useUsersRole();
 
   const handleDetail = (item) => {
-    console.log(item);
+    // console.log(item);
     const {
       name,
       category,
@@ -32,18 +32,8 @@ const MedicineDetailTable = ({ products }) => {
     Swal.fire({
       title: "Product Details",
       html: `
-        <div style="text-align: left;">
-          <h3 style="color: #2c3e50;">${name}</h3>
-          <img src="${image}" alt="${name}" style="width: 100%; max-width: 300px; height: auto; margin: 10px 0;">
-          <p><strong>Category:</strong> ${category}</p>
-          <p><strong>Generic Name:</strong> ${generic}</p>
-          <p><strong>Manufacturer:</strong> ${manufacturer}</p>
-          <p><strong>Therapeutic Class:</strong> ${therapeuticClass}</p>
-          <p><strong>Indications:</strong> ${indications}</p>
-          <p><strong>Pharmacology:</strong> ${pharmacology}</p>
-          <p><strong>Dosage:</strong> ${dosage}</p>
-          <p><strong>Price:</strong> $${price}</p>
-        </div>
+      <div style="text-align: left;">  <h3 style="color: #2c3e50;">Ketorolac</h3>  <img src="https://example.com/images/ketorolac.jpg" alt="Ketorolac" style="width: 100%; max-width: 300px; height: auto; margin: 10px 0;">  <p><strong>Category:</strong> Pain Relief</p>  <p><strong>Generic Name:</strong> Ketorolac Tromethamine</p>  <p><strong>Manufacturer:</strong> Square Pharmaceuticals</p>  <p><strong>Therapeutic Class:</strong> ${therapeuticClass}</p>  <p><strong>Indications:</strong> ${indications}</p>  <p><strong>Pharmacology:</strong> ${pharmacology}</p>  ${dosage}</p>  <p><strong>Price:</strong> $90</p></div>
+       
       `,
       showCloseButton: true,
       showConfirmButton: false,
@@ -60,7 +50,7 @@ const MedicineDetailTable = ({ products }) => {
 
   const handleSelectAddToCart = (item) => {
     const postedData = { ...item, email: user?.email };
-    if (user && user.email) {
+    if (user && user?.email) {
       axiosSecure.post("/cart", postedData).then((res) => {
         if (res.data.insertedId) {
           // console.log(res.data);
@@ -103,7 +93,7 @@ const MedicineDetailTable = ({ products }) => {
                     <div className="avatar">
                       <div className="mask mask-squircle h-12 w-12">
                         <img
-                          src="https://img.daisyui.com/images/profile/demo/2@94.webp"
+                          src={product.image}
                           alt="Avatar Tailwind CSS Component"
                         />
                       </div>
@@ -119,7 +109,7 @@ const MedicineDetailTable = ({ products }) => {
                 </th>
                 <th>
                   <button className="btn btn-ghost btn-xs">
-                    {product.manufacturer}
+                    {product.company}
                   </button>
                 </th>
                 <th>

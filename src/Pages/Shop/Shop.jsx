@@ -4,7 +4,7 @@ import MedicineDetailTable from "../../components/MedicineDetailTable.jsx";
 
 const Shop = () => {
   const [products] = useShop();
-  //   console.log(products);
+    // console.log(products);
 
 
   return (

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const Cart = () => {
   const [cart, refetch] = useCart();
-  //   console.log(cart);
+    console.log(cart);
   const axiosSecure = useAxiosSecure();
 
   const totalPrice = cart?.reduce(
@@ -16,15 +16,17 @@ const Cart = () => {
   //   console.log(totalPrice);
 
   const handleIncrement = (item) => {
+    console.log(item._id);
     axiosSecure.patch(`/cart/inc/${item._id}`).then((res) => {
       if (res.data.modifiedCount > 0) {
+        console.log(res.data);
         refetch();
       }
     });
   };
 
   const handleDecrement = (item) => {
-    // console.log(item);
+    console.log(item);
     if (item.quantity > 1) {
       axiosSecure.patch(`/cart/dec/${item._id}`).then((res) => {
         // console.log(res.data);
