@@ -18,6 +18,7 @@ import UpdateMedicineCategory from "../Pages/Dashboard/Admin/ManageCategory/Upda
 import Paymentmanagement from "../Pages/Dashboard/Admin/PaymentManagement/Paymentmanagement.jsx";
 import MyPayment from "../Pages/Dashboard/Users/User/MyPayment.jsx";
 import ManageMedicine from "../Pages/Dashboard/Seller/ManageMedicine/ManageMedicine.jsx";
+import SellerPaymentHistory from "../Pages/Dashboard/Seller/SellerPayment/SellerPaymentHistory.jsx";
 
 export const router = createBrowserRouter([
     {
@@ -94,6 +95,10 @@ export const router = createBrowserRouter([
             {
                 path: 'manageMedicine',
                 element: <ManageMedicine/>
+            },
+            {
+                path: 'paymentHistorySeller',
+                element: <SellerPaymentHistory/>
             },
             
             

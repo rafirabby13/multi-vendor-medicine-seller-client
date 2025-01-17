@@ -125,7 +125,7 @@ const Dashboard = () => {
           </p>
           <p className="bg-orange-400 p-3">
             <NavLink
-              to="/"
+              to="/dashboard/paymentHistorySeller"
               className={({ isActive }) =>
                 isActive
                   ? "bg-[#439A97] font-bold text-white lg:text-lg"
