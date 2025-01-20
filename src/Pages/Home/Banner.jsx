@@ -7,6 +7,7 @@ import "swiper/css/navigation";
 import useAxiosPublic from "../../hooks/useAxiosPublic.jsx";
 import useManageBanner from "../../hooks/useManageBanner.jsx";
 import { Fade } from "react-awesome-reveal";
+import moment from "moment";
 const Banner = () => {
   const [bannerData, setBannerData] = useState([]);
   const axiosPublic = useAxiosPublic();
@@ -49,6 +50,7 @@ const Banner = () => {
               }}
             >
               <div className=" space-y-4 text-center ">
+                
                 <Fade delay={1e3} cascade damping={1e-1} className=" md:text-2xl lg:text-6xl font-bold ">
                   {banner?.heading}
                 </Fade>

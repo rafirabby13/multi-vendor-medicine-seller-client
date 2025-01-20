@@ -81,14 +81,14 @@ const handleAddToBanner=(item)=>{
                   {product?.isActive ? (
                     <button
                       onClick={() => handleAddToBanner(product)}
-                      className="btn-sm bg-btns w-full"
+                      className="btn bg-btns w-full"
                     >
                       Remove
                     </button>
                   ) : (
                     <button
                       onClick={() => handleAddToBanner(product)}
-                      className=" btn-sm bg-btns w-full"
+                      className=" btn bg-btns w-full"
                     >
                       Add to Banner
                     </button>
