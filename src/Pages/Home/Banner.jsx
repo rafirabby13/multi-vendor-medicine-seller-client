@@ -42,16 +42,16 @@ const Banner = () => {
         {bannerData?.map((banner, i) => (
           <SwiperSlide key={i}>
             <div
-              className=" flex   md:flex-row flex-col items-center justify-center md:gap-10  h-[350px]  "
+              className=" flex   md:flex-row flex-col items-center justify-center md:gap-10  h-[200px] md:h-[350px]  "
               style={{
                 backgroundImage: `linear-gradient(#99DDCC, rgba(0, 0, 0, 0.5)),url(${banner?.image})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
             >
-              <div className=" space-y-4 text-center ">
+              <div className=" space-y-4 text-center px-10">
                 
-                <Fade delay={1e3} cascade damping={1e-1} className=" md:text-2xl lg:text-6xl font-bold ">
+                <Fade delay={1e3} cascade damping={1e-1} className=" text-xl md:text-3xl lg:text-6xl font-bold ">
                   {banner?.heading}
                 </Fade>
                 <p className="md:text-xl font-semibold text-sm">{banner?.description}</p>

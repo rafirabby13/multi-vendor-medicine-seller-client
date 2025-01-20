@@ -8,14 +8,16 @@ import Lottie from "lottie-react";
 import { FaGoogle } from "react-icons/fa";
 import { Helmet } from "react-helmet";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../hooks/useAxiosPublic.jsx";
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 const Register = () => {
   const { registerUser, updateUser, googleLogin, setUser,logoutUser } = useAuth();
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
+  const axiosPublic = useAxiosPublic()
   const onSubmit = (data) => {
-    // console.log(data);
+    console.log(data);
     const formData = { image: data.image[0] };
 
     axios
@@ -35,6 +37,15 @@ const Register = () => {
               updateUser(data.name, photoURL)
                 .then(() => {
                   // console.log("updated");
+                  const userData = {
+                    name: data.name,
+                    email: data.email,
+                    image: photoURL,
+                    role: data.role,
+                  };
+                  axiosPublic.post("/users", userData).then((res) => {
+                    // console.log(res.data);
+                  });
                   Swal.fire({
                     position: "top-end",
                     icon: "success",
@@ -49,11 +60,23 @@ const Register = () => {
                   })
                 })
                 .catch((err) => {
-                  console.log(err);
+                  Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: `${err.message}`,
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
                 });
             })
             .catch((err) => {
-              console.log(err);
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: `${err.message}`,
+                showConfirmButton: false,
+                timer: 1500
+              });
             });
         }
       });
@@ -65,10 +88,25 @@ const Register = () => {
         console.log(res.user);
         // toast.success("Login Successfully");
         setUser(res.user);
+        const userData = {
+          name: res.user.displayName,
+          email: res.user.email,
+          image: res.user.photoURL,
+          role: "user",
+        };
+        axiosPublic.post("/users", userData).then((res) => {
+          // console.log(res.data);
+        });
         navigate(location?.state ? location.state : "/");
       })
       .catch((err) => {
-        // toast.error(err.message);
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: `${err.message}`,
+          showConfirmButton: false,
+          timer: 1500
+        });
       });
   };
 
@@ -122,6 +160,16 @@ const Register = () => {
                   placeholder="password"
                   className="input input-bordered"
                 />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">User Role</span>
+                </label>
+                <select {...register('role')}>
+        
+                      <option value="seller">Seller</option>
+                      <option value="user">User</option>
+                    </select>
               </div>
               <div className="form-control">
                 <label className="label">

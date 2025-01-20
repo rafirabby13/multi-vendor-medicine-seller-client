@@ -6,22 +6,38 @@ import Lottie from "lottie-react";
 import a1 from "../../assets/Animation - 1735202385033.json";
 import { FaGoogle } from "react-icons/fa";
 import { Helmet } from "react-helmet";
+import Swal from "sweetalert2";
+import useAxiosPublic from "../../hooks/useAxiosPublic.jsx";
 const Login = () => {
   const { loginUser, setUser, googleLogin } = useAuth();
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   const location = useLocation();
+  const axiosPublic = useAxiosPublic()
   const onSubmit = (data) => {
     loginUser(data.email, data.password)
       .then((res) => {
         setUser(res.user);
         // console.log(res.user);
         // console.log("Login Successfully");
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: 'Login Successfully',
+          showConfirmButton: false,
+          timer: 1500
+        });
 
         navigate(location?.state ? location.state : "/");
       })
       .catch((err) => {
-        // toast.error(err.message);
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: `${err.message}`,
+          showConfirmButton: false,
+          timer: 1500
+        });
       });
   };
 
@@ -31,10 +47,26 @@ const Login = () => {
         console.log(res.user);
         // toast.success("Login Successfully");
         setUser(res.user);
+        const userData = {
+          name: res.user.displayName,
+          email: res.user.email,
+          image: res.user.photoURL,
+          role: "user",
+        };
+        axiosPublic.post("/users", userData).then((res) => {
+          // console.log(res.data);
+        });
         navigate(location?.state ? location.state : "/");
       })
       .catch((err) => {
         // toast.error(err.message);
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: `${err.message}`,
+          showConfirmButton: false,
+          timer: 1500
+        });
       });
   };
 

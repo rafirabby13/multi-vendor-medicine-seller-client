@@ -91,10 +91,17 @@ const Navbar = () => {
   const handleLogout = () => {
     logoutUser()
       .then(() => {
-        console.log("logged out");
+        // console.log("logged out");
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "logged out",
+          showConfirmButton: false,
+          timer: 1500
+        });
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
       });
   };
 

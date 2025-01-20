@@ -51,15 +51,15 @@ const AuthProviders = ({ children }) => {
       // console.log(currentUser);
       setUser(currentUser);
       if (currentUser) {
-        const userData = {
-          name: currentUser.displayName,
-          email: currentUser.email,
-          image: currentUser.photoURL,
-          role: "user",
-        };
-        axiosPublic.post("/users", userData).then((res) => {
-          // console.log(res.data);
-        });
+        // const userData = {
+        //   name: currentUser.displayName,
+        //   email: currentUser.email,
+        //   image: currentUser.photoURL,
+        //   role: "user",
+        // };
+        // axiosPublic.post("/users", userData).then((res) => {
+        //   // console.log(res.data);
+        // });
 
         const userEmail = { email: currentUser.email };
 
