@@ -156,7 +156,7 @@ const ManageCategory = () => {
               <input
                 {...register("name", { required: true })}
                 type="text"
-                placeholder="Your Name"
+                placeholder="Category Name"
                 className="input input-bordered"
               />
             </div>

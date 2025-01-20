@@ -1,5 +1,6 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import { FaEye } from "react-icons/fa";
+import { FaCartPlus, FaEye } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAuth from "../hooks/useAuth.jsx";
 import { useNavigate } from "react-router-dom";
@@ -7,16 +8,18 @@ import useAxiosSecure from "../hooks/useAxiosSecure.jsx";
 import useCart from "../hooks/useCart.jsx";
 import useUsersRole from "../hooks/useUsersRole.jsx";
 import DataTable, { defaultThemes } from "react-data-table-component";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const MedicineDetailTable = ({ products }) => {
+  
   console.log(products);
   const navigate = useNavigate();
+  const [search, setSearch] = useState("");
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
   const [, refetch] = useCart();
   const [role] = useUsersRole();
-  const [records, setRecords] = useState(products)
+  const [records, setRecords] = useState(products);
 
   const handleDetail = (item) => {
     // console.log(item);
@@ -134,40 +137,58 @@ const MedicineDetailTable = ({ products }) => {
     },
     {
       name: "Select",
-      selector: (row) => (
-        <button onClick={() => handleSelectAddToCart(row)}>Select</button>
-      ),
+      selector: (row) => role === 'user' ?  (
+        <button onClick={() => handleSelectAddToCart(row)}><span className="flex items-center gap-2 text-center">Select <FaCartPlus className="text-2xl"/></span></button>
+      ):'',
     },
     {
       name: "Detail",
       selector: (row) => (
-        <button onClick={() => handleDetail(row)}>Detail</button>
+        <button onClick={() => handleDetail(row)}><span className="flex items-center gap-2 text-center">Detail <FaEye className="text-2xl"/></span></button>
       ),
     },
   ];
-const handleFilter=(e)=>{
-  const newdata = products.filter(row=> {
-    return row.name.toLowerCase().includes(e.target.value.toLowerCase())
-  })
-setRecords(newdata)
-}
+ 
+  useEffect(() => {
+    const newdata = products.filter((row) => {
+      return row.name.toLowerCase().includes(search);
+    });
+    setRecords(newdata);
+    
+  }, [products,search]);
   return (
     <div>
-      <label className="input input-bordered flex items-center gap-2 w-fit mx-auto my-10">
-        <input onChange={handleFilter} type="text" className="grow" placeholder="Search" />
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 16 16"
-          fill="currentColor"
-          className="h-4 w-4 opacity-70"
-        >
-          <path
-            fillRule="evenodd"
-            d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
-            clipRule="evenodd"
+       <form className="py-10  w-fit mx-auto flex gap-3">
+        <label className="input input-bordered flex items-center gap-2 feedback md:text-2xl md:p-8">
+          <input
+            type="text"
+            className="grow "
+            placeholder="Search"
+            name="search"
+            onChange={(e) => setSearch(e.target.value)}
           />
-        </svg>
-      </label>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            className="h-8 w-8 opacity-70"
+          >
+            <path
+              fillRule="evenodd"
+              d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </label>
+        {/* <div>
+          <button
+           
+            className="btn btn-active btn-secondary"
+          >
+            Search
+          </button>
+        </div> */}
+      </form>
       <DataTable
         columns={columns}
         data={records}

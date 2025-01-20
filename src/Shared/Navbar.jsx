@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { FaCartPlus } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../hooks/useAuth.jsx";
@@ -220,10 +221,16 @@ const Navbar = () => {
               </div>
             </>
           ) : (
-            <div>
+            <div className="flex items-center gap-2">
+               <img
+                  onClick={() => setHidden(!hidden)}
+                  className="h-16 rounded-full w-16 cursor-pointer relative border-2 border-third p-1"
+                  src=''
+                  alt=""
+                />
               <Link
                 to="/login"
-                className=" border-none p-1 lg:text-xl xl:btn text-sm bg-background xl:bg-background text-white xl:text-white"
+                className=" border-none p-1 lg:text-xl xl:btn text-md bg-background xl:bg-background text-white xl:text-white"
               >
                 Join US
               </Link>

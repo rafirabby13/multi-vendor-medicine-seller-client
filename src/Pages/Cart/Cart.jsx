@@ -131,7 +131,7 @@ const Cart = () => {
 
                 <th>
                   <button className="btn btn-ghost btn-xs">
-                    {product.manufacturer}
+                    {product.company}
                   </button>
                 </th>
                 <th>
