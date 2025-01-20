@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const Cart = () => {
   const [cart, refetch] = useCart();
-    console.log(cart);
+  console.log(cart);
   const axiosSecure = useAxiosSecure();
 
   const totalPrice = cart?.reduce(
@@ -64,7 +64,7 @@ const Cart = () => {
   const handleClearCart = () => {
     if (cart.length > 0) {
       Swal.fire({
-        title: "Are you sure?",
+        title: "Clear Cart?",
         text: "You won't be able to revert this!",
         icon: "warning",
         showCancelButton: true,
@@ -73,7 +73,8 @@ const Cart = () => {
         confirmButtonText: "Yes, delete it!",
       }).then((result) => {
         if (result.isConfirmed) {
-          axiosSecure.delete("/cart").then((res) => {
+          const cartId =  cart?.map(item=> item._id)
+          axiosSecure.post("/cart/clearCart", cartId).then((res) => {
             if (res.data.deletedCount > 0) {
               refetch();
               Swal.fire({
@@ -193,13 +194,13 @@ const Cart = () => {
             Clear Cart X
           </button>
         </div>
-        {
-            cart.length > 0 && <div className="flex justify-end">
-            <Link to='/payment'  className="btn">
+        {cart.length > 0 && (
+          <div className="flex justify-end">
+            <Link to="/payment" className="btn">
               Payment
             </Link>
           </div>
-        }
+        )}
       </div>
     </div>
   );
