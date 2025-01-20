@@ -2,9 +2,11 @@
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth.jsx";
-
+import Lottie from "lottie-react";
+import a1 from "../../assets/Animation - 1735202385033.json";
+import { FaGoogle } from "react-icons/fa";
 const Login = () => {
-  const {loginUser,setUser,googleLogin} = useAuth()
+  const { loginUser, setUser, googleLogin } = useAuth();
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   const location = useLocation();
@@ -22,7 +24,6 @@ const Login = () => {
       });
   };
 
-
   const handleGoogleLogin = () => {
     googleLogin()
       .then((res) => {
@@ -38,18 +39,18 @@ const Login = () => {
 
   return (
     <div>
-     
-      <div className="hero bg-base-200 min-h-screen">
+      <div className="hero bg-btns py-20 md:mt-20">
         <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Login now!</h1>
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
-            </p>
-          </div>
-          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+        <div className="text-center lg:text-left">
+          <Lottie
+            className="h-[200px] md:h-[600px]"
+            animationData={a1}
+            loop={true}
+          />
+        </div>
+      
+          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl py-10">
+          <h1 className="text-3xl font-bold text-center underline">Login</h1>
             <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
               <div className="form-control">
                 <label className="label">
@@ -72,32 +73,34 @@ const Login = () => {
                   placeholder="password"
                   className="input input-bordered"
                 />
-                <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
-                    Forgot password?
-                  </a>
-                </label>
+                
 
                 <label className="label">
-                <span>Don't have account?
-                  <Link to='/register' className="label-text-alt link link-hover">
-                    Register
-                  </Link></span>
+                  <span className="text-xl">
+                    Don't have account?
+                    <Link
+                      to="/register"
+                      className="label-text-alt link link-hover text-btns underline ml-2 text-lg"
+                    >
+                      Register
+                    </Link>
+                  </span>
                 </label>
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Login</button>
+                <button className="btn bg-btns text-background">Login</button>
               </div>
             </form>
             <div className="divider divider-accent">OR</div>
-          <div className="text-center w-full">
-            <button
-              className="border-2 w-3/4 p-2 md:p-4 mb-10  md:text-2xl font-semibold rounded-lg bg-[#439A97] shadow-red-400 shadow-sm text-white"
-              onClick={handleGoogleLogin}
-            >
-              Sign In With Google
-            </button>
-          </div>
+            <div className="text-center w-full">
+
+              <button
+                className="btn btn-outline border-btns text-btns"
+                onClick={handleGoogleLogin}
+              >
+              <FaGoogle/>  Sign In With Google
+              </button>
+            </div>
           </div>
         </div>
       </div>
