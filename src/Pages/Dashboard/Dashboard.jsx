@@ -17,6 +17,7 @@ import {
   FaPlus,
   FaUsers,
 } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 const Dashboard = () => {
   const { user } = useAuth();
   const [role] = useUsersRole();
@@ -28,6 +29,9 @@ const Dashboard = () => {
 
   return (
     <div>
+       <Helmet>
+            <title>Dashboard | Medimart</title>
+        </Helmet>
        <button className="flex lg:hidden p-4 md:p-10 mr-10" onClick={toggleDrawer} >
           <FaBars className="text-4xl" />
         </button>

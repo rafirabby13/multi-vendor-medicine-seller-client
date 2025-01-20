@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import useAxiosSecure from "../hooks/useAxiosSecure.jsx";
 import useCart from "../hooks/useCart.jsx";
 import useUsersRole from "../hooks/useUsersRole.jsx";
+import DataTable, { defaultThemes } from "react-data-table-component";
+import { useState } from "react";
 
 const MedicineDetailTable = ({ products }) => {
   console.log(products);
@@ -14,6 +16,7 @@ const MedicineDetailTable = ({ products }) => {
   const axiosSecure = useAxiosSecure();
   const [, refetch] = useCart();
   const [role] = useUsersRole();
+  const [records, setRecords] = useState(products)
 
   const handleDetail = (item) => {
     // console.log(item);
@@ -27,7 +30,7 @@ const MedicineDetailTable = ({ products }) => {
       price,
       image,
     } = item;
-  
+
     Swal.fire({
       title: "Product Details",
       html: `
@@ -66,16 +69,121 @@ const MedicineDetailTable = ({ products }) => {
     }
   };
 
+  const customStyles = {
+    header: {
+      style: {
+        minHeight: "56px",
+      },
+    },
+    headRow: {
+      style: {
+        borderTopStyle: "solid",
+        borderTopWidth: "1px",
+        borderTopColor: defaultThemes.default.divider.default,
+      },
+    },
+    headCells: {
+      style: {
+        "&:not(:last-of-type)": {
+          borderRightStyle: "solid",
+          borderRightWidth: "1px",
+          borderRightColor: defaultThemes.default.divider.default,
+        },
+      },
+    },
+    cells: {
+      style: {
+        "&:not(:last-of-type)": {
+          borderRightStyle: "solid",
+          backgroundColor: "mintcream",
+          borderRightWidth: "1px",
+          borderRightColor: defaultThemes.default.divider.default,
+        },
+      },
+    },
+  };
+
+  const columns = [
+    {
+      name: "Images",
+      selector: (row) => <img src={row.image} alt="" />,
+    },
+    {
+      name: "Name",
+      selector: (row) => row.name,
+      sortable: true,
+    },
+    {
+      name: "Generic Name",
+      selector: (row) => row.generic,
+      sortable: true,
+    },
+    {
+      name: "Category",
+      selector: (row) => row.category,
+    },
+    {
+      name: "Total Price",
+      selector: (row) => row.price,
+      sortable: true,
+    },
+    {
+      name: "Company",
+      selector: (row) => row.company,
+      sortable: true,
+    },
+    {
+      name: "Select",
+      selector: (row) => (
+        <button onClick={() => handleSelectAddToCart(row)}>Select</button>
+      ),
+    },
+    {
+      name: "Detail",
+      selector: (row) => (
+        <button onClick={() => handleDetail(row)}>Detail</button>
+      ),
+    },
+  ];
+const handleFilter=(e)=>{
+  const newdata = products.filter(row=> {
+    return row.name.toLowerCase().includes(e.target.value.toLowerCase())
+  })
+setRecords(newdata)
+}
   return (
     <div>
-      <div className="overflow-x-auto">
+      <label className="input input-bordered flex items-center gap-2 w-fit mx-auto my-10">
+        <input onChange={handleFilter} type="text" className="grow" placeholder="Search" />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 16 16"
+          fill="currentColor"
+          className="h-4 w-4 opacity-70"
+        >
+          <path
+            fillRule="evenodd"
+            d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+            clipRule="evenodd"
+          />
+        </svg>
+      </label>
+      <DataTable
+        columns={columns}
+        data={records}
+        customStyles={customStyles}
+        pagination
+      />
+      {/* <div className="overflow-x-auto">
         <table className="table table-zebra">
-          {/* head */}
+          
           <thead>
             <tr>
               <th>#</th>
               <th>Image</th>
               <th>Name</th>
+              <th>Generic
+               Name</th>
               <th>category</th>
               <th>price</th>
               <th>manufacturer</th>
@@ -100,6 +208,7 @@ const MedicineDetailTable = ({ products }) => {
                   </div>
                 </td>
                 <td>{product.name}</td>
+                <td>{product.generic}</td>
                 <td>{product.category}</td>
                 <th>
                   <button className="btn btn-ghost btn-xs">
@@ -139,15 +248,10 @@ const MedicineDetailTable = ({ products }) => {
                
               </tr>
             ))}
-            {/* row 1 */}
-
-            {/* modal start */}
-            {/* Open the modal using document.getElementById('ID').showModal() method */}
-
-            {/* modal ends */}
+            
           </tbody>
         </table>
-      </div>
+      </div> */}
     </div>
   );
 };

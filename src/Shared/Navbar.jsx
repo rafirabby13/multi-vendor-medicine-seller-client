@@ -140,7 +140,7 @@ const Navbar = () => {
               <div className="">
                 <img
                   onClick={() => setHidden(!hidden)}
-                  className="h-16 rounded-full w-16 cursor-pointer relative"
+                  className="h-16 rounded-full w-16 cursor-pointer relative border-2 border-third p-1"
                   src={user?.photoURL}
                   alt=""
                 />

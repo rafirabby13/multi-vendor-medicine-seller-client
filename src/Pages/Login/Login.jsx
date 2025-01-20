@@ -5,6 +5,7 @@ import useAuth from "../../hooks/useAuth.jsx";
 import Lottie from "lottie-react";
 import a1 from "../../assets/Animation - 1735202385033.json";
 import { FaGoogle } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 const Login = () => {
   const { loginUser, setUser, googleLogin } = useAuth();
   const { register, handleSubmit } = useForm();
@@ -39,6 +40,9 @@ const Login = () => {
 
   return (
     <div>
+       <Helmet>
+            <title>Login | Medimart</title>
+        </Helmet>
       <div className="hero bg-btns py-20 md:mt-20">
         <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left">

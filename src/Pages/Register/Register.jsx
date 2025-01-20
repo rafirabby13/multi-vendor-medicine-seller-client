@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import a1 from "../../assets/Animation - 1735202464545.json";
 import Lottie from "lottie-react";
 import { FaGoogle } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 const Register = () => {
@@ -61,6 +62,9 @@ const Register = () => {
 
   return (
     <div>
+       <Helmet>
+            <title>Register | Medimart</title>
+        </Helmet>
       <div className="hero bg-btns py-20 md:mt-20">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">

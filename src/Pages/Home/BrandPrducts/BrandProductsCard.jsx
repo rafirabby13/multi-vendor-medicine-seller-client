@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 /* eslint-disable react/prop-types */
 const BrandProductsCard = ({ product }) => {
   // console.log(product);
@@ -8,9 +10,9 @@ const BrandProductsCard = ({ product }) => {
         {/* <p className="text-sm text-gray-500">{category}</p> */}
         <h3 className="text-xs md:text-2xl font-bold text-gray-800">{title}</h3>
         <div className="flex flex-col-reverse md:flex-row gap-4 md:mt-4 ">
-          <button className="btn-xs md:btn bg-third text-background text-sm font-medium  shadow-md hover:bg-blue-600 transition">
+          <Link to='/shop' className="btn-xs md:btn bg-third text-background text-sm font-medium  shadow-md hover:bg-blue-600 transition">
             Shop Now
-          </button>
+          </Link>
           <p className="text-2xl font-semibold text-gray-700">
             {currency} {price}
           </p>

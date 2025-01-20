@@ -66,7 +66,7 @@ const ManageMedicine = () => {
             className="btn bg-btns text-background md:text-xl "
             onClick={() => document.getElementById("my_modal_5").showModal()}
           >
-             <FaPlus /> Add Category
+             <FaPlus /> Add Medicine
           </button>
         </div>
       </div>
@@ -210,6 +210,7 @@ const ManageMedicine = () => {
               <input
                 {...register("discount", { required: true })}
                 type="number"
+                defaultValue={0}
                 placeholder=""
                 className="input input-bordered"
               />

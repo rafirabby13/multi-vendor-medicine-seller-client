@@ -102,6 +102,11 @@ const SalesReport = () => {
       selector: (row) => row.totalPrice,
       sortable: true,
     },
+    {
+      name: "Payment Date",
+      selector: (row) => row.date,
+      sortable: true,
+    },
   ];
 
   const exportCSV = () => {
