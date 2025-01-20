@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import PoularBrandsCards from "./PoularBrandsCards.jsx";
-import { Fade } from "react-awesome-reveal";
+
 import Marquee from "react-fast-marquee";
+import Header from "../../../components/Header.jsx";
 
 const PopularBrands = () => {
   const [brands, setBrands] = useState([]);
@@ -15,7 +16,8 @@ const PopularBrands = () => {
   }, []);
   return (
     <div>
-      <h1 className="text-4xl">Popular Brands</h1>
+      
+      <Header title={'Popular Brands'} description={'Explore our collection of trusted and well-known brands that deliver quality and reliability. From household names to customer favorites, discover the brands you love and trust all in one place.'}></Header>
       <Marquee className="flex gap-6
           
           ">
