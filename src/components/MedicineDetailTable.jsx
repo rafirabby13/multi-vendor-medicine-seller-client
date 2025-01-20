@@ -21,19 +21,18 @@ const MedicineDetailTable = ({ products }) => {
       name,
       category,
       generic,
-      manufacturer,
-      therapeuticClass,
-      indications,
+      company,
       pharmacology,
       dosage,
       price,
       image,
     } = item;
+  
     Swal.fire({
       title: "Product Details",
       html: `
-      <div style="text-align: left;">  <h3 style="color: #2c3e50;">Ketorolac</h3>  <img src="https://example.com/images/ketorolac.jpg" alt="Ketorolac" style="width: 100%; max-width: 300px; height: auto; margin: 10px 0;">  <p><strong>Category:</strong> Pain Relief</p>  <p><strong>Generic Name:</strong> Ketorolac Tromethamine</p>  <p><strong>Manufacturer:</strong> Square Pharmaceuticals</p>  <p><strong>Therapeutic Class:</strong> ${therapeuticClass}</p>  <p><strong>Indications:</strong> ${indications}</p>  <p><strong>Pharmacology:</strong> ${pharmacology}</p>  ${dosage}</p>  <p><strong>Price:</strong> $90</p></div>
-       
+      <div style="text-align: left;">  <h3 style="color: #2c3e50;">${category}</h3>  <img src=${image} alt="Ketorolac" style="width: 100%; max-width: 300px; height: auto; margin: 10px 0;">  <p><strong>Category:</strong> Pain Relief</p>  <p><strong>Generic Name:</strong> ${name}</p>  <p><strong>Manufacturer:</strong> ${company}</p>    <p><strong>Indications:</strong> ${generic}</p>  <p><strong>Pharmacology:</strong> ${pharmacology}</p>  ${dosage}</p>  <p><strong>Price:</strong> $90</p></div>
+
       `,
       showCloseButton: true,
       showConfirmButton: false,
@@ -137,9 +136,15 @@ const MedicineDetailTable = ({ products }) => {
                     <FaEye />
                   </button>
                 </th>
+               
               </tr>
             ))}
             {/* row 1 */}
+
+            {/* modal start */}
+            {/* Open the modal using document.getElementById('ID').showModal() method */}
+
+            {/* modal ends */}
           </tbody>
         </table>
       </div>
