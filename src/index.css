@@ -22,9 +22,10 @@ body{
 
 
 .foo {
-    background: linear-gradient(to bottom, #38c8c680, #001b1af6),
+    background: linear-gradient(to bottom, #38c8c6cb, #001b1af6),
       url("../public//medicine-bottles-tablets-wooden-desk.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+   
   }

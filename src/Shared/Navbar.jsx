@@ -92,7 +92,7 @@ const Navbar = () => {
   return (
    
       <div className="bg-btns fixed right-0 top-0 left-0 z-50">
-        <div className="navbar  md:max-w-[85%] mx-auto text-font items-center lg:py-10">
+        <div className="navbar  md:max-w-[85%] mx-auto text-font items-center lg:py-6">
           <div className="navbar-start">
             <div className="dropdown z-50">
               <div tabIndex={0} role="button" className=" lg:hidden">
