@@ -3,27 +3,25 @@ const BrandProductsCard = ({ product }) => {
   // console.log(product);
   const { image, currency, price, category, title } = product;
   return (
-    <div>
-      <div className="bg-white border rounded-lg shadow-lg p-4 ">
-        <div className="mb-4">
-          <img
-            src={image}
-            alt={title}
-            className="w-full h-40 object-cover rounded-md"
-          />
-        </div>
-        <h4 className="text-sm font-medium text-gray-600">{category}</h4>
-
-        <h3 className="text-lg font-bold mb-2">{title}</h3>
-
-        <div className="flex justify-between items-center mt-3">
-          <div className="text-gray-700 font-semibold">
-            {currency} {price}
-          </div>
-          <button className="bg-blue-500 text-white py-1 px-3 rounded-lg">
+    <div className="flex items-center bg-second">
+      <div className="flex-1 p-4">
+        {/* <p className="text-sm text-gray-500">{category}</p> */}
+        <h3 className="text-xs md:text-2xl font-bold text-gray-800">{title}</h3>
+        <div className="flex flex-col-reverse md:flex-row gap-4 md:mt-4 ">
+          <button className="btn-xs md:btn bg-third text-background text-sm font-medium  shadow-md hover:bg-blue-600 transition">
             Shop Now
           </button>
+          <p className="text-2xl font-semibold text-gray-700">
+            {currency} {price}
+          </p>
         </div>
+      </div>
+      <div className="w-1/2 p-4">
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-24 sm:h-40  rounded-md"
+        />
       </div>
     </div>
   );

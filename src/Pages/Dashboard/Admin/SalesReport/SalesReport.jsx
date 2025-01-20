@@ -1,90 +1,91 @@
-import { useMemo } from "react";
+/* eslint-disable no-unused-vars */
+
 import useTotalPayment from "../../../../hooks/useTotalPayment.jsx";
 
 import DataTable, { defaultThemes } from "react-data-table-component";
 
 const SalesReport = () => {
-  const [totalPaid, refetch] = useTotalPayment();
-console.log(totalPaid);
-const customStyles = {
-	header: {
-		style: {
-			minHeight: '56px',
-		},
-	},
-	headRow: {
-		style: {
-			borderTopStyle: 'solid',
-			borderTopWidth: '1px',
-			borderTopColor: defaultThemes.default.divider.default,
-		},
-	},
-	headCells: {
-		style: {
-			'&:not(:last-of-type)': {
-				borderRightStyle: 'solid',
-				borderRightWidth: '1px',
-				borderRightColor: defaultThemes.default.divider.default,
-			},
-		},
-	},
-	cells: {
-		style: {
-			'&:not(:last-of-type)': {
-				borderRightStyle: 'solid',
-        backgroundColor: 'mintcream',
-				borderRightWidth: '1px',
-				borderRightColor: defaultThemes.default.divider.default,
-			},
-		},
-	},
-};
-function convertArrayOfObjectsToCSV(array) {
-	let result;
+  const [totalPaid] = useTotalPayment();
+  console.log(totalPaid);
+  const customStyles = {
+    header: {
+      style: {
+        minHeight: "56px",
+      },
+    },
+    headRow: {
+      style: {
+        borderTopStyle: "solid",
+        borderTopWidth: "1px",
+        borderTopColor: defaultThemes.default.divider.default,
+      },
+    },
+    headCells: {
+      style: {
+        "&:not(:last-of-type)": {
+          borderRightStyle: "solid",
+          borderRightWidth: "1px",
+          borderRightColor: defaultThemes.default.divider.default,
+        },
+      },
+    },
+    cells: {
+      style: {
+        "&:not(:last-of-type)": {
+          borderRightStyle: "solid",
+          backgroundColor: "mintcream",
+          borderRightWidth: "1px",
+          borderRightColor: defaultThemes.default.divider.default,
+        },
+      },
+    },
+  };
+  function convertArrayOfObjectsToCSV(array) {
+    let result;
 
-	const columnDelimiter = ',';
-	const lineDelimiter = '\n';
-	const keys = Object.keys(array[0]);
+    const columnDelimiter = ",";
+    const lineDelimiter = "\n";
+    const keys = Object.keys(array[0]);
 
-	result = '';
-	result += keys.join(columnDelimiter);
-	result += lineDelimiter;
+    result = "";
+    result += keys.join(columnDelimiter);
+    result += lineDelimiter;
 
-	array.forEach(item => {
-		let ctr = 0;
-		keys.forEach(key => {
-			if (ctr > 0) result += columnDelimiter;
+    array.forEach((item) => {
+      let ctr = 0;
+      keys.forEach((key) => {
+        if (ctr > 0) result += columnDelimiter;
 
-			result += item[key];
-			
-			ctr++;
-		});
-		result += lineDelimiter;
-	});
+        result += item[key];
 
-	return result;
-}
-function downloadCSV(array) {
-	const link = document.createElement('a');
-	let csv = convertArrayOfObjectsToCSV(array);
-	if (csv == null) return;
+        ctr++;
+      });
+      result += lineDelimiter;
+    });
 
-	const filename = 'export.csv';
+    return result;
+  }
+  function downloadCSV(array) {
+    const link = document.createElement("a");
+    let csv = convertArrayOfObjectsToCSV(array);
+    if (csv == null) return;
 
-	if (!csv.match(/^data:text\/csv/i)) {
-		csv = `data:text/csv;charset=utf-8,${csv}`;
-	}
+    const filename = "export.csv";
 
-	link.setAttribute('href', encodeURI(csv));
-	link.setAttribute('download', filename);
-	link.click();
-}
+    if (!csv.match(/^data:text\/csv/i)) {
+      csv = `data:text/csv;charset=utf-8,${csv}`;
+    }
+
+    link.setAttribute("href", encodeURI(csv));
+    link.setAttribute("download", filename);
+    link.click();
+  }
   const columns = [
     {
       name: "TransactionId",
       selector: (row) => row.transactionId,
       sortable: true,
-      style: row => ({ backgroundColor: '#ff33' })
+      style: (row) => ({ backgroundColor: "#ff33" }),
     },
     {
       name: "Seller Email",
@@ -115,9 +116,16 @@ function downloadCSV(array) {
     <div>
       <div>
         <div></div>
-        <div><button onClick={exportCSV}>Export</button></div>
+        <div>
+          <button onClick={exportCSV}>Export</button>
+        </div>
       </div>
-      <DataTable columns={columns} data={totalPaid} customStyles={customStyles} pagination/>
+      <DataTable
+        columns={columns}
+        data={totalPaid}
+        customStyles={customStyles}
+        pagination
+      />
     </div>
   );
 };

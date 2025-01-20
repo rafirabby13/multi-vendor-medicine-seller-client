@@ -4,17 +4,13 @@ import useAuth from "../hooks/useAuth.jsx";
 import { useState } from "react";
 import useCart from "../hooks/useCart.jsx";
 import useUsersRole from "../hooks/useUsersRole.jsx";
-
+import logo from "../assets/logo.png";
 
 const Navbar = () => {
   const { user, logoutUser } = useAuth();
   const [hidden, setHidden] = useState(true);
   const [cart] = useCart();
   const [role] = useUsersRole();
-
-
-  
- 
 
   const items = (
     <>
@@ -23,7 +19,7 @@ const Navbar = () => {
           to="/"
           className={({ isActive }) =>
             isActive
-              ? "bg-[#439A97] font-bold text-white lg:text-lg"
+              ? "bg-background font-bold text-white lg:text-lg"
               : "font-bold"
           }
         >
@@ -35,33 +31,35 @@ const Navbar = () => {
           to="/shop"
           className={({ isActive }) =>
             isActive
-              ? "bg-[#439A97] font-bold text-white lg:text-lg"
+              ? "bg-background font-bold text-white lg:text-lg"
               : "font-bold"
           }
         >
           Shop
         </NavLink>
       </li>
-      {role ===  "user" ?  (
+      {role === "user" ? (
         <li>
           <NavLink
             to="/cart"
             className={({ isActive }) =>
               isActive
-                ? "bg-[#439A97] font-bold text-white lg:text-lg"
+                ? "bg-background font-bold text-white lg:text-lg"
                 : "font-bold"
             }
           >
             <FaCartPlus /> <span>{cart?.length}</span>
           </NavLink>
         </li>
-      ) :''}
+      ) : (
+        ""
+      )}
       <li>
         <NavLink
-          to="/dashboard"
+          to="/dashboard/home"
           className={({ isActive }) =>
             isActive
-              ? "bg-[#439A97] font-bold text-white lg:text-lg"
+              ? "bg-background font-bold text-white lg:text-lg"
               : "font-bold"
           }
         >
@@ -72,7 +70,7 @@ const Navbar = () => {
         <NavLink
           className={({ isActive }) =>
             isActive
-              ? "bg-[#439A97] font-bold text-white lg:text-lg"
+              ? "bg-background font-bold text-white lg:text-lg"
               : "font-bold"
           }
         >
@@ -93,10 +91,10 @@ const Navbar = () => {
   };
   return (
     <div>
-      <div>
-        <div className="navbar items-center lg:py-10">
+      <div className="bg-btns">
+        <div className="navbar  md:max-w-[85%] mx-auto text-font items-center lg:py-10">
           <div className="navbar-start">
-            <div className="dropdown">
+            <div className="dropdown z-50">
               <div tabIndex={0} role="button" className=" lg:hidden">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -115,16 +113,22 @@ const Navbar = () => {
               </div>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content text-white bg-green-950 rounded-box z-50 mt-3 w-52 p-2 shadow"
+                className="menu menu-sm dropdown-content text- bg-third rounded-box z-50 mt-3 w-52 p-2 shadow"
               >
                 {items}
               </ul>
             </div>
-            <a className=" hidden lg:flex text-3xl xl:text-4xl font-extrabold">
-              MediMarket
-            </a>
+            <div className="flex items-center gap-4">
+              <img className="h-12 md:h-20" src={logo} alt="" />
+              <Link
+                to="/"
+                className=" hidden lg:flex text-3xl xl:text-4xl font-extrabold"
+              >
+                MediMarket
+              </Link>
+            </div>
           </div>
-          <div className="navbar-center hidden lg:flex">
+          <div className="navbar-center hidden  lg:flex">
             <ul className="menu menu-horizontal font-semibold flex items-center gap-3  xl:text-xl px-1">
               {items}
             </ul>
@@ -132,47 +136,45 @@ const Navbar = () => {
           <div className="navbar-end">
             {user ? (
               <>
-                <div className="relative">
+                <div className="">
                   <img
                     onClick={() => setHidden(!hidden)}
-                    className="h-16 rounded-full w-16 cursor-pointer"
+                    className="h-16 rounded-full w-16 cursor-pointer relative"
                     src={user?.photoURL}
                     alt=""
                   />
                   {!hidden && (
-                    <div className="flex flex-col absolute top-20 right-0   items-center gap-4 p-4 bg-gray-100 rounded-lg shadow-md w-[200px]">
+                    <div className="flex flex-col absolute right-0    items-center gap-4 p-4 bg-btns rounded-lg shadow-md w-[200px]">
                       {/* Update Profile Button */}
-                      <button className="btn btn-primary px-6 py-2 text-white rounded-md hover:bg-blue-700 transition w-full">
+                      <button className="btn  px-6 py-2 text-white rounded-md  transition w-full z-30">
                         Update Profile
                       </button>
 
                       {/* Dashboard Button */}
-                      <button className="btn btn-secondary px-6 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-600 transition w-full">
+                      <Link
+                        to="/dashboard"
+                        className="btn px-6 py-2  text-white rounded-md  transition w-full z-30"
+                      >
                         Dashboard
-                      </button>
+                      </Link>
 
                       {/* Logout Button */}
                       <button
                         onClick={handleLogout}
-                        className="btn btn-danger px-6 py-2 bg-red-600 text-white rounded-md hover:bg-red-500 transition w-full"
+                        className="btn btn-danger px-6 py-2bg-red-600 text-white rounded-md  transition w-full z-30"
                       >
                         Logout
                       </button>
                     </div>
                   )}
-                  <button
-                    onClick={handleLogout}
-                    className=" border-none p-1 lg:text-xl xl:btn text-sm bg-[#439A97] xl:bg-[#439A97] text-white xl:text-white"
-                  >
-                    Logout
-                  </button>
+                  
                 </div>
               </>
             ) : (
               <div>
                 <Link
                   to="/login"
-                  className=" border-none p-1 lg:text-xl xl:btn text-sm bg-[#439A97] xl:bg-[#439A97] text-white xl:text-white"
+                  className=" border-none p-1 lg:text-xl xl:btn text-sm bg-background xl:bg-background text-white xl:text-white"
                 >
                   Join US
                 </Link>

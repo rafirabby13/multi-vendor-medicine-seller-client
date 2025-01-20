@@ -3,7 +3,7 @@
       "id": 1,
       "category": "Temperature",
       "title": "Digital Thermometers",
-      "image": "https://example.com/products/digital-thermometer.jpg",
+      "image": "https://i.ibb.co.com/MndGy4N/thermometer-removebg-preview.png",
       "price": 400,
       "currency": "BDT"
     },
@@ -11,7 +11,7 @@
       "id": 2,
       "category": "Personal",
       "title": "Face Masks (Pack of 10)",
-      "image": "https://example.com/products/face-masks.jpg",
+      "image": "https://i.ibb.co.com/b56QM6C/mask-removebg-preview.png",
       "price": 300,
       "currency": "BDT"
     },
@@ -19,7 +19,7 @@
       "id": 3,
       "category": "Health",
       "title": "Blood Pressure Monitor",
-      "image": "https://example.com/products/blood-pressure-monitor.jpg",
+      "image": "https://i.ibb.co.com/dBXHmBP/mb-removebg-preview.png",
       "price": 2500,
       "currency": "BDT"
     },
@@ -27,7 +27,7 @@
       "id": 4,
       "category": "Vitamins",
       "title": "Multivitamin Tablets",
-      "image": "https://example.com/products/multivitamin.jpg",
+      "image": "https://i.ibb.co.com/dBvfys8/bp-removebg-preview.png",
       "price": 800,
       "currency": "BDT"
     }

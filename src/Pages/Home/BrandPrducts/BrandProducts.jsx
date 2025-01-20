@@ -14,8 +14,7 @@ const BrandProducts = () => {
     return (
         <div>
         <h1 className="text-4xl">Daily Needs</h1>
-          <div className="flex justify-center gap-20
-           flex-wrap">
+          <div className="grid md:grid-cols-2 gap-4">
               {
                   brandProduct.map((product,i)=><BrandProductsCard
                   key={i} product={product}></BrandProductsCard>)

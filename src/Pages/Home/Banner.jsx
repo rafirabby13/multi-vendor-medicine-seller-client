@@ -6,28 +6,29 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import useAxiosPublic from "../../hooks/useAxiosPublic.jsx";
 import useManageBanner from "../../hooks/useManageBanner.jsx";
+import { Fade } from "react-awesome-reveal";
 const Banner = () => {
-  
   const [bannerData, setBannerData] = useState([]);
-  const axiosPublic = useAxiosPublic()
- 
+  const axiosPublic = useAxiosPublic();
+
   useEffect(() => {
-    axiosPublic.get('/banner/active')
+    axiosPublic
+      .get("/banner/active")
       .then((res) => {
         // console.log(res.data);
         setBannerData(res.data);
       })
-      .catch(err=>{
+      .catch((err) => {
         console.log(err);
-      })
+      });
   }, [axiosPublic]);
   return (
-    <div>
+    <div className="banner ">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 4500,
+          delay: 5500,
           disableOnInteraction: false,
         }}
         pagination={{
@@ -39,18 +40,24 @@ const Banner = () => {
       >
         {bannerData?.map((banner, i) => (
           <SwiperSlide key={i}>
-            <div className="lg:px-20 flex py-2 md:py-0 md:flex-row flex-col items-center md:gap-10   banner ">
-              <div className=" p-2  md:w-2/5  space-y-4 ">
-                <h1 className=" md:text-2xl lg:text-4xl font-bold">
+            <div
+              className=" flex   md:flex-row flex-col items-center justify-center md:gap-10  h-[300px]  "
+              style={{
+                backgroundImage: `linear-gradient(#99DDCC, rgba(0, 0, 0, 0.5)),url(${banner?.image})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
+              <div className=" space-y-4 text-center ">
+                <Fade delay={1e3} cascade damping={1e-1} className=" md:text-2xl lg:text-6xl font-bold">
                   {banner?.heading}
-                </h1>
+                </Fade>
                 <p className="md:text-xl text-sm">{banner?.description}</p>
                 <p className="md:text-xl text-sm">{banner?.discount}</p>
-                <button className="p-1 px-6 md:py-3  text-white font-semibold rounded-lg bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 transition-shadow shadow-lg hover:shadow-xl">
+                <button className="p-1 px-6 md:py-3 bg-btns  font-semibold rounded-lg transition-shadow shadow-lg hover:shadow-xl">
                   Explore
                 </button>
               </div>
-              <div className="md:w-3/5"></div>
             </div>
           </SwiperSlide>
         ))}

@@ -11,17 +11,17 @@ const MedicineCategoryCard = ({medicine}) => {
         <div>
            <Link to={`/medicineDetail/${name}`}> <div
             key={id}
-            className="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300"
+            className="bg-white shadow-sm rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 flex flex-col h-full shadow-btns "
           >
             <img
               src={image}
               alt={name}
-              className="w-full h-40 object-cover"
+              className="w-full h-20 md:h-40  object-cover"
             />
-            <div className="p-4">
-              <h3 className="text-lg font-semibold">{name}</h3>
+            <div className="p-4 flex-grow flex flex-col justify-between items-start">
+              <h3 className=" md:text-2xl font-semibold">{name}</h3>
               
-              <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+              <button className="mt-2 md:mt-4 bg-btns btn-xs md:btn  md:bg-btns text-background md:text-background rounded-lg hover:bg-blue-600 ">
                 View More
               </button>
             </div>

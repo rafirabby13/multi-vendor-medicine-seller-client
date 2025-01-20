@@ -1,4 +1,4 @@
-import { FaEye } from "react-icons/fa";
+
 import useTotalPayment from "../../../../hooks/useTotalPayment.jsx";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure.jsx";
 import Swal from "sweetalert2";
@@ -81,7 +81,7 @@ const Paymentmanagement = () => {
                 <th>
                   <button
                     onClick={() => handleAcceptPayment(product)}
-                    disabled={!product.status == "pending"}
+                    disabled={product.status !== "pending"}
                     className="btn btn-primary "
                   >
                     Accept Payment

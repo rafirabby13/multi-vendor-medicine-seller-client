@@ -1,3 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body{
+    font-family: "Philosopher", serif;
+    /* font-family: "Tilt Neon", serif; */
+    font-family: "Nunito", serif;
+    font-family: "Marcellus", serif;
+    font-family: "PT Serif", serif;
+
+
+
+}
+
+
+.foo {
+    background: linear-gradient(to bottom, #38c8c680, #001b1af6),
+      url("../public//medicine-bottles-tablets-wooden-desk.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }

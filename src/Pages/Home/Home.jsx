@@ -8,16 +8,16 @@ import MedicineCategory from "./MedicineCategory/MedicineCategory.jsx";
 import PopularBrands from "./PopularBrands/PopularBrands.jsx";
 
 const Home = () => {
-    return (
-        <div>
-           <Banner/>
-           <MedicineCategory/>
-           <DiscountProducts/>
-           <PopularBrands/>
-           <BrandProducts/>
-            {/* <Footer/> */}
-        </div>
-    );
+  return (
+    <div className="space-y-20">
+     
+      <MedicineCategory />
+      <DiscountProducts />
+      <PopularBrands />
+      <BrandProducts />
+  
+    </div>
+  );
 };
 
 export default Home;

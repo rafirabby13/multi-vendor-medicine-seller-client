@@ -2,7 +2,7 @@
     {
       "id": 1,
       "name": "Paracetamol 500mg",
-      "image": "https://example.com/images/paracetamol.jpg",
+      "image": "https://i.ibb.co.com/92G8B83/Parcetamol.jpg",
       "originalPrice": 50,
       "discountPrice": 40,
       "discountPercentage": 20
@@ -10,7 +10,7 @@
     {
       "id": 2,
       "name": "Vitamin C Tablets",
-      "image": "https://example.com/images/vitamin-c.jpg",
+      "image": "https://i.ibb.co.com/6N4JFg2/v-c.jpg",
       "originalPrice": 100,
       "discountPrice": 80,
       "discountPercentage": 20
@@ -18,7 +18,7 @@
     {
       "id": 3,
       "name": "Cough Syrup",
-      "image": "https://example.com/images/cough-syrup.jpg",
+      "image": "https://i.ibb.co.com/xLfGLp1/cough.jpg",
       "originalPrice": 150,
       "discountPrice": 120,
       "discountPercentage": 20
@@ -26,7 +26,7 @@
     {
       "id": 4,
       "name": "Aspirin 100mg",
-      "image": "https://example.com/images/aspirin.jpg",
+      "image": "https://i.ibb.co.com/VLb3SxH/aspirin-protect-100-mg-30-tablets.jpg",
       "originalPrice": 200,
       "discountPrice": 160,
       "discountPercentage": 20
@@ -34,7 +34,7 @@
     {
       "id": 5,
       "name": "Diabetes Test Strips",
-      "image": "https://example.com/images/diabetes-test-strips.jpg",
+      "image": "https://i.ibb.co.com/w4LSbbf/diabetic.jpg",
       "originalPrice": 500,
       "discountPrice": 450,
       "discountPercentage": 10
@@ -42,7 +42,7 @@
     {
       "id": 6,
       "name": "Antiseptic Cream",
-      "image": "https://example.com/images/antiseptic-cream.jpg",
+      "image": "https://i.ibb.co.com/DVLLGg5/antiseptic.jpg",
       "originalPrice": 75,
       "discountPrice": 60,
       "discountPercentage": 20
@@ -50,7 +50,7 @@
     {
       "id": 7,
       "name": "Multivitamin Syrup",
-      "image": "https://example.com/images/multivitamin-syrup.jpg",
+      "image": "https://i.ibb.co.com/ysXBpfq/multivitamin.webp",
       "originalPrice": 250,
       "discountPrice": 200,
       "discountPercentage": 20
@@ -58,7 +58,7 @@
     {
       "id": 8,
       "name": "Nasal Spray",
-      "image": "https://example.com/images/nasal-spray.jpg",
+      "image": "https://i.ibb.co.com/T20HWG2/nasal.jpg",
       "originalPrice": 300,
       "discountPrice": 240,
       "discountPercentage": 20
