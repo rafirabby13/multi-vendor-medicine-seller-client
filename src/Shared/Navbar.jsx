@@ -174,7 +174,7 @@ const Navbar = () => {
               to="/"
               className=" hidden lg:flex text-3xl xl:text-4xl font-extrabold"
             >
-              MediMarket
+              MediMart
             </Link>
           </div>
         </div>
