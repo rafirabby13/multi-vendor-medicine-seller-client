@@ -5,13 +5,18 @@ import { useState } from "react";
 import useCart from "../hooks/useCart.jsx";
 import useUsersRole from "../hooks/useUsersRole.jsx";
 import logo from "../assets/logo.png";
-
+import Swal from "sweetalert2";
+import { useForm } from "react-hook-form";
+import useAxiosPublic from "../hooks/useAxiosPublic.jsx";
+const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 const Navbar = () => {
-  const { user, logoutUser } = useAuth();
+  const { user, logoutUser, updateUser } = useAuth();
   const [hidden, setHidden] = useState(true);
   const [cart] = useCart();
   const [role] = useUsersRole();
-
+  const [profileHide, setProfileHide] = useState(true);
+  const { register, handleSubmit } = useForm();
   const items = (
     <>
       <li>
@@ -91,6 +96,42 @@ const Navbar = () => {
         console.log(err);
       });
   };
+
+  const axiosPublic = useAxiosPublic()
+  const handleProfileUpdate = () => {document.getElementById('my_modal_5').showModal()};
+
+  const onSubmit = (data) => {
+    // console.log(data);
+    const formData = { image: data.image[0] };
+
+    axiosPublic
+      .post(image_hosting_api, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((res) => {
+        if (res.data.success) {
+          const photoURL = res.data.data.display_url;
+          updateUser(data.name, photoURL)
+            .then(() => {
+              // console.log("updated");
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Registered Successfully",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              document.getElementById('my_modal_5').close()
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        }
+      });
+  };
+
   return (
     <div className="bg-btns fixed right-0 top-0 left-0 z-50">
       <div className="navbar  md:max-w-[85%] mx-auto text-font items-center lg:py-6">
@@ -145,9 +186,17 @@ const Navbar = () => {
                   alt=""
                 />
                 {!hidden && (
-                  <div className="flex flex-col absolute right-0    items-center gap-4 p-4 bg-btns rounded-lg shadow-md w-[200px]">
+                  <div
+                    onClick={() => setHidden(true)}
+                    className="flex flex-col absolute right-0    items-center gap-4 p-4 bg-btns rounded-lg shadow-md "
+                  >
                     {/* Update Profile Button */}
-                    <button className="btn  px-6 py-2 text-white rounded-md  transition w-full z-30">
+                    <h1 className="text-3xl font-bold">{user?.displayName}</h1>
+                    <h1 className="text-3xl font-bold">{user?.email}</h1>
+                    <button
+                      onClick={handleProfileUpdate}
+                      className="btn  px-6 py-2 text-white rounded-md  transition w-full z-30"
+                    >
                       Update Profile
                     </button>
 
@@ -182,6 +231,43 @@ const Navbar = () => {
           )}
         </div>
       </div>
+
+      <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+        <div className="modal-box">
+          {/* form starts */}
+
+          <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Name</span>
+              </label>
+              <input
+                {...register("name", { required: true })}
+                type="text"
+                placeholder="Your Name"
+                className="input input-bordered"
+              />
+            </div>
+
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Your Image</span>
+              </label>
+              <input
+                {...register("image", { required: true })}
+                type="file"
+                placeholder="Your Photo "
+                className="file-input w-full max-w-xs file-input-accent "
+              />
+            </div>
+            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+
+            <div className="form-control mt-6">
+              <button className="btn bg-btns">Update Profile</button>
+            </div>
+          </form>
+        </div>
+      </dialog>
     </div>
   );
 };

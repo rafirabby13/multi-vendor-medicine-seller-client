@@ -7,10 +7,11 @@ import a1 from "../../assets/Animation - 1735202464545.json";
 import Lottie from "lottie-react";
 import { FaGoogle } from "react-icons/fa";
 import { Helmet } from "react-helmet";
+import Swal from "sweetalert2";
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 const Register = () => {
-  const { registerUser, updateUser, googleLogin, setUser } = useAuth();
+  const { registerUser, updateUser, googleLogin, setUser,logoutUser } = useAuth();
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   const onSubmit = (data) => {
@@ -33,8 +34,19 @@ const Register = () => {
               // console.log(data.name,photoURL);
               updateUser(data.name, photoURL)
                 .then(() => {
-                  console.log("updated");
-                  navigate(location?.state ? location.state : "/");
+                  // console.log("updated");
+                  Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Registered Successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+                  logoutUser()
+                  .then(()=>{
+
+                    navigate('/login');
+                  })
                 })
                 .catch((err) => {
                   console.log(err);
@@ -79,7 +91,7 @@ const Register = () => {
             <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Email</span>
+                  <span className="label-text">Name</span>
                 </label>
                 <input
                   {...register("name", { required: true })}
