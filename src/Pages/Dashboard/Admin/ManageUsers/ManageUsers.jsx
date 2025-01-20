@@ -48,7 +48,7 @@ const axiosSecure = useAxiosSecure()
   return (
     <div>
       <div className="overflow-x-auto">
-        <table className="table">
+        <table className="table table-zebra">
           {/* head */}
           <thead>
             <tr>
@@ -57,7 +57,7 @@ const axiosSecure = useAxiosSecure()
               <th>Name</th>
               <th>email</th>
               <th>role</th>
-              <th></th>
+              <th>Select</th>
               <th></th>
             </tr>
           </thead>
@@ -80,15 +80,11 @@ const axiosSecure = useAxiosSecure()
                 <td>{product.name}</td>
                 <td>{product.email}</td>
                 <th>
-                  <button className="btn btn-ghost btn-xs">
+                  <button className="btn bg-second  w-full btn-md">
                     {product.role}
                   </button>
                 </th>
-                <th>
-                  <button className="btn btn-ghost btn-xs">
-                    {product.manufacturer}
-                  </button>
-                </th>
+                
                 <th>
                   <form onSubmit={handleSubmit((data)=>onSubmit(data,product.name? product.name : 'anonymous', product._id,i))}>
                     <select {...register(`role_${i}`)}>
@@ -96,14 +92,10 @@ const axiosSecure = useAxiosSecure()
                       <option value="seller">Seller</option>
                       <option value="user">User</option>
                     </select>
-                    <button className="btn">Add</button>
+                    <button className="btn bg-btns text-background">Add</button>
                   </form>
                 </th>
-                <th>
-                  <button className="btn btn-ghost btn-xs">
-                    <FaEye />
-                  </button>
-                </th>
+               
               </tr>
             ))}
             {/* row 1 */}
