@@ -8,7 +8,8 @@ const Shop = () => {
 
 
   return (
-    <div>
+    <div className="py-10">
+      <h1 className="text-4xl py-10">All Products</h1>
       
       <MedicineDetailTable products={products}></MedicineDetailTable>
     </div>

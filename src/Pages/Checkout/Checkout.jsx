@@ -106,16 +106,17 @@ const Checkout = () => {
     }
   };
   return (
-    <div>
+    <div className="py-20">
       <form onSubmit={handleSubmit}>
         <CardElement
           options={{
             style: {
               base: {
-                fontSize: "16px",
+                fontSize: "20px",
                 color: "#424770",
                 "::placeholder": {
                   color: "#aab7c4",
+                  fontSize: "22px",
                 },
               },
               invalid: {
@@ -125,7 +126,7 @@ const Checkout = () => {
           }}
         />
         <button
-          className="btn mt-4 btn-primary "
+          className="btn px-16 mt-4 bg-btns text-background"
           type="submit"
           disabled={!stripe || !clientSecret}
         >

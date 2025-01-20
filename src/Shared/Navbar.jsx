@@ -56,7 +56,7 @@ const Navbar = () => {
       )}
       <li>
         <NavLink
-          to="/dashboard/home"
+          to="/dashboard"
           className={({ isActive }) =>
             isActive
               ? "bg-background font-bold text-white lg:text-lg"
@@ -66,7 +66,7 @@ const Navbar = () => {
           Dashboard
         </NavLink>
       </li>
-      <li>
+      {/* <li>
         <NavLink
           className={({ isActive }) =>
             isActive
@@ -76,7 +76,7 @@ const Navbar = () => {
         >
           languages dropdown
         </NavLink>
-      </li>
+      </li> */}
     </>
   );
 
@@ -90,8 +90,8 @@ const Navbar = () => {
       });
   };
   return (
-    <div>
-      <div className="bg-btns">
+   
+      <div className="bg-btns fixed right-0 top-0 left-0 z-50">
         <div className="navbar  md:max-w-[85%] mx-auto text-font items-center lg:py-10">
           <div className="navbar-start">
             <div className="dropdown z-50">
@@ -183,7 +183,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-    </div>
+   
   );
 };
 

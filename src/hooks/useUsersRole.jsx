@@ -20,7 +20,7 @@ const useUsersRole = () => {
             return res.data
     
         },
-        enabled: !!user?.email,
+        enabled: !!user?.email && !loading,
     
       })
       return [role, refetch, isLoading]

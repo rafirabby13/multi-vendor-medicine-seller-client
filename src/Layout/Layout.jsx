@@ -9,6 +9,7 @@ const Layout = () => {
   return (
     <div>
       <Navbar />
+      <section className="h-[80px] sm:h-[96px] lg:h-40"></section>
       {location.pathname == "/" && <Banner />}
       <section className="md:max-w-[85%] mx-auto">
         <Outlet />

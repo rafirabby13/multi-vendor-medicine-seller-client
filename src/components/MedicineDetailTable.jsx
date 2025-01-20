@@ -70,7 +70,7 @@ const MedicineDetailTable = ({ products }) => {
   return (
     <div>
       <div className="overflow-x-auto">
-        <table className="table">
+        <table className="table table-zebra">
           {/* head */}
           <thead>
             <tr>

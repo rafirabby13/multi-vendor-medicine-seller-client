@@ -90,14 +90,14 @@ const Cart = () => {
   };
 
   return (
-    <div>
+    <div className="">
       <div className="flex items-center justify-between py-10">
-        <h1 className="text-5xl">Total Items: {cart.length}</h1>
-        <button onClick={handleClearCart} className="btn">
+        <h1 className="md:text-5xl">Total Items: {cart.length}</h1>
+        <button onClick={handleClearCart} className="btn-xs md:btn bg-btns md:bg-btns text-background md:text-background">
           Clear Cart X
         </button>
       </div>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto py-10">
         <table className="table">
           {/* head */}
           <thead>
@@ -121,7 +121,7 @@ const Cart = () => {
                     <div className="avatar">
                       <div className="mask mask-squircle h-12 w-12">
                         <img
-                          src="https://img.daisyui.com/images/profile/demo/2@94.webp"
+                          src={product?.image}
                           alt="Avatar Tailwind CSS Component"
                         />
                       </div>
@@ -167,7 +167,7 @@ const Cart = () => {
                 <th>
                   <button
                     onClick={() => handleDeleteItemFromCart(product)}
-                    className="btn btn-error text-white btn-xs"
+                    className="btn btn-error text-white  text-background text-3xl"
                   >
                     <FaRegTrashAlt />
                   </button>
@@ -180,23 +180,21 @@ const Cart = () => {
         </table>
       </div>
 
-      <div>
-        <div className="flex items-center justify-between text-4xl">
+      <div className="space-y-5">
+        <div className="flex items-center justify-between md:text-4xl">
           <h1>Total Items:</h1>
           <h1>{cart?.length}</h1>
         </div>
-        <div className="flex items-center justify-between text-4xl">
+        <div className="divider divider-info">.......</div>
+
+        <div className="flex items-center justify-between md:text-4xl">
           <h1>Total Amount:</h1>
           <h1>$ {totalPrice}</h1>
         </div>
-        <div className="flex justify-end">
-          <button onClick={handleClearCart} className="btn">
-            Clear Cart X
-          </button>
-        </div>
+       
         {cart.length > 0 && (
-          <div className="flex justify-end">
-            <Link to="/payment" className="btn">
+          <div className="flex justify-center w-full">
+            <Link to="/payment" className="btn md:btn bg-btns md:bg-btns text-background  md:text-background">
               Payment
             </Link>
           </div>

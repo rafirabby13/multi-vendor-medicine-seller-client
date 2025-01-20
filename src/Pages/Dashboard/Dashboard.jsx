@@ -110,7 +110,7 @@ const Dashboard = () => {
         )}{" "}
         {role === "seller" && (
           <div className="  flex flex-col gap-8  ">
-            <p className="bg-orange-400 p-3">
+            {/* <p className="bg-orange-400 p-3">
               <NavLink
                 to="/dashboard/home"
                 className={({ isActive }) =>
@@ -121,7 +121,7 @@ const Dashboard = () => {
               >
                 Seller Home
               </NavLink>
-            </p>
+            </p> */}
             <p className="bg-orange-400 p-3">
               <NavLink
                 to="/dashboard/manageMedicine"
@@ -174,7 +174,7 @@ const Dashboard = () => {
         )}
         {role === "user" && (
           <div className="  flex flex-col gap-8  ">
-             <p className="bg-orange-400 p-3">
+             {/* <p className="bg-orange-400 p-3">
                 <NavLink
                   to="/dashboard/home"
                   className={({ isActive }) =>
@@ -185,7 +185,7 @@ const Dashboard = () => {
                 >
                   User Home
                 </NavLink>
-              </p>
+              </p> */}
             <p className="bg-orange-400 p-3">
               <NavLink
                 to="/dashboard/myPayment"
@@ -306,7 +306,7 @@ const Dashboard = () => {
           )}{" "}
           {role === "seller" && (
             <div className="  flex flex-col gap-8  ">
-              <p className="bg-orange-400 p-3">
+              {/* <p className="bg-orange-400 p-3">
                 <NavLink
                   to="/dashboard/home"
                   className={({ isActive }) =>
@@ -317,7 +317,7 @@ const Dashboard = () => {
                 >
                   Seller Home
                 </NavLink>
-              </p>
+              </p> */}
               <p className="bg-orange-400 p-3">
                 <NavLink
                   to="/dashboard/manageMedicine"
@@ -370,7 +370,7 @@ const Dashboard = () => {
           )}
           {role === "user" && (
             <div className="  flex flex-col gap-8  ">
-              <p className="bg-orange-400 p-3">
+              {/* <p className="bg-orange-400 p-3">
                 <NavLink
                   to="/dashboard/home"
                   className={({ isActive }) =>
@@ -381,7 +381,7 @@ const Dashboard = () => {
                 >
                   User Home
                 </NavLink>
-              </p>
+              </p> */}
               <p className="bg-orange-400 p-3">
                 <NavLink
                   to="/dashboard/myPayment"
