@@ -231,7 +231,12 @@ const Dashboard = () => {
                   : "font-bold text-xl border-b-4 p-3 rounded-sm"
               }
             >
+              
+              <span className="flex items-center justify-between gap-7
+              ">
               Payment history
+                <FaCreditCard className="text-4xl" />
+              </span>
             </NavLink>
 
             <NavLink

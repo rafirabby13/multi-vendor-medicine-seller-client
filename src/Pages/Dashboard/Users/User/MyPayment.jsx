@@ -22,7 +22,7 @@ const MyPayment = () => {
                 <th>{i + 1}</th>
 
                 <td>{product.transactionId}</td>
-                <td>{product.status}</td>
+                <td className="btn bg-btns w-full">   {product.status}</td>
               </tr>
             ))}
             {/* row 1 */}
