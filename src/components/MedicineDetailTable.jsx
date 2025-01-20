@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import useAxiosSecure from "../hooks/useAxiosSecure.jsx";
 import useCart from "../hooks/useCart.jsx";
 import useUsersRole from "../hooks/useUsersRole.jsx";
-import DataTable, { defaultThemes } from "react-data-table-component";
+import   DataTable,{defaultThemes } from "react-data-table-component";
 import { useEffect, useState } from "react";
 
 const MedicineDetailTable = ({ products }) => {
