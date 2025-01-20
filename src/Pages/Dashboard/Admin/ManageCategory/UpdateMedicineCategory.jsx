@@ -73,7 +73,7 @@ const UpdateMedicineCategory = () => {
             type="text"
             defaultValue={selectedCategory.name}
             placeholder="Your Name"
-            className="input input-bordered"
+            className="input input-bordered "
           />
         </div>
         <div className="form-control">
@@ -84,12 +84,12 @@ const UpdateMedicineCategory = () => {
             {...register("image", { required: true })}
             type="file"
             placeholder="Your Photo "
-            className="file-input w-full max-w-xs"
+            className="file-input w-full max-w-xs file-input-accent"
           />
         </div>
 
         <div className="form-control mt-6">
-          <button className="btn btn-primary">Update Category</button>
+          <button className="btn bg-btns">Update Category</button>
         </div>
       </form>
     </div>

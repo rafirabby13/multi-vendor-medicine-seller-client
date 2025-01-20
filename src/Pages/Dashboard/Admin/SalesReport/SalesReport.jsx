@@ -114,17 +114,18 @@ const SalesReport = () => {
 
   return (
     <div>
-      <div>
+      <div className="flex lg:justify-end justify-start">
         <div></div>
         <div>
-          <button onClick={exportCSV}>Export</button>
+          <button className="btn bg-btns text-background text-xl" onClick={exportCSV}>Export</button>
         </div>
       </div>
+      <div className="divider"></div>
       <DataTable
         columns={columns}
         data={totalPaid}
         customStyles={customStyles}
-        pagination
+       
       />
     </div>
   );

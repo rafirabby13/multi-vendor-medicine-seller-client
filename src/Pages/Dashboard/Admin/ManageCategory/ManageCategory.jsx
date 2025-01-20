@@ -1,4 +1,4 @@
-import { FaPlus } from "react-icons/fa";
+import { FaPlus, FaTrash } from "react-icons/fa";
 import useMedicineCategory from "../../../../hooks/useMedicineCategory.jsx";
 import { Link } from "react-router-dom";
 
@@ -83,15 +83,16 @@ const ManageCategory = () => {
 
   return (
     <div>
-      <div className="flex justify-between">
-        <div></div>
+      <div className="flex lg:justify-between items-center gap-5">
+        <div className="md:text-xl font-extrabold hidden lg:flex"> Add Category</div>
 
-        <button onClick={handleAddCategory} className="btn btn-primary btn-xs">
+        <button onClick={handleAddCategory} className="btn bg-btns text-background md:text-xl ">
           <FaPlus /> Add Category
         </button>
       </div>
+      <div className="divider"></div>
       <div className="overflow-x-auto">
-        <table className="table">
+        <table className="table table-zebra">
           <thead>
             <tr>
               <th>#</th>
@@ -125,17 +126,18 @@ const ManageCategory = () => {
                       to={`/dashboard/updateMedicineCategory/${product._id}`}
 
                     // onClick={() => handleUpdateMedicineCategory(product)}
-                    className="btn btn-accent btn-xs"
+                    className="bg-btns  btn"
                   >
                     Update
                   </Link>
                 </th>
-                <th>
+                <th >
+                  
                   <button
                     onClick={() => handleDeleteMedicineCategory(product)}
-                    className="btn btn-error btn-xs"
+                    className=" btn-error  btn text-background"
                   >
-                    Delete
+                    <FaTrash/> Delete
                   </button>
                 </th>
               </tr>
@@ -166,12 +168,12 @@ const ManageCategory = () => {
                 {...register("image", { required: true })}
                 type="file"
                 placeholder="Your Photo "
-                className="file-input w-full max-w-xs"
+                className="file-input w-full max-w-xs file-input-accent"
               />
             </div>
 
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Add Category</button>
+              <button className="btn bg-btns">Add Category</button>
             </div>
           </form>
 

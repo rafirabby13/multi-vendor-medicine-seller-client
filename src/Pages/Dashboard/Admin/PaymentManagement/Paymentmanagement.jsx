@@ -45,7 +45,7 @@ const Paymentmanagement = () => {
               <th>#</th>
               <th>Transaction Id</th>
               <th>seller email</th>
-              <th></th>
+              <th>Status</th>
               <th>buyer email</th>
 
               <th>price</th>
@@ -63,7 +63,7 @@ const Paymentmanagement = () => {
 
                 <td>{product.sellerEmail.join(", ")}</td>
                 <th>
-                  <button className="btn btn-error text-gray-200 btn-xs">
+                  <button className="btn bg-second w-full ">
                     {product.status}
                   </button>
                 </th>
@@ -73,7 +73,7 @@ const Paymentmanagement = () => {
                   </button>
                 </th>
                 <th>
-                  <button className="btn btn-primary w-full">
+                  <button className="btn bg-second w-full">
                     {product.totalPrice}
                   </button>
                 </th>
@@ -82,7 +82,7 @@ const Paymentmanagement = () => {
                   <button
                     onClick={() => handleAcceptPayment(product)}
                     disabled={product.status !== "pending"}
-                    className="btn btn-primary "
+                    className="btn bg-second w-full"
                   >
                     Accept Payment
                   </button>

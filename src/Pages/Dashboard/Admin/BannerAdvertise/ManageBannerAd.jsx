@@ -70,38 +70,31 @@ const handleAddToBanner=(item)=>{
                   </div>
                 </td>
                 <td>{product.heading}</td>
-                <td>{product.discount}</td>
+                <td className="btn-sm bg-btns font-bold text-xl">{product.discount} %</td>
 
                 <th>
                   <button className="btn btn-ghost btn-xs">
                     {product.sellerEmail}
                   </button>
                 </th>
-                <th>
+                <th >
                   {product?.isActive ? (
                     <button
                       onClick={() => handleAddToBanner(product)}
-                      className="btn btn-primary btn-xs"
+                      className="btn-sm bg-btns w-full"
                     >
                       Remove
                     </button>
                   ) : (
                     <button
                       onClick={() => handleAddToBanner(product)}
-                      className="btn btn-primary btn-xs"
+                      className=" btn-sm bg-btns w-full"
                     >
                       Add to Banner
                     </button>
                   )}
                 </th>
-                <th>
-                  <button
-                    // onClick={() => handleDetail(product)}
-                    className="btn btn-ghost btn-xs"
-                  >
-                    <FaEye />
-                  </button>
-                </th>
+               
               </tr>
             ))}
             {/* row 1 */}
