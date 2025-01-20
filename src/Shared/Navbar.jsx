@@ -9,7 +9,6 @@ import logo from "../assets/logo.png";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
 import useAxiosPublic from "../hooks/useAxiosPublic.jsx";
-import useSpecificUser from "../hooks/useSpecificUser.jsx";
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 const Navbar = () => {

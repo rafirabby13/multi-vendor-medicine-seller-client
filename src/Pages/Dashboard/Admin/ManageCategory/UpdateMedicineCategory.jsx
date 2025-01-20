@@ -1,5 +1,5 @@
 
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure.jsx";
 import useAxiosPublic from "../../../../hooks/useAxiosPublic.jsx";
 import Swal from "sweetalert2";
@@ -22,7 +22,7 @@ const UpdateMedicineCategory = () => {
   
   
   
-
+const navigate = useNavigate()
 
   const axiosPublic = useAxiosPublic();
   const axiosSecure = useAxiosSecure();
@@ -52,11 +52,11 @@ const UpdateMedicineCategory = () => {
             Swal.fire({
               position: "top-end",
               icon: "success",
-              title: "Your work has been saved",
+              title: "Updated",
               showConfirmButton: false,
               timer: 1500,
             });
-           
+           navigate('/')
           }
         });
       });
