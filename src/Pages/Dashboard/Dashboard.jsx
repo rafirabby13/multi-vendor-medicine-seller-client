@@ -152,7 +152,7 @@ const Dashboard = () => {
               >
                 <span className="flex items-center justify-between gap-4">
                   Seller Home
-                  <FaPlus className="text-4xl" />
+                  <FaHome className="text-4xl" />
                 </span>
               </NavLink>
 
