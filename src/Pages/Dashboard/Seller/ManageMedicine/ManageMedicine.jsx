@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import useMedicineBySeller from "../../../../hooks/useMedicineBySeller.jsx";
-import { FaEye } from "react-icons/fa";
+import { FaEye, FaPlus } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../../../hooks/useAxiosPublic.jsx";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure.jsx";
@@ -58,17 +58,19 @@ const ManageMedicine = () => {
   };
   return (
     <div>
-      <div className="flex justify-between">
-        <div></div>
+      
+      <div className="flex lg:justify-between items-center gap-5">
+      <div className="md:text-xl font-extrabold hidden lg:flex"> Add Medicine</div>
         <div>
           <button
-            className="btn btn-sm btn-primary"
+            className="btn bg-btns text-background md:text-xl "
             onClick={() => document.getElementById("my_modal_5").showModal()}
           >
-            Add Medicine
+             <FaPlus /> Add Category
           </button>
         </div>
       </div>
+      <div className="divider"></div>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
@@ -105,7 +107,7 @@ const ManageMedicine = () => {
                 <td>{product.category}</td>
                 <th>
                   <button className="btn btn-ghost btn-xs">
-                    {product.price}
+                    $ {product.price} 
                   </button>
                 </th>
                 <th>
@@ -114,11 +116,7 @@ const ManageMedicine = () => {
                   </button>
                 </th>
 
-                <th>
-                  <button className="btn btn-ghost btn-xs">
-                    <FaEye />
-                  </button>
-                </th>
+                
               </tr>
             ))}
             {/* row 1 */}
@@ -265,7 +263,7 @@ const ManageMedicine = () => {
            
 
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Add Medicine</button>
+              <button className="btn bg-btns">Add Medicine</button>
             </div>
           </form>
 

@@ -34,19 +34,12 @@ const SellerPaymentHistory = () => {
               </th>
              
               <th>
-                <button className="btn btn-ghost btn-xs">
+                <button className="btn bg-btns w-full">
                   {product.status}
                 </button>
               </th>
               
-              <th>
-                <button
-                
-                  className="btn btn-ghost btn-xs"
-                >
-                  <FaEye />
-                </button>
-              </th>
+             
             </tr>
           ))}
           {/* row 1 */}

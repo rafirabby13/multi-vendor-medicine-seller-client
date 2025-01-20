@@ -92,7 +92,7 @@ const AskBannerAd = () => {
         </label>
         <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Your Image</span>
+                  <span className="label-text">Banner Image</span>
                 </label>
                 <input
                   {...register("image", { required: true })}
@@ -101,7 +101,7 @@ const AskBannerAd = () => {
                   className="file-input w-full max-w-xs"
                 />
               </div>
-        <input className="btn btn-primary" type="submit" />
+        <input className="btn bg-btns " type="submit" />
       </form>
     </div>
   );
