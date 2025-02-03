@@ -4,6 +4,8 @@
 # Admin email: admin@gmail.com
 # Password : aaaaaa
 
+# Seller email: seller1@gmail.com
+# Password : aaaaaa
 
 # Features 
 
