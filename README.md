@@ -1,4 +1,4 @@
-<h1 align="left">MediMart: Website: MediMart</h1>
+<h1 align="left">Website Name: MediMart</h1>
 
 ###
 
