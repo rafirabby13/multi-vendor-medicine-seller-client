@@ -50,7 +50,7 @@
 
 ###
 
-<h2 align="left">how to run the project locally</h2>
+<h2 align="left">How to run the project locally</h2>
 
 ###
 
