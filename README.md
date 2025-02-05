@@ -15,7 +15,7 @@
 ###
 
 <div align="center">
-  <img height="250" src="https://i.ibb.co.com/9mkyJr5y/Whats-App-Image-2025-02-05-at-10-50-38-42cb7ad5.jpg"  />
+  <img height="300" width="100%" src="https://i.ibb.co.com/9mkyJr5y/Whats-App-Image-2025-02-05-at-10-50-38-42cb7ad5.jpg"  />
 </div>
 
 ###
