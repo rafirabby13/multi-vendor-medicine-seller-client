@@ -6,8 +6,8 @@ const FeedbackCard = ({ feedback }) => {
     const { name, role, location, relation, feedback2, rating, img } = feedback;
   
     return (
-      <div className="feedback feedCardw md:py-10 md:px-12 lg:px-24">
-        <div className="shadow-lg feedCard rounded-lg p-1 md:p-6 mt-10 flex flex-col justify-between min-h-[400px] max-h-[400px] mx-auto shadow-btns border-btns border">
+      <div className=" md:pb-10 ">
+        <div className="shadow-lg feedCard rounded-lg p-1 md:p-6 mt-10 flex flex-col justify-between min-h-[400px] max-h-[400px] mx-auto shadow-btns border-btns border-x-2">
           <div className="flex-1 flex items-center">
             <p className="italic text-sm md:text-2xl text-center leading-relaxed">
               "{feedback2}"
