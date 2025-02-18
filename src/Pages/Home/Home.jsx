@@ -8,6 +8,7 @@ import DiscountProducts from "./DiscountProducts/DiscountProducts.jsx";
 import MedicineCategory from "./MedicineCategory/MedicineCategory.jsx";
 import PopularBrands from "./PopularBrands/PopularBrands.jsx";
 import Feedback from "./Feedbacks/Feedbacks.jsx";
+import Blog from "./Blog/Blog.jsx";
 
 const Home = () => {
   return (
@@ -20,6 +21,7 @@ const Home = () => {
       <PopularBrands />
       <BrandProducts />
       <Feedback/>
+      <Blog/>
   
     </div>
   );
