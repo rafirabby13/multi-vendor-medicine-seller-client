@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 /* eslint-disable react/prop-types */
 const BrandProductsCard = ({ product }) => {
   // console.log(product);
-  const { image, currency, price, category, title } = product;
+  const { image, currency, price,  title } = product;
   return (
     <div className="flex items-center bg-second">
       <div className="flex-1 p-4">
