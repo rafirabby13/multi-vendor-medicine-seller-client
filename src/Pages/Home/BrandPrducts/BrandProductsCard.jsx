@@ -5,7 +5,7 @@ const BrandProductsCard = ({ product }) => {
   // console.log(product);
   const { image, currency, price,  title } = product;
   return (
-    <div className="flex items-center bg-second">
+    <div className="flex items-center bg-btns brand">
       <div className="flex-1 p-4">
         {/* <p className="text-sm text-gray-500">{category}</p> */}
         <h3 className="text-xs md:text-2xl font-bold text-gray-800">{title}</h3>

@@ -20,7 +20,10 @@ const DiscountProducts = () => {
       {/* <h1 className="text-4xl md:text-5xl font-extrabold text-center mb-12 ">
         Discounted Products
       </h1> */}
-      <Header title={'Discounted Products'} description={'Grab These Exiting Product with reasonable discount'}></Header>
+      <Header
+        title={"Discounted Products"}
+        description={"Grab These Exiting Product with reasonable discount"}
+      ></Header>
       <div className=" py-10">
         <Swiper
           spaceBetween={20}
@@ -29,7 +32,6 @@ const DiscountProducts = () => {
             delay: 4000,
             disableOnInteraction: false,
           }}
-         
           navigation={true}
           modules={[Autoplay, Pagination, Navigation]}
           className="mySwiper"
@@ -40,10 +42,7 @@ const DiscountProducts = () => {
               index
             ) => (
               <SwiperSlide key={index}>
-                <div
-                  className="mx-auto  rounded-xl shadow-2xl border-b-4 border-btns"
-                  
-                >
+                <div className="mx-auto  rounded-xl shadow-2xl border-b-4 border-btns">
                   {/* Image Section */}
                   <div className="relative rounded-t-xl overflow-hidden">
                     <img
@@ -68,9 +67,7 @@ const DiscountProducts = () => {
                       {name}
                     </h3>
                     <div className="flex items-center justify-between mt-3">
-                      <p className=" line-through text-sm">
-                        ${originalPrice}
-                      </p>
+                      <p className=" line-through text-sm">${originalPrice}</p>
                       <p
                         className="font-extrabold text-2xl"
                         style={{ color: "#38c8c5" }}
@@ -78,7 +75,7 @@ const DiscountProducts = () => {
                         ${discountPrice}
                       </p>
                     </div>
-                    <p className="text-sm bg-btns  btn text-background  md:text-2xl mt-2" >
+                    <p className="text-sm bg-btns  btn text-background  md:text-2xl mt-2">
                       Save ${originalPrice - discountPrice}!
                     </p>
                     {/* <button

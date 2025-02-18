@@ -29,3 +29,7 @@ body{
     background-size: cover;
    
   }
+
+  .brand{
+    box-shadow: 2px 2px 12px 2px #05fffb;
+  }
