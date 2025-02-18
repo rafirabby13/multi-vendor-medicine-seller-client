@@ -9,6 +9,7 @@ import logo from "../assets/logo.png";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
 import useAxiosPublic from "../hooks/useAxiosPublic.jsx";
+import { JackInTheBox } from "react-awesome-reveal";
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 const Navbar = () => {
@@ -171,12 +172,14 @@ const Navbar = () => {
           </div>
           <div className="flex items-center gap-4">
             <img className="h-12 md:h-20" src={logo} alt="" />
+            <JackInTheBox delay={2000}>
             <Link
               to="/"
               className=" hidden lg:flex text-3xl xl:text-4xl font-extrabold"
             >
               MediMart
             </Link>
+            </JackInTheBox>
           </div>
         </div>
         <div className="navbar-center hidden  lg:flex">
