@@ -10,7 +10,7 @@ const PopularBrands = () => {
     fetch("/Brands.json")
       .then((data) => data.json())
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setBrands(res);
       });
   }, []);

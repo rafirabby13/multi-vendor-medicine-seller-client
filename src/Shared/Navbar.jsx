@@ -46,6 +46,18 @@ const Navbar = () => {
           Shop
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          to="/faq"
+          className={({ isActive }) =>
+            isActive
+              ? "bg-background font-bold text-white lg:text-lg"
+              : "font-bold"
+          }
+        >
+          FAQ
+        </NavLink>
+      </li>
       {role === "user" ? (
         <li>
           <NavLink

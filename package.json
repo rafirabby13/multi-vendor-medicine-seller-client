@@ -21,6 +21,7 @@
     "material-react-table": "^3.1.0",
     "moment": "^2.30.1",
     "react": "^18.3.1",
+    "react-accessible-accordion": "^5.0.0",
     "react-awesome-reveal": "^4.3.1",
     "react-burger-menu": "^3.1.0",
     "react-data-table-component": "^7.6.2",
@@ -32,6 +33,7 @@
     "react-modern-drawer": "^1.4.0",
     "react-pro-sidebar": "^1.1.0",
     "react-router-dom": "^7.1.1",
+    "react-tabbordion": "^1.0.6",
     "sweetalert2": "^11.15.10",
     "swiper": "^11.2.1"
   },

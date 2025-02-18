@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 
 const MedicineDetailTable = ({ products }) => {
   
-  console.log(products);
+  // console.log(products);
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
   const { user } = useAuth();
