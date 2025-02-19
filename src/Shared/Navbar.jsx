@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { FaCartPlus } from "react-icons/fa";
+import { FaBirthdayCake, FaCartPlus, FaToggleOff, FaToggleOn } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../hooks/useAuth.jsx";
 import { useState } from "react";
@@ -10,10 +10,12 @@ import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
 import useAxiosPublic from "../hooks/useAxiosPublic.jsx";
 import { JackInTheBox } from "react-awesome-reveal";
+import { WiDaySunny } from "react-icons/wi";
+import { GiNightSleep } from "react-icons/gi";
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 const Navbar = () => {
-  const { user, logoutUser, updateUser } = useAuth();
+  const { user, logoutUser, updateUser, toggleTheme, theme } = useAuth();
   const [hidden, setHidden] = useState(true);
   const [cart] = useCart();
   const [role] = useUsersRole();
@@ -58,6 +60,9 @@ const Navbar = () => {
           FAQ
         </NavLink>
       </li>
+      {/* <li onClick={toggleTheme}>
+       { theme == 'light' ? <FaToggleOn className="  text-7xl"/> : <FaToggleOff className="  text-7xl"/>}
+      </li> */}
       {role === "user" ? (
         <li>
           <NavLink
@@ -155,7 +160,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-btns fixed right-0 top-0 left-0 z-50">
+    <div className="bg-btns  fixed right-0 top-0 left-0 z-50">
       <div className="navbar  md:max-w-[85%] mx-auto text-font items-center lg:py-6">
         <div className="navbar-start">
           <div className="dropdown z-50">

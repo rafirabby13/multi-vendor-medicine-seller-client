@@ -22,11 +22,13 @@ import SellerPaymentHistory from "../Pages/Dashboard/Seller/SellerPayment/Seller
 import SalesReport from "../Pages/Dashboard/Admin/SalesReport/SalesReport.jsx";
 import SellerHome from "../Pages/Dashboard/Seller/SellerHome/SellerHome.jsx";
 import Faq from "../Pages/faq/Faq.jsx";
+import Error from "../Pages/Error/Error.jsx";
 
 export const router = createBrowserRouter([
     {
         path: '',
         element: <Layout/>,
+        errorElement: <Error/>,
         children: [
             {
                 path: '',

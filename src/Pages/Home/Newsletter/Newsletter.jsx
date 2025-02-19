@@ -6,7 +6,7 @@ import {
   FaFacebookF,
 } from "react-icons/fa";
 import  { useRef } from 'react';
-// import emailjs from '@emailjs/browser';
+import emailjs from '@emailjs/browser';
 
 import Swal from "sweetalert2";
 const Newsletter = () => {
@@ -47,21 +47,21 @@ const Newsletter = () => {
     <div>
       <div className="bg-white border rounded-lg shadow-md flex flex-col md:flex-row justify-between items-center  px-6 py-5">
      
-        <form ref={form} onSubmit={sendEmail} className="flex items-center justify-between">
+        <form ref={form} onSubmit={sendEmail} className="flex items-center justify-between gap-2">
           <div className="  ">
           
             <input
               type="email"
               id="email"
               name="email"
-              className="w-full p-3   rounded-lg focus:outline-none focus:ring-2 focus:ring-[#02995D]"
+              className="w-full px-3 py-2  rounded-lg focus:outline-none focus:ring-2 focus:ring-[#02995D] border border-btns"
               placeholder="Your Email"
-              required
+              required 
             />
           </div>
 
         <div>
-        <button className="w-full text-[#eae5d7] bg-[#6B8A7A] py-2 px-4 text-xl font-semibold rounded hover:bg-[#6B8A7A] transition duration-300">
+        <button className="btn  bg-btns text-xl font-semibold  hover:bg-[#6B8A7A] transition duration-300">
             SUBSCRIBE
           </button>
         </div>
