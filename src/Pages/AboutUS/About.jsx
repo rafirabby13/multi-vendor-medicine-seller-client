@@ -1,5 +1,6 @@
 import { HeartPulse, Mail, MapPin, Phone, ShieldCheck, Truck, Users } from "lucide-react";
 import Header from "../../components/Header";
+import img from '../../../public/contact.jpg'
 
 const About = () => {
   return (
@@ -35,7 +36,8 @@ const About = () => {
             </div>
             <div className="rounded-xl overflow-hidden shadow-lg bg-white">
               <div className="h-64 bg-[#99bfe3] flex items-center justify-center">
-                <HeartPulse size={120} className="text-white" />
+                {/* <HeartPulse size={120} className="text-white" /> */}
+                <img src={img} alt="" />
               </div>
             </div>
           </div>

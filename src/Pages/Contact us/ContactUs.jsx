@@ -1,19 +1,29 @@
-import React from 'react';
-import { HeartPulse, Mail, MapPin, Phone, ShieldCheck, Truck, Users } from "lucide-react";
+import React from "react";
+import {
+  HeartPulse,
+  Mail,
+  MapPin,
+  Phone,
+  ShieldCheck,
+  Truck,
+  Users,
+} from "lucide-react";
+import Header from "../../components/Header";
 
 const ContactUs = () => {
-    return (
-        <div>
-             {/* Contact Section */}
+  return (
+    <div>
+        <Header title={'Contact Us'} description={"Have questions about MediMart? We'd love to hear from you. Reach out to our team using any of the methods below."}></Header>
+      {/* Contact Section */}
       <section className="w-full py-12 md:py-24 bg-white">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div className="flex flex-col space-y-4">
-              <h2 className="text-3xl font-bold">Contact Us</h2>
+              {/* <h2 className="text-3xl font-bold">Contact Us</h2>
               <p className="text-lg">
                 Have questions about MediMart? We'd love to hear from you. Reach
                 out to our team using any of the methods below.
-              </p>
+              </p> */}
 
               <div className="space-y-4 mt-6">
                 <div className="flex items-center space-x-4">
@@ -97,7 +107,7 @@ const ContactUs = () => {
       {/* Join Us Section */}
       <section className="w-full py-12 md:py-16">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="bg-gradient-to-r from-[#6f8bd7] to-[#38c8c5] rounded-xl p-8 md:p-12 text-white text-center">
+          <div className="bg-gradient-to-r from-second to-[#38c8c5] rounded-xl p-8 md:p-12 text-white text-center">
             <h2 className="text-3xl font-bold mb-4">Join Our Network</h2>
             <p className="text-lg max-w-2xl mx-auto mb-6">
               Are you a licensed pharmacy or healthcare product vendor? Partner
@@ -109,8 +119,8 @@ const ContactUs = () => {
           </div>
         </div>
       </section>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default ContactUs;
