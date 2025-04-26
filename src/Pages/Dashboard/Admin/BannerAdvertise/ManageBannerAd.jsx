@@ -38,6 +38,7 @@ const handleAddToBanner=(item)=>{
 }
   return (
     <div>
+      {/* ss */}
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
