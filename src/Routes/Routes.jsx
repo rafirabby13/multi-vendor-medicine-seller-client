@@ -24,6 +24,7 @@ import SellerHome from "../Pages/Dashboard/Seller/SellerHome/SellerHome.jsx";
 import Faq from "../Pages/faq/Faq.jsx";
 import Error from "../Pages/Error/Error.jsx";
 import About from "../Pages/AboutUS/About.jsx";
+import ContactUs from "../Pages/Contact us/ContactUs.jsx";
 
 export const router = createBrowserRouter([
     {
@@ -54,6 +55,10 @@ export const router = createBrowserRouter([
             {
                 path: 'about',
                 element: <About/>
+            },
+            {
+                path: 'contact',
+                element: <ContactUs/>
             },
             {
                 path: 'medicineDetail/:category',

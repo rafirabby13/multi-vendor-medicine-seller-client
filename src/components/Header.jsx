@@ -1,16 +1,18 @@
 /* eslint-disable react/prop-types */
 const Header = ({ title, description }) => {
   return (
-    <div>
-      <div className="text-center mb-12">
-        <h1 className="text-5xl font-bold  p-2 shadow-md shadow-btns p-6">
-          <span className="bg-clip-text bg-gradient-to-r from-blue-500 to-teal-400">
-            {title}
-          </span>
-        <p className="mt-4 text-xl   mx-auto">{description}</p>
-        </h1>
-      </div>
+    <div className="bg-[#f9fdfd] py-16 px-4">
+    <div className="text-center max-w-4xl mx-auto">
+      <h1 className="text-4xl md:text-5xl font-bold p-6 rounded-lg shadow-md shadow-[#38c8c5]/20 mb-4">
+        <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#6f8bd7] to-[#38c8c5]">
+          {title}
+        </span>
+      </h1>
+      <p className="mt-6 text-lg md:text-xl text-[#081d1d] max-w-2xl mx-auto">
+        {description}
+      </p>
     </div>
+  </div>
   );
 };
 

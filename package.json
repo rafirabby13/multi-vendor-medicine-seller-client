@@ -20,6 +20,7 @@
     "emailjs": "^4.0.3",
     "firebase": "^11.1.0",
     "lottie-react": "^2.4.0",
+    "lucide-react": "^0.503.0",
     "mantine-datatable": "^7.15.1",
     "material-react-table": "^3.1.0",
     "moment": "^2.30.1",

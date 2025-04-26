@@ -72,6 +72,18 @@ const Navbar = () => {
           About Us
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          to="/contact"
+          className={({ isActive }) =>
+            isActive
+              ? "bg-background font-bold  lg:text-lg"
+              : "font-bold"
+          }
+        >
+          Contact Us
+        </NavLink>
+      </li>
       {/* <li onClick={toggleTheme}>
        { theme == 'light' ? <FaToggleOn className="  text-7xl"/> : <FaToggleOff className="  text-7xl"/>}
       </li> */}
