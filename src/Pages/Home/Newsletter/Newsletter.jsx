@@ -5,8 +5,8 @@ import {
   FaTwitter,
   FaFacebookF,
 } from "react-icons/fa";
-import  { useRef } from 'react';
-import emailjs from '@emailjs/browser';
+import { useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 import Swal from "sweetalert2";
 const Newsletter = () => {
@@ -45,40 +45,46 @@ const Newsletter = () => {
   };
   return (
     <div>
-      <div className="bg-white border rounded-lg shadow-md flex flex-col md:flex-row justify-between items-center  px-6 py-5">
-     
-        <form ref={form} onSubmit={sendEmail} className="flex items-center justify-between gap-2">
-          <div className="  ">
-          
+      <div className="bg-background border border-second rounded-lg shadow-md flex flex-col md:flex-row justify-between items-center px-6 py-5">
+        {/* Form Section */}
+        <form
+          ref={form}
+          onSubmit={sendEmail}
+          className="flex items-center justify-between gap-4 w-full md:w-auto"
+          role="form"
+          aria-label="Newsletter Signup"
+        >
+          <div className="w-full md:w-64">
+            <label htmlFor="email" className="sr-only">
+              Your Email
+            </label>
             <input
               type="email"
               id="email"
               name="email"
-              className="w-full px-3 py-2  rounded-lg focus:outline-none focus:ring-2 focus:ring-[#02995D] border border-btns"
+              className="w-full px-3 py-2 rounded-lg border border-second focus:outline-none focus:ring-2 focus:ring-third focus:border-third transition duration-300 placeholder:font placeholder:opacity-60"
               placeholder="Your Email"
-              required 
+              required
             />
           </div>
-
-        <div>
-        <button className="btn  bg-btns text-xl font-semibold  hover:bg-[#6B8A7A] transition duration-300">
+          <button className="btn bg-btns text-font font-semibold hover:bg-second transition duration-300">
             SUBSCRIBE
           </button>
-        </div>
         </form>
 
-      
-        <div className="text-center md:text-left mx-4 ">
-          <h2 className="text-lg font-semibold text-gray-900">
+        {/* Text Section */}
+        <div className="text-center md:text-left mt-4 md:mt-0 md:ml-6">
+          <h2 className="text-lg font-semibold text-font">
             SIGN UP FOR NEWSLETTER
           </h2>
-          <p className="text-gray-600 text-sm">
-            Get <span className="text-red-500 font-bold">30% OFF</span> coupon
+          <p className="text-font text-sm mt-1">
+            Get <span className="text-btns font-bold">30% OFF</span> coupon
             today subscribers
           </p>
+          <p className="text-font text-xs mt-1 italic opacity-70">
+            We respect your privacy
+          </p>
         </div>
-
-   
       </div>
     </div>
   );
