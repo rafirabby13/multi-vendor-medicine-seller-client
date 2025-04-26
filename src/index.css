@@ -5,10 +5,15 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+@import "tailwindcss";
+@plugin "daisyui";
+@theme {
+  --color-font: #081d1d;
+  --color-background: #f9fdfd;
+  --color-btns: #38c8c5;
+  --color-second: #99bfe3;
+  --color-third: #6f8bd7;
+}
 body{
     font-family: "Philosopher", serif;
     /* font-family: "Tilt Neon", serif; */

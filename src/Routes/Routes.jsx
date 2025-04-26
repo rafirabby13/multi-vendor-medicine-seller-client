@@ -23,6 +23,7 @@ import SalesReport from "../Pages/Dashboard/Admin/SalesReport/SalesReport.jsx";
 import SellerHome from "../Pages/Dashboard/Seller/SellerHome/SellerHome.jsx";
 import Faq from "../Pages/faq/Faq.jsx";
 import Error from "../Pages/Error/Error.jsx";
+import About from "../Pages/AboutUS/About.jsx";
 
 export const router = createBrowserRouter([
     {
@@ -49,6 +50,10 @@ export const router = createBrowserRouter([
             {
                 path: 'faq',
                 element: <Faq/>
+            },
+            {
+                path: 'about',
+                element: <About/>
             },
             {
                 path: 'medicineDetail/:category',

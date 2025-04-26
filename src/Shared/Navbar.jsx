@@ -5,7 +5,7 @@ import useAuth from "../hooks/useAuth.jsx";
 import { useState } from "react";
 import useCart from "../hooks/useCart.jsx";
 import useUsersRole from "../hooks/useUsersRole.jsx";
-import logo from "../assets/logo.png";
+import logo from "../../public/medicin.png";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
 import useAxiosPublic from "../hooks/useAxiosPublic.jsx";
@@ -29,7 +29,7 @@ const Navbar = () => {
           to="/"
           className={({ isActive }) =>
             isActive
-              ? "bg-background font-bold text-white lg:text-lg"
+              ? "bg-background font-bold  lg:text-lg"
               : "font-bold"
           }
         >
@@ -41,7 +41,7 @@ const Navbar = () => {
           to="/shop"
           className={({ isActive }) =>
             isActive
-              ? "bg-background font-bold text-white lg:text-lg"
+              ? "bg-background font-bold  lg:text-lg"
               : "font-bold"
           }
         >
@@ -53,11 +53,23 @@ const Navbar = () => {
           to="/faq"
           className={({ isActive }) =>
             isActive
-              ? "bg-background font-bold text-white lg:text-lg"
+              ? "bg-background font-bold  lg:text-lg"
               : "font-bold"
           }
         >
           FAQ
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/about"
+          className={({ isActive }) =>
+            isActive
+              ? "bg-background font-bold  lg:text-lg"
+              : "font-bold"
+          }
+        >
+          About Us
         </NavLink>
       </li>
       {/* <li onClick={toggleTheme}>
@@ -69,7 +81,7 @@ const Navbar = () => {
             to="/cart"
             className={({ isActive }) =>
               isActive
-                ? "bg-background font-bold text-white lg:text-lg"
+                ? "bg-background font-bold  lg:text-lg"
                 : "font-bold"
             }
           >
@@ -85,7 +97,7 @@ const Navbar = () => {
             to="/dashboard"
             className={({ isActive }) =>
               isActive
-                ? "bg-background font-bold text-white lg:text-lg"
+                ? "bg-background font-bold  lg:text-lg"
                 : "font-bold"
             }
           >
@@ -232,7 +244,7 @@ const Navbar = () => {
                     {/* Dashboard Button */}
                     <Link
                       to="/dashboard"
-                      className="btn px-6 py-2  text-white rounded-md  transition w-full z-30"
+                      className="btn px-6 py-2  rounded-md  transition w-full z-30"
                     >
                       Dashboard
                     </Link>
@@ -240,7 +252,7 @@ const Navbar = () => {
                     {/* Logout Button */}
                     <button
                       onClick={handleLogout}
-                      className="btn btn-danger px-6 py-2bg-red-600 text-white rounded-md  transition w-full z-30"
+                      className="btn btn-danger px-6 py-2bg-red-600  rounded-md  transition w-full z-30"
                     >
                       Logout
                     </button>
@@ -250,15 +262,15 @@ const Navbar = () => {
             </>
           ) : (
             <div className="flex items-center gap-2">
-               <img
+               {/* <img
                   onClick={() => setHidden(!hidden)}
                   className="h-16 rounded-full w-16 cursor-pointer relative border-2 border-third p-1"
                   src=''
                   alt=""
-                />
+                /> */}
               <Link
                 to="/login"
-                className=" border-none p-1 lg:text-xl xl:btn text-md bg-background xl:bg-background text-white xl:text-white"
+                className=" p-1 lg:text-xl xl:btn  text-md "
               >
                 Join US
               </Link>
