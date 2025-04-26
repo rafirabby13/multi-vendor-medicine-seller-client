@@ -24,7 +24,7 @@ const Banner = () => {
       });
   }, [axiosPublic]);
   return (
-    <div className="banner ">
+    <div className="banner4 ">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -35,7 +35,6 @@ const Banner = () => {
         pagination={{
           clickable: true,
         }}
-       
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
@@ -44,21 +43,28 @@ const Banner = () => {
             <div
               className=" flex   md:flex-row flex-col items-center justify-center md:gap-10  h-[200px] md:h-[350px]  "
               style={{
-                backgroundImage: `linear-gradient(#99DDCC, rgba(0, 0, 0, 0.1)),url(${banner?.image})`,
+                // backgroundImage: `linear-gradient(#99DDCC, rgba(0, 0, 0, 0.1)),url(${banner?.image})`,
+                backgroundImage: `url(${banner?.image})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
             >
-              <div className=" space-y-4 text-center px-10">
-                
-                <Fade delay={1e3} cascade damping={1e-1} className=" text-xl md:text-3xl lg:text-6xl font-bold ">
+              <div className=" space-y-7 text-center px-10 bg-white/20 backdrop-blur-xl p-1 rounded-4xl ">
+                <Fade
+                  delay={1e3}
+                  cascade
+                  damping={1e-1}
+                  className=" text-xl md:text-3xl lg:text-6xl font-bold "
+                >
                   {banner?.heading}
                 </Fade>
-                <p className="md:text-xl font-semibold text-sm">{banner?.description}</p>
+                <p className="md:text-xl font-semibold text-sm">
+                  {banner?.description}
+                </p>
                 {/* <p className="md:text-xl text-sm">{banner?.discount}</p> */}
-                {/* <button className="p-1 px-6 md:py-3 bg-btns  font-semibold rounded-lg transition-shadow shadow-lg hover:shadow-xl">
+                <button className="p-1 px-6 md:py-3 bg-btns  font-semibold rounded-lg transition-shadow shadow-lg hover:shadow-xl">
                   Explore
-                </button> */}
+                </button>
               </div>
             </div>
           </SwiperSlide>
