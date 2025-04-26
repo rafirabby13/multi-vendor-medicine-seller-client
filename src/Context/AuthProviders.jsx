@@ -16,7 +16,10 @@ const AuthProviders = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
   const axiosPublic = useAxiosPublic();
-  
+  const [theme, setTheme] =  useState('light')
+  const toggleTheme=()=>{
+    setTheme(curr=> curr === 'light' ? 'dark' : 'light')
+  }
 
   const googleProvider = new GoogleAuthProvider();
   const registerUser = (email, password) => {
@@ -88,6 +91,8 @@ const AuthProviders = ({ children }) => {
     logoutUser,
     googleLogin,
     updateUser,
+    theme,
+    toggleTheme,
     user,
     setUser,
     loading,

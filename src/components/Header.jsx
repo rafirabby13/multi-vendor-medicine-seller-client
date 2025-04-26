@@ -3,7 +3,7 @@ const Header = ({ title, description }) => {
   return (
     <div>
       <div className="text-center mb-12">
-        <h1 className="text-5xl font-bold ">
+        <h1 className="text-5xl font-bold  p-2 shadow-md shadow-btns">
           <span className="bg-clip-text bg-gradient-to-r from-blue-500 to-teal-400">
             {title}
           </span>

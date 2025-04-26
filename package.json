@@ -10,17 +10,20 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@stripe/react-stripe-js": "^3.1.1",
     "@stripe/stripe-js": "^5.5.0",
     "@tanstack/react-query": "^5.64.1",
     "axios": "^1.7.9",
     "clsx": "^2.1.1",
+    "emailjs": "^4.0.3",
     "firebase": "^11.1.0",
     "lottie-react": "^2.4.0",
     "mantine-datatable": "^7.15.1",
     "material-react-table": "^3.1.0",
     "moment": "^2.30.1",
     "react": "^18.3.1",
+    "react-accessible-accordion": "^5.0.0",
     "react-awesome-reveal": "^4.3.1",
     "react-burger-menu": "^3.1.0",
     "react-data-table-component": "^7.6.2",
@@ -32,6 +35,7 @@
     "react-modern-drawer": "^1.4.0",
     "react-pro-sidebar": "^1.1.0",
     "react-router-dom": "^7.1.1",
+    "react-tabbordion": "^1.0.6",
     "sweetalert2": "^11.15.10",
     "swiper": "^11.2.1"
   },

@@ -35,7 +35,7 @@ const Banner = () => {
         pagination={{
           clickable: true,
         }}
-        navigation={true}
+       
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
@@ -44,7 +44,7 @@ const Banner = () => {
             <div
               className=" flex   md:flex-row flex-col items-center justify-center md:gap-10  h-[200px] md:h-[350px]  "
               style={{
-                backgroundImage: `linear-gradient(#99DDCC, rgba(0, 0, 0, 0.5)),url(${banner?.image})`,
+                backgroundImage: `linear-gradient(#99DDCC, rgba(0, 0, 0, 0.1)),url(${banner?.image})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
@@ -56,9 +56,9 @@ const Banner = () => {
                 </Fade>
                 <p className="md:text-xl font-semibold text-sm">{banner?.description}</p>
                 {/* <p className="md:text-xl text-sm">{banner?.discount}</p> */}
-                <button className="p-1 px-6 md:py-3 bg-btns  font-semibold rounded-lg transition-shadow shadow-lg hover:shadow-xl">
+                {/* <button className="p-1 px-6 md:py-3 bg-btns  font-semibold rounded-lg transition-shadow shadow-lg hover:shadow-xl">
                   Explore
-                </button>
+                </button> */}
               </div>
             </div>
           </SwiperSlide>

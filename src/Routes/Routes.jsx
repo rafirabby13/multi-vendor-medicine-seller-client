@@ -21,11 +21,14 @@ import ManageMedicine from "../Pages/Dashboard/Seller/ManageMedicine/ManageMedic
 import SellerPaymentHistory from "../Pages/Dashboard/Seller/SellerPayment/SellerPaymentHistory.jsx";
 import SalesReport from "../Pages/Dashboard/Admin/SalesReport/SalesReport.jsx";
 import SellerHome from "../Pages/Dashboard/Seller/SellerHome/SellerHome.jsx";
+import Faq from "../Pages/faq/Faq.jsx";
+import Error from "../Pages/Error/Error.jsx";
 
 export const router = createBrowserRouter([
     {
         path: '',
         element: <Layout/>,
+        errorElement: <Error/>,
         children: [
             {
                 path: '',
@@ -42,6 +45,10 @@ export const router = createBrowserRouter([
             {
                 path: 'shop',
                 element: <Shop/>
+            },
+            {
+                path: 'faq',
+                element: <Faq/>
             },
             {
                 path: 'medicineDetail/:category',

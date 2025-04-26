@@ -1,0 +1,30 @@
+[
+  {
+      "id": 1,
+      "img": "https://randomuser.me/api/portraits/men/35.jpg",
+      "name": "Ramesh Kumar",
+      "feedback2": "MediMart has been a lifesaver for my family! Ordering medicines online is now so convenient, and the delivery is always on time. The platform is easy to use, and I appreciate the detailed product descriptions.",
+      "rating": 4.5
+  },
+  {
+      "id": 2,
+      "img": "https://randomuser.me/api/portraits/women/55.jpg",
+      "name": "Sophie Williams",
+      "feedback2": "I was skeptical about buying medicines online, but MediMart changed my mind. The authenticity and quick doorstep delivery have made my life so much easier. Highly recommended!",
+      "rating": 5
+  },
+  {
+      "id": 3,
+      "img": "https://randomuser.me/api/portraits/women/57.jpg",
+      "name": "Aisha Malik",
+      "feedback2": "Finding genuine medicines at reasonable prices has never been easier. The customer service is outstanding, and I love how simple it is to place repeat orders. MediMart is my go-to for all healthcare needs.",
+      "rating": 4.8
+  },
+  {
+      "id": 4,
+      "img": "https://randomuser.me/api/portraits/men/47.jpg",
+      "name": "David Johnson",
+      "feedback2": "I needed urgent medicines late at night, and MediMart came through! The fast delivery and secure payment options make it a trustworthy platform. I’ll definitely continue using it.",
+      "rating": 4.7
+  }
+]

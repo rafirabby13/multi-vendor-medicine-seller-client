@@ -29,3 +29,16 @@ body{
     background-size: cover;
    
   }
+
+  .brand{
+    box-shadow: 2px 2px 12px 2px #05fffb;
+  }
+
+  #dark{
+    background: #021526;
+    color: #DCD7C9;
+  }
+.nav #dark{
+    background-color: #021526;
+    color: #DCD7C9;
+  }
