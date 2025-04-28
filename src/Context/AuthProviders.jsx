@@ -16,10 +16,10 @@ const AuthProviders = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
   const axiosPublic = useAxiosPublic();
-  const [theme, setTheme] =  useState('light')
-  const toggleTheme=()=>{
-    setTheme(curr=> curr === 'light' ? 'dark' : 'light')
-  }
+  const [theme, setTheme] = useState("light");
+  const toggleTheme = () => {
+    setTheme((curr) => (curr === "light" ? "dark" : "light"));
+  };
 
   const googleProvider = new GoogleAuthProvider();
   const registerUser = (email, password) => {
@@ -51,8 +51,8 @@ const AuthProviders = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      // console.log(currentUser);
       setUser(currentUser);
+      console.log("currentUser", currentUser);
       if (currentUser) {
         // const userData = {
         //   name: currentUser.displayName,
@@ -67,13 +67,14 @@ const AuthProviders = ({ children }) => {
         const userEmail = { email: currentUser.email };
 
         axiosPublic.post("/jwt", userEmail).then((res) => {
-          console.log(res.data);
+          // console.log(res.data.token);
           if (res.data.token) {
             localStorage.setItem("access-token", res.data.token);
             setLoading(false);
           }
         });
       } else {
+        setUser(null);
         localStorage.removeItem("access-token");
 
         setLoading(false);

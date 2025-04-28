@@ -25,6 +25,7 @@ import Faq from "../Pages/faq/Faq.jsx";
 import Error from "../Pages/Error/Error.jsx";
 import About from "../Pages/AboutUS/About.jsx";
 import ContactUs from "../Pages/Contact us/ContactUs.jsx";
+import DashboardHome from "../Pages/Dashboard/DashBoardHome/DashboardHome.jsx";
 
 export const router = createBrowserRouter([
     {
@@ -81,7 +82,7 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '',
-                element: <AdminHome/>
+                element: <DashboardHome/>
             },
             {
                 path: 'users',

@@ -16,7 +16,9 @@ const useAxiosSecure = () => {
     function (config) {
       // console.log('req stop by interceptor');
       const token = localStorage.getItem("access-token");
-      config.headers.authorization = `Bearer ${token}`;
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+      }
       return config;
     },
     function (error) {
@@ -28,17 +30,20 @@ const useAxiosSecure = () => {
 
   axiosSecure.interceptors.response.use(
     function (res) {
-        // setShouldNavigate(false);
+      // setShouldNavigate(false);
+      // console.log(res);
 
       return res;
     },
     async (err) => {
-      const status = err.response.status;
+      const status = err.response ? err.response.status : null;
+
+      console.log(status);
 
       if (status == 401 || status === 403) {
         try {
           await logoutUser();
-          
+
           setShouldNavigate(true);
         } catch (error) {
           console.error("Error during logout:", error);

@@ -6,8 +6,8 @@ const AdminHome = () => {
   const [totalPaid, refetch] = useTotalPayment();
 
   const [cart] = useCart();
-  console.log(cart);
-  console.log(totalPaid);
+  // console.log(cart);
+  // console.log(totalPaid);
   
   const paid = totalPaid.filter(item=> item.status === 'Paid')
   const pending = totalPaid.filter(item=> item.status === 'pending')
@@ -21,7 +21,7 @@ const AdminHome = () => {
       (total, item) => total + (item.totalPrice),
       0
     );
-    console.log(paid);
+    // console.log(paid);
   
   const paidTotal = totalPaid?.reduce((total, item) => total + item.price, 0);
   return (
