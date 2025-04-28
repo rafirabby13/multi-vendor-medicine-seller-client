@@ -216,7 +216,7 @@ const Navbar = () => {
             <JackInTheBox delay={2000}>
             <Link
               to="/"
-              className=" hidden lg:flex text-3xl xl:text-4xl font-extrabold"
+              className=" hidden 2xl:flex text-3xl xl:text-4xl font-extrabold"
             >
               MediMart
             </Link>

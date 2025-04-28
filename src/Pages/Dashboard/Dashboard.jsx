@@ -1,10 +1,8 @@
 /* eslint-disable no-unused-vars */
 import useUsersRole from "../../hooks/useUsersRole.jsx";
+import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 
 import useAuth from "../../hooks/useAuth.jsx";
-import Drawer from "react-modern-drawer";
-// import 'react-modern-drawer/dist/index.css'
-//import styles 👇
 import "react-modern-drawer/dist/index.css";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
@@ -22,473 +20,156 @@ import { Helmet } from "react-helmet";
 const Dashboard = () => {
   const { user } = useAuth();
   const [role] = useUsersRole();
-  console.log(role);
-  const [isOpen, setIsOpen] = useState(false);
-  const toggleDrawer = () => {
-    setIsOpen((prevState) => !prevState);
-  };
+  // console.log(role);
+  const [toggled, setToggled] = useState(false);
 
+  const navItems = [
+    // Admin
+    {
+      Icon: <FaHome className="w-5 h-5" />,
+      name: "Dashboard",
+      path: "/dashboard",
+      roles: ["admin", "seller", "user"],
+    },
+    {
+      Icon: <FaUsers className="w-5 h-5" />,
+      name: "Manage Users",
+      path: "/dashboard/users",
+      roles: ["admin"],
+    },
+    {
+      Icon: <FaList className="w-5 h-5" />,
+      name: "Manage Category",
+      path: "/dashboard/medicineCategory",
+      roles: ["admin"],
+    },
+    {
+      Icon: <FaCreditCard className="w-5 h-5" />,
+      name: "Payment Management",
+      path: "/dashboard/paymentManagement",
+      roles: ["admin"],
+    },
+    {
+      Icon: <FaChartLine className="w-5 h-5" />,
+      name: "Sales Report",
+      path: "/dashboard/salesReport",
+      roles: ["admin"],
+    },
+    {
+      Icon: <FaAd className="w-5 h-5" />,
+      name: "Manage Banner Advertise",
+      path: "/dashboard/manageBannerAdd",
+      roles: ["admin"],
+    },
+
+    // Seller
+    // {
+    //   Icon: <FaHome className="w-5 h-5" />,
+    //   name: "Seller Home",
+    //   path: "/dashboard/sellerHome",
+    //   roles: ["seller"],
+    // },
+    {
+      Icon: <FaPlus className="w-5 h-5" />,
+      name: "Manage Medicines",
+      path: "/dashboard/manageMedicine",
+      roles: ["seller"],
+    },
+    {
+      Icon: <FaCreditCard className="w-5 h-5" />,
+      name: "Payment History",
+      path: "/dashboard/paymentHistorySeller",
+      roles: ["seller"],
+    },
+    {
+      Icon: <FaAd className="w-5 h-5" />,
+      name: "Ask For Advertisement",
+      path: "/dashboard/askBannerAd",
+      roles: ["seller"],
+    },
+
+    // User
+    // {
+    //   Icon: <FaCreditCard className="w-5 h-5" />,
+    //   name: "Payment History",
+    //   path: "/dashboard/myPayment",
+    //   roles: ["user"],
+    // },
+
+    // Common
+    {
+      Icon: <FaHome className="w-5 h-5" />,
+      name: "Home",
+      path: "/",
+      roles: ["admin", "seller", "user"], // Home is common for all
+    },
+  ];
   return (
-    <div>
+    <div className="">
       <Helmet>
         <title>Dashboard | Medimart</title>
       </Helmet>
       <button
-        className="flex lg:hidden p-4 md:p-10 mr-10 z-50"
-        onClick={toggleDrawer}
+        className={`flex  p-4 md:p-10  z-50 btn lg:hidden fixed  `}
+        onClick={() => setToggled(!toggled)}
       >
         <FaBars className="text-4xl" />
       </button>
-      <div className="">
-        <div className="hidden lg:flex bg-btns md:min-h-screen hidden  py-20 xl:pl-8">
-          {role === "admin" && (
-            <div className="  flex flex-col gap-8">
-              <NavLink
-                to="/dashboard/home"
-                className={({ isActive }) =>
-                  isActive
-                    ? "bg-background text-btns   w-full p-3 rounded-lg font-bold text-white lg:text-lg"
-                    : "font-bold text-xl border-b-4 p-3 rounded-sm"
-                }
-              >
-                <span className="flex items-center justify-between">
-                  Admin Home <FaHome className="text-4xl" />
-                </span>
-              </NavLink>
 
-              <NavLink
-                to="/dashboard/users"
-                className={({ isActive }) =>
-                  isActive
-                    ? "bg-background text-btns   w-full p-3 rounded-lg font-bold text-white lg:text-lg"
-                    : "font-bold text-xl border-b-4 p-3 rounded-sm"
-                }
+      <Sidebar
+        onBackdropClick={() => setToggled(false)}
+        toggled={toggled}
+        breakPoint="always"
+        className={`bg-btns md:min-h-screen lg:hidden py-20 px-4 flex flex-col gap-4`}
+      >
+        <Menu
+          menuItemStyles={{
+            button: {
+              // the active class will be added automatically by react router
+              // so we can use it to style the active menu item
+              [`&.active`]: {
+                backgroundColor: "#13395e",
+                color: "#b6c8d9",
+              },
+            },
+          }}
+        >
+          {navItems.map(
+            (item) =>
+              item.roles.includes(role) && (
+                <MenuItem
+                key={item.path}
+                icon={item.Icon}
+                component={<NavLink to={item.path} end />}
               >
-                <span className="flex items-center justify-between">
-                  Manage Users <FaUsers className="text-4xl" />
-                </span>
-              </NavLink>
-
-              <NavLink
-                to="/dashboard/medicineCategory"
-                className={({ isActive }) =>
-                  isActive
-                    ? "bg-background text-btns   w-full p-3 rounded-lg font-bold text-white lg:text-lg"
-                    : "font-bold text-xl border-b-4 p-3 rounded-sm"
-                }
-              >
-                <span className="flex items-center justify-between">
-                  Manage Category <FaList className="text-4xl" />
-                </span>
-              </NavLink>
-
-              <NavLink
-                to="/dashboard/paymentManagement"
-                className={({ isActive }) =>
-                  isActive
-                    ? "bg-background text-btns   w-full p-3 rounded-lg font-bold text-white lg:text-lg"
-                    : "font-bold text-xl border-b-4 p-3 rounded-sm"
-                }
-              >
-                <span className="flex items-center justify-between">
-                  Payment management
-                  <FaCreditCard className="text-4xl" />
-                </span>
-              </NavLink>
-
-              <NavLink
-                to="/dashboard/salesReport"
-                className={({ isActive }) =>
-                  isActive
-                    ? "bg-background text-btns   w-full p-3 rounded-lg font-bold text-white lg:text-lg"
-                    : "font-bold text-xl border-b-4 p-3 rounded-sm"
-                }
-              >
-                <span className="flex items-center justify-between">
-                  {" "}
-                  Sales Report
-                  <FaChartLine className="text-4xl" />
-                </span>
-              </NavLink>
-
-              <NavLink
-                to="/dashboard/manageBannerAdd"
-                className={({ isActive }) =>
-                  isActive
-                    ? "bg-background text-btns   w-full p-3 rounded-lg font-bold text-white lg:text-lg"
-                    : "font-bold text-xl border-b-4 p-3 rounded-sm"
-                }
-              >
-                <span className="flex items-center justify-between gap-4">
-                  Manage banner Advertise
-                  <FaAd className="text-4xl" />
-                </span>
-              </NavLink>
-
-              <NavLink
-                to="/"
-                className={({ isActive }) =>
-                  isActive
-                    ? "bg-background text-btns   w-full p-3 rounded-lg font-bold text-white lg:text-lg"
-                    : "font-bold text-xl border-b-4 p-3 rounded-sm"
-                }
-              >
-                <span className="flex items-center justify-between">
-                  Home
-                  <FaHome className="text-4xl" />
-                </span>
-              </NavLink>
-            </div>
-          )}{" "}
-          {role === "seller" && (
-            <div className="  flex flex-col gap-8  ">
-              <NavLink
-                to="/dashboard/sellerHome"
-                className={({ isActive }) =>
-                  isActive
-                    ? "bg-background text-btns   w-full p-3 rounded-lg font-bold text-white lg:text-lg"
-                    : "font-bold text-xl border-b-4 p-3 rounded-sm"
-                }
-              >
-                <span className="flex items-center justify-between gap-4">
-                  Seller Home
-                  <FaHome className="text-4xl" />
-                </span>
-              </NavLink>
-
-              <NavLink
-                to="/dashboard/manageMedicine"
-                className={({ isActive }) =>
-                  isActive
-                    ? "bg-background text-btns   w-full p-3 rounded-lg font-bold text-white lg:text-lg"
-                    : "font-bold text-xl border-b-4 p-3 rounded-sm"
-                }
-              >
-                <span className="flex items-center justify-between gap-4">
-                  Manage Medicines
-                  <FaPlus className="text-4xl" />
-                </span>
-              </NavLink>
-
-              <NavLink
-                to="/dashboard/paymentHistorySeller"
-                className={({ isActive }) =>
-                  isActive
-                    ? "bg-background text-btns   w-full p-3 rounded-lg font-bold text-white lg:text-lg"
-                    : "font-bold text-xl border-b-4 p-3 rounded-sm"
-                }
-              >
-                <span className="flex items-center justify-between gap-4">
-                  Payment History
-                  <FaCreditCard className="text-4xl" />
-                </span>
-              </NavLink>
-
-              <NavLink
-                to="/dashboard/askBannerAd"
-                className={({ isActive }) =>
-                  isActive
-                    ? "bg-background text-btns   w-full p-3 rounded-lg font-bold text-white lg:text-lg"
-                    : "font-bold text-xl border-b-4 p-3 rounded-sm"
-                }
-              >
-                <span className="flex items-center justify-between gap-4">
-                  Ask For Advertisement
-                  <FaAd className="text-4xl" />
-                </span>
-              </NavLink>
-
-              <NavLink
-                to="/"
-                className={({ isActive }) =>
-                  isActive
-                    ? "bg-background text-btns   w-full p-3 rounded-lg font-bold text-white lg:text-lg"
-                    : "font-bold text-xl border-b-4 p-3 rounded-sm"
-                }
-              >
-                <span className="flex items-center justify-between">
-                  Home
-                  <FaHome className="text-4xl" />
-                </span>
-              </NavLink>
-            </div>
+                {item.name}
+              </MenuItem>
+              )
           )}
-          {role === "user" && (
-            <div className="  flex flex-col gap-8  ">
-              {/* 
-                <NavLink
-                  to="/dashboard/home"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "bg-[#439A97] p-3 font-bold text-white lg:text-lg"
-                      : "font-bold"
-                  }
-                >
-                  User Home
-                </NavLink>
-               */}
-
+        </Menu>
+      </Sidebar>
+      <div
+        className="hidden lg:flex lg:flex-col lg:gap-8
+       bg-btns md:min-h-screen   py-20 xl:px-8"
+      >
+        {navItems.map(
+          (item) =>
+            item.roles.includes(role) && (
               <NavLink
-                to="/dashboard/myPayment"
+                to={item.path}
+                end
                 className={({ isActive }) =>
                   isActive
-                    ? "bg-background text-btns   w-full p-3 rounded-lg font-bold text-white lg:text-lg"
-                    : "font-bold text-xl border-b-4 p-3 rounded-sm"
+                    ? "  w-full p-3 bg-[#FFEDFA] rounded-lg text-btns font-bold   lg:text-lg"
+                    : "font-bold text-xl border-b-4 p-3 rounded-sm border-2"
                 }
               >
-                <span
-                  className="flex items-center justify-between gap-7
-              "
-                >
-                  Payment history
-                  <FaCreditCard className="text-4xl" />
+                <span className="flex items-center gap-5">
+                  {item.Icon} {item.name}
                 </span>
               </NavLink>
-
-              <NavLink
-                to="/"
-                className={({ isActive }) =>
-                  isActive
-                    ? "bg-background text-btns   w-full p-3 rounded-lg font-bold text-white lg:text-lg"
-                    : "font-bold text-xl border-b-4 p-3 rounded-sm"
-                }
-              >
-                <span className="flex items-center justify-between">
-                  Home
-                  <FaHome className="text-4xl" />
-                </span>
-              </NavLink>
-            </div>
-          )}
-        </div>
-
-        <div className="flex lg:hidden bg-btns z-50 h-full">
-          <Drawer
-            open={isOpen}
-            onClose={toggleDrawer}
-            direction="left"
-            className="bg-btns z-50"
-          >
-            {role === "admin" && (
-              <div className="  flex flex-col gap-2 z-50 py-10">
-                <NavLink
-                  to="/dashboard/home"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "bg-background text-btns   w-full p-3 rounded-lg font-bold text-white lg:text-lg"
-                      : "font-bold  border-b-4 p-3 rounded-sm"
-                  }
-                >
-                  <span className="flex items-center justify-between">
-                    Admin Home <FaHome className="text-xl" />
-                  </span>
-                </NavLink>
-
-                <NavLink
-                  to="/dashboard/users"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "bg-background text-btns   w-full p-3 rounded-lg font-bold text-white lg:text-lg"
-                      : "font-bold  border-b-4 p-3 rounded-sm"
-                  }
-                >
-                  <span className="flex items-center justify-between">
-                    Manage Users <FaUsers className="text-xl" />
-                  </span>
-                </NavLink>
-
-                <NavLink
-                  to="/dashboard/medicineCategory"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "bg-background text-btns   w-full p-3 rounded-lg font-bold text-white lg:text-lg"
-                      : "font-bold  border-b-4 p-3 rounded-sm"
-                  }
-                >
-                  <span className="flex items-center justify-between">
-                    Manage Category <FaList className="text-xl" />
-                  </span>
-                </NavLink>
-
-                <NavLink
-                  to="/dashboard/paymentManagement"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "bg-background text-btns   w-full p-3 rounded-lg font-bold text-white lg:text-lg"
-                      : "font-bold  border-b-4 p-3 rounded-sm"
-                  }
-                >
-                  <span className="flex items-center justify-between">
-                    Payment management
-                    <FaCreditCard className="text-xl" />
-                  </span>
-                </NavLink>
-
-                <NavLink
-                  to="/dashboard/salesReport"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "bg-background text-btns   w-full p-3 rounded-lg font-bold text-white lg:text-lg"
-                      : "font-bold  border-b-4 p-3 rounded-sm"
-                  }
-                >
-                  <span className="flex items-center justify-between">
-                    {" "}
-                    Sales Report
-                    <FaChartLine className="text-xl" />
-                  </span>
-                </NavLink>
-
-                <NavLink
-                  to="/dashboard/manageBannerAdd"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "bg-background text-btns   w-full p-3 rounded-lg font-bold text-white lg:text-lg"
-                      : "font-bold  border-b-4 p-3 rounded-sm"
-                  }
-                >
-                  <span className="flex items-center justify-between gap-4">
-                    Manage banner Advertise
-                    <FaAd className="text-xl" />
-                  </span>
-                </NavLink>
-
-                <NavLink
-                  to="/"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "bg-background text-btns   w-full p-3 rounded-lg font-bold text-white lg:text-lg"
-                      : "font-bold  border-b-4 p-3 rounded-sm"
-                  }
-                >
-                  <span className="flex items-center justify-between">
-                    Home
-                    <FaHome className="text-xl" />
-                  </span>
-                </NavLink>
-              </div>
-            )}{" "}
-            {role === "seller" && (
-              <div className="  flex flex-col gap-8  py-20">
-                {/* 
-              <NavLink
-                to="/dashboard/home"
-                className={({ isActive }) =>
-                  isActive
-                    ? "bg-[#439A97] p-3 font-bold text-white lg:text-lg"
-                    : "font-bold"
-                }
-              >
-                Seller Home
-              </NavLink>
-             */}
-
-                <NavLink
-                  to="/dashboard/manageMedicine"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "bg-background text-btns   w-full p-3 rounded-lg font-bold text-white lg:text-lg"
-                      : "font-bold text-xl border-b-4 p-3 rounded-sm"
-                  }
-                >
-                  <span className="flex items-center justify-between gap-4">
-                    Manage Medicines
-                    <FaPlus className="text-4xl" />
-                  </span>
-                </NavLink>
-
-                <NavLink
-                  to="/dashboard/paymentHistorySeller"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "bg-background text-btns   w-full p-3 rounded-lg font-bold text-white lg:text-lg"
-                      : "font-bold text-xl border-b-4 p-3 rounded-sm"
-                  }
-                >
-                  <span className="flex items-center justify-between gap-4">
-                    Payment History
-                    <FaCreditCard className="text-4xl" />
-                  </span>
-                </NavLink>
-
-                <NavLink
-                  to="/dashboard/askBannerAd"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "bg-background text-btns   w-full p-3 rounded-lg font-bold text-white lg:text-lg"
-                      : "font-bold text-xl border-b-4 p-3 rounded-sm"
-                  }
-                >
-                  <span className="flex items-center justify-between gap-4">
-                    Ask For Advertisement
-                    <FaAd className="text-4xl" />
-                  </span>
-                </NavLink>
-
-                <NavLink
-                  to="/"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "bg-background text-btns   w-full p-3 rounded-lg font-bold text-white lg:text-lg"
-                      : "font-bold text-xl border-b-4 p-3 rounded-sm"
-                  }
-                >
-                  <span className="flex items-center justify-between">
-                    Home
-                    <FaHome className="text-4xl" />
-                  </span>
-                </NavLink>
-              </div>
-            )}
-            {role === "user" && (
-              <div className="  flex flex-col gap-8  ">
-                {/* 
-                <NavLink
-                  to="/dashboard/home"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "bg-[#439A97] p-3 font-bold text-white lg:text-lg"
-                      : "font-bold"
-                  }
-                >
-                  User Home
-                </NavLink>
-               */}
-
-                <NavLink
-                  to="/dashboard/myPayment"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "bg-background text-btns   w-full p-3 rounded-lg font-bold text-white lg:text-lg"
-                      : "font-bold text-xl border-b-4 p-3 rounded-sm"
-                  }
-                >
-                  <span
-                    className="flex items-center justify-between gap-7
-              "
-                  >
-                    Payment history
-                    <FaCreditCard className="text-4xl" />
-                  </span>
-                </NavLink>
-
-                <NavLink
-                  to="/"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "bg-background text-btns   w-full p-3 rounded-lg font-bold text-white lg:text-lg"
-                      : "font-bold text-xl border-b-4 p-3 rounded-sm"
-                  }
-                >
-                  <span className="flex items-center justify-between">
-                    Home
-                    <FaHome className="text-4xl" />
-                  </span>
-                </NavLink>
-              </div>
-            )}
-          </Drawer>
-        </div>
+            )
+        )}
       </div>
     </div>
   );

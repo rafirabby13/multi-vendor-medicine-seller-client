@@ -50,7 +50,7 @@ const Banner = () => {
                 backgroundPosition: "center",
               }}
             >
-              <div className=" space-y-7 text-center px-10 bg-white/20 backdrop-blur-xl p-7 rounded-4xl ">
+              <div className=" space-y-7 text-center px-10 bg-white/60 backdrop-blur-xl p-7 rounded-4xl ">
                 <Fade
                   delay={1e3}
                   cascade
