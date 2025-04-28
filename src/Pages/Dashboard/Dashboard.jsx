@@ -138,12 +138,12 @@ const Dashboard = () => {
             (item) =>
               item.roles.includes(role) && (
                 <MenuItem
-                key={item.path}
-                icon={item.Icon}
-                component={<NavLink to={item.path} end />}
-              >
-                {item.name}
-              </MenuItem>
+                  key={item.path}
+                  icon={item.Icon}
+                  component={<NavLink to={item.path} end />}
+                >
+                  {item.name}
+                </MenuItem>
               )
           )}
         </Menu>
@@ -160,8 +160,8 @@ const Dashboard = () => {
                 end
                 className={({ isActive }) =>
                   isActive
-                    ? "  w-full p-3 bg-[#FFEDFA] rounded-lg text-btns font-bold   lg:text-lg"
-                    : "font-bold text-xl border-b-4 p-3 rounded-sm border-2"
+                    ? "w-full p-3 bg-amber-100 rounded-lg text-btns font-bold   lg:text-lg"
+                    : "font-bold text-xl border-b-4 p-3  border rounded-lg"
                 }
               >
                 <span className="flex items-center gap-5">

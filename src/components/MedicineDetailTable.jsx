@@ -157,37 +157,31 @@ const MedicineDetailTable = ({ products }) => {
     
   }, [products,search]);
   return (
-    <div>
-       <form className="py-10  w-fit mx-auto flex gap-3">
-        <label className="input input-bordered flex items-center gap-2 feedback md:text-2xl md:p-8">
-          <input
-            type="text"
-            className="grow "
-            placeholder="Search"
-            name="search"
-            onChange={(e) => setSearch(e.target.value)}
-          />
+    <div className="">
+        <form className="relative my-5 md:mx-20">
+        <input
+          type="text"
+          className="w-full h-14 px-6 py-3  pr-16 text-lg text-[#081d1d] bg-white rounded-full border-2 border-[#99bfe3] focus:border-[#38c8c5] focus:outline-none transition-colors duration-200 shadow-md placeholder:text-[#081d1d]/60"
+          placeholder="Search medicines..."
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <button 
+          type="submit"
+          className="absolute right-0 top-0 h-full px-5 rounded-r-full bg-[#38c8c5] text-white flex items-center justify-center transition-all duration-200 hover:bg-[#6f8bd7]"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 16 16"
+            viewBox="0 0 24 24"
             fill="currentColor"
-            className="h-8 w-8 opacity-70"
+            className="h-6 w-6"
           >
             <path
               fillRule="evenodd"
-              d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+              d="M10.5 3.75a6.75 6.75 0 100 13.5 6.75 6.75 0 000-13.5zM2.25 10.5a8.25 8.25 0 1114.59 5.28l4.69 4.69a.75.75 0 11-1.06 1.06l-4.69-4.69A8.25 8.25 0 012.25 10.5z"
               clipRule="evenodd"
             />
           </svg>
-        </label>
-        {/* <div>
-          <button
-           
-            className="btn btn-active btn-secondary"
-          >
-            Search
-          </button>
-        </div> */}
+        </button>
       </form>
       <DataTable
         columns={columns}
