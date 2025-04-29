@@ -1,5 +1,10 @@
 /* eslint-disable no-unused-vars */
-import { FaBirthdayCake, FaCartPlus, FaToggleOff, FaToggleOn } from "react-icons/fa";
+import {
+  FaBirthdayCake,
+  FaCartPlus,
+  FaToggleOff,
+  FaToggleOn,
+} from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../hooks/useAuth.jsx";
 import { useState } from "react";
@@ -21,16 +26,14 @@ const Navbar = () => {
   const [role] = useUsersRole();
   const [profileHide, setProfileHide] = useState(true);
   const { register, handleSubmit } = useForm();
-  
+
   const items = (
     <>
       <li>
         <NavLink
           to="/"
           className={({ isActive }) =>
-            isActive
-              ? "bg-background font-bold  lg:text-lg"
-              : "font-bold"
+            isActive ? "bg-background font-bold  lg:text-lg" : "font-bold"
           }
         >
           Home
@@ -40,9 +43,7 @@ const Navbar = () => {
         <NavLink
           to="/shop"
           className={({ isActive }) =>
-            isActive
-              ? "bg-background font-bold  lg:text-lg"
-              : "font-bold"
+            isActive ? "bg-background font-bold  lg:text-lg" : "font-bold"
           }
         >
           Shop
@@ -52,9 +53,7 @@ const Navbar = () => {
         <NavLink
           to="/faq"
           className={({ isActive }) =>
-            isActive
-              ? "bg-background font-bold  lg:text-lg"
-              : "font-bold"
+            isActive ? "bg-background font-bold  lg:text-lg" : "font-bold"
           }
         >
           FAQ
@@ -64,9 +63,7 @@ const Navbar = () => {
         <NavLink
           to="/about"
           className={({ isActive }) =>
-            isActive
-              ? "bg-background font-bold  lg:text-lg"
-              : "font-bold"
+            isActive ? "bg-background font-bold  lg:text-lg" : "font-bold"
           }
         >
           About Us
@@ -76,9 +73,7 @@ const Navbar = () => {
         <NavLink
           to="/contact"
           className={({ isActive }) =>
-            isActive
-              ? "bg-background font-bold  lg:text-lg"
-              : "font-bold"
+            isActive ? "bg-background font-bold  lg:text-lg" : "font-bold"
           }
         >
           Contact Us
@@ -92,9 +87,7 @@ const Navbar = () => {
           <NavLink
             to="/cart"
             className={({ isActive }) =>
-              isActive
-                ? "bg-background font-bold  lg:text-lg"
-                : "font-bold"
+              isActive ? "bg-background font-bold  lg:text-lg" : "font-bold"
             }
           >
             <FaCartPlus /> <span>{cart?.length}</span>
@@ -108,9 +101,7 @@ const Navbar = () => {
           <NavLink
             to="/dashboard"
             className={({ isActive }) =>
-              isActive
-                ? "bg-background font-bold  lg:text-lg"
-                : "font-bold"
+              isActive ? "bg-background font-bold  lg:text-lg" : "font-bold"
             }
           >
             Dashboard
@@ -140,7 +131,7 @@ const Navbar = () => {
           icon: "success",
           title: "logged out",
           showConfirmButton: false,
-          timer: 1500
+          timer: 1500,
         });
       })
       .catch((err) => {
@@ -148,8 +139,10 @@ const Navbar = () => {
       });
   };
 
-  const axiosPublic = useAxiosPublic()
-  const handleProfileUpdate = () => {document.getElementById('my_modal_5').showModal()};
+  const axiosPublic = useAxiosPublic();
+  const handleProfileUpdate = () => {
+    document.getElementById("my_modal_5").showModal();
+  };
 
   const onSubmit = (data) => {
     // console.log(data);
@@ -174,7 +167,7 @@ const Navbar = () => {
                 showConfirmButton: false,
                 timer: 1500,
               });
-              document.getElementById('my_modal_5').close()
+              document.getElementById("my_modal_5").close();
             })
             .catch((err) => {
               console.log(err);
@@ -214,12 +207,12 @@ const Navbar = () => {
           <div className="flex items-center gap-4">
             <img className="h-12 md:h-20" src={logo} alt="" />
             <JackInTheBox delay={2000}>
-            <Link
-              to="/"
-              className=" hidden 2xl:flex text-3xl xl:text-4xl font-extrabold"
-            >
-              MediMart
-            </Link>
+              <Link
+                to="/"
+                className=" hidden 2xl:flex text-3xl xl:text-4xl font-extrabold"
+              >
+                MediMart
+              </Link>
             </JackInTheBox>
           </div>
         </div>
@@ -274,17 +267,11 @@ const Navbar = () => {
             </>
           ) : (
             <div className="flex items-center gap-2">
-               {/* <img
-                  onClick={() => setHidden(!hidden)}
-                  className="h-16 rounded-full w-16 cursor-pointer relative border-2 border-third p-1"
-                  src=''
-                  alt=""
-                /> */}
-              <Link
-                to="/login"
-                className=" p-1 lg:text-xl xl:btn  text-md "
-              >
-                Join US
+              <Link to="/login" className=" p-1 lg:text-xl xl:btn  text-md border-2">
+                Login
+              </Link>
+              <Link to="/register" className=" p-1 lg:text-xl xl:btn  text-md ">
+                Register
               </Link>
             </div>
           )}
@@ -319,7 +306,9 @@ const Navbar = () => {
                 className="file-input w-full max-w-xs file-input-accent "
               />
             </div>
-            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+              ✕
+            </button>
 
             <div className="form-control mt-6">
               <button className="btn bg-btns">Update Profile</button>
