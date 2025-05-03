@@ -1,6 +1,7 @@
+// eslint-disable-next-line no-unused-vars
 import { HeartPulse, Mail, MapPin, Phone, ShieldCheck, Truck, Users } from "lucide-react";
 import Header from "../../components/Header";
-import img from '../../../public/contact.jpg'
+import img from '/contact.jpg'
 
 const About = () => {
   return (

@@ -153,9 +153,10 @@ const Dashboard = () => {
        bg-btns md:min-h-screen   py-20 xl:px-8"
       >
         {navItems.map(
-          (item) =>
+          (item,i) =>
             item.roles.includes(role) && (
               <NavLink
+              key={i}
                 to={item.path}
                 end
                 className={({ isActive }) =>

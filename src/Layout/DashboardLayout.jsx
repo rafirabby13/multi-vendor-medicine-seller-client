@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Outlet, useNavigate } from "react-router-dom";
 import Dashboard from "../Pages/Dashboard/Dashboard.jsx";
 import useAuth from "../hooks/useAuth.jsx";

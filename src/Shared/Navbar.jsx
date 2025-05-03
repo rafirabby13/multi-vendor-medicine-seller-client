@@ -10,7 +10,7 @@ import useAuth from "../hooks/useAuth.jsx";
 import { useState } from "react";
 import useCart from "../hooks/useCart.jsx";
 import useUsersRole from "../hooks/useUsersRole.jsx";
-import logo from "../../public/medicin.png";
+import logo from "/medicin.png";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
 import useAxiosPublic from "../hooks/useAxiosPublic.jsx";
