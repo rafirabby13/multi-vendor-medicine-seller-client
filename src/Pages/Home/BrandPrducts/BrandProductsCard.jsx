@@ -6,11 +6,9 @@ const BrandProductsCard = ({ product }) => {
   const { image, currency, price, title } = product;
 
   return (
-    <motion.div
+    <div
       className="relative flex flex-col md:flex-row  rounded-2xl shadow-sm shadow-third overflow-hidden max-w-lg mx-auto transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.1 }}
+      
     >
       {/* Image Section */}
       <div className="w-full md:w-1/2 p-6 bg-white flex items-center justify-center">
@@ -40,7 +38,7 @@ const BrandProductsCard = ({ product }) => {
 
       {/* Decorative Element */}
       <div className="absolute top-0 right-0 w-16 h-16 bg-teal-100 rounded-bl-full opacity-20" />
-    </motion.div>
+    </div>
   );
 };
 
