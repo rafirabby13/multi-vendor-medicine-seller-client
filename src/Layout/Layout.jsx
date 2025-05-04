@@ -4,6 +4,7 @@ import Footer from "../Shared/Footer.jsx";
 import Banner from "../Pages/Home/Banner.jsx";
 import { useState } from "react";
 import useAuth from "../hooks/useAuth.jsx";
+import Banner2 from "../Pages/Home/Banner2.jsx";
 
 const Layout = () => {
   const {theme } = useAuth()
@@ -15,7 +16,7 @@ const Layout = () => {
     <div id={`${theme}`}>
       <Navbar />
       <section className="h-[80px] md:h-[96px] lg:h-[128px]"></section>
-      {location.pathname == "/" && <Banner />}
+      {location.pathname == "/" && <Banner2 />}
       <section className="md:max-w-[85%] mx-auto ">
         <Outlet />
       </section>

@@ -9,6 +9,7 @@ import useManageBanner from "../../hooks/useManageBanner.jsx";
 import { Fade } from "react-awesome-reveal";
 import moment from "moment";
 import { Link } from "react-router-dom";
+import Button from "../../components/Button.jsx";
 const Banner = () => {
   const [bannerData, setBannerData] = useState([]);
   const axiosPublic = useAxiosPublic();
@@ -63,9 +64,10 @@ const Banner = () => {
                   {banner?.description}
                 </p>
                 {/* <p className="md:text-xl text-sm">{banner?.discount}</p> */}
-                <Link to='/shop' className="p-1 px-6 md:py-3 bg-btns  font-semibold rounded-lg transition-shadow shadow-lg hover:shadow-xl">
+                {/* <Link to='/shop' className="p-1 px-6 md:py-3 bg-btns  font-semibold rounded-lg transition-shadow shadow-lg hover:shadow-xl">
                   Shop
-                </Link>
+                </Link> */}
+                <Button text={'shop'}></Button>
               </div>
             </div>
           </SwiperSlide>

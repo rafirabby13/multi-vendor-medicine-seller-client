@@ -15,7 +15,7 @@ const Faq = () => {
      
       <Header title={'Frequently Asked Questions'} description={'Find answers to common questions about using MediMart'}></Header>
 
-      <div className="flex mb-10 max-w-lg mx-auto shadow-md rounded-lg overflow-hidden">
+      {/* <div className="flex mb-10 max-w-lg mx-auto shadow-md rounded-lg overflow-hidden">
         <input 
           type="text" 
           placeholder="Search for questions..." 
@@ -24,7 +24,7 @@ const Faq = () => {
         <button type="submit" className="bg-btns text-white px-6 py-3 font-medium hover:bg-blue-800 transition duration-200">
           Search
         </button>
-      </div>
+      </div> */}
 
       <Accordion 
         allowZeroExpanded 

@@ -48,11 +48,12 @@
   default: true; /* set as default */
   prefersdark: false; /* set as default dark mode (prefers-color-scheme:dark) */
   color-scheme: light; /* color of browser-provided UI */
-  --font: "#081d1d",
-  --background: "#f9fdfd",
-  --btns: "#38c8c5",
-  --second: "#99bfe3",
-  --third: "#6f8bd7",
+  --font: "#1D1D1D",
+  --background: "#FFFFFF",
+  --btns: "#B8E0F7",
+  --second: "#3ECCC3",
+  --third: "#C43A6C", 
+  --button: "#32B5B2"
 
   --color-base-100: oklch(98% 0.02 240);
   --color-base-200: oklch(95% 0.03 240);

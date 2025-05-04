@@ -4,22 +4,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Linefont:wght@4..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Linefont:wght@4..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Linefont:wght@4..1000&family=Sedan:ital@0;1&display=swap');
 @import "tailwindcss";
 @plugin "daisyui";
 @theme {
-  --color-font: #081d1d;
-  --color-background: #f9fdfd;
-  --color-btns: #38c8c5;
-  --color-second: #99bfe3;
-  --color-third: #6f8bd7;
+  --color-font: #1D1D1D;
+  --color-background: #FFFFFF;
+  --color-btns: #3ECCC3;
+  --color-second: #B8E0F7;
+  --color-third: #C43A6C;
+  --color-btn: #32B5B2;
+
 }
 body{
-    font-family: "Philosopher", serif;
+    /* font-family: "Philosopher", serif; */
     /* font-family: "Tilt Neon", serif; */
-    font-family: "Nunito", serif;
-    font-family: "Marcellus", serif;
+    /* font-family: "Nunito", serif; */
+    /* font-family: "Marcellus", serif; */
     font-family: "PT Serif", serif;
+    font-family: "League Spartan", sans-serif;
+    font-family: "Sedan", serif;
+
+
+
 
 
 

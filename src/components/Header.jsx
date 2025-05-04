@@ -3,8 +3,8 @@ const Header = ({ title, description }) => {
   return (
     <div className="bg-[#f9fdfd] py-16 px-4">
     <div className="text-center max-w-4xl mx-auto">
-      <h1 className="text-4xl md:text-5xl font-bold p-6 rounded-lg shadow-md shadow-[#38c8c5]/20 mb-4">
-        <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#6f8bd7] to-[#38c8c5]">
+      <h1 className="text-4xl md:text-5xl font-bold p-6 rounded-lg shadow-md shadow-third/70 mb-4">
+        <span className="bg-clip-text text-transparent bg-gradient-to-r from-third to-third">
           {title}
         </span>
       </h1>
