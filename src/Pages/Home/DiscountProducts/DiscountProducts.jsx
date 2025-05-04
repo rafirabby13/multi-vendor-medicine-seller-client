@@ -6,6 +6,8 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import Header from "../../../components/Header.jsx";
 const DiscountProducts = () => {
+  const [isHovered, setIsHovered] = useState(false);
+
   const [discountProducts, setDiscountProducts] = useState([]);
   useEffect(() => {
     fetch("/discount.json")
@@ -42,52 +44,95 @@ const DiscountProducts = () => {
               index
             ) => (
               <SwiperSlide key={index}>
-                <div className="mx-auto  rounded-xl shadow-2xl border-b-4 border-btns">
-                  {/* Image Section */}
-                  <div className="relative rounded-t-xl overflow-hidden">
-                    <img
-                      src={image}
-                      alt={name}
-                      className="w-fit mx-auto h-24 md:h-64  transition-transform duration-300 hover:scale-105"
-                    />
-                    <span
-                      className="absolute top-3 left-3 text-white text-xs md:text-sm font-bold px-3 py-1 rounded-md"
-                      style={{ background: "#38c8c5" }}
-                    >
-                      {discountPercentage}% OFF
-                    </span>
-                  </div>
+                <div className="max-w-sm mx-auto">
+                  <div
+                    className={`relative bg-white rounded-2xl overflow-hidden shadow-xl border-b-[6px] border-[#3ECCC3] transition-all duration-500 ${
+                      isHovered ? "transform -translate-y-2 shadow-2xl" : ""
+                    }`}
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)}
+                  >
+                   
 
-                  {/* Content Section */}
-                  <div className="p-5 text-center md:w-1/3 mx-auto">
-                    <h3
-                      className="text-lg md:text-3xl font-bold"
-                      style={{ color: "#081d1d" }}
-                    >
-                      {name}
-                    </h3>
-                    <div className="flex items-center justify-between mt-3">
-                      <p className=" line-through text-sm">${originalPrice}</p>
-                      <p
-                        className="font-extrabold text-2xl"
-                        style={{ color: "#38c8c5" }}
-                      >
-                        ${discountPrice}
-                      </p>
+                    {/* Discount badge */}
+                    <div className="absolute top-4 left-4 z-10">
+                      <div className="bg-third text-white font-bold py-2 px-3 rounded-lg shadow-lg flex items-center justify-center">
+                        <span className="text-lg">{discountPercentage}%</span>
+                        <span className="ml-1 text-xs font-light">OFF</span>
+                      </div>
                     </div>
-                    <p className="text-sm bg-btns  btn text-background  md:text-2xl mt-2">
-                      Save ${originalPrice - discountPrice}!
-                    </p>
-                    {/* <button
-                      className="w-full mt-5 py-3 rounded-lg shadow-md font-semibold text-sm md:text-base transition-transform duration-300 hover:scale-105"
-                      style={{
-                        background:
-                          "linear-gradient(to right, #38c8c5, #99bfe3)",
-                        color: "#f9fdfd",
-                      }}
-                    >
-                      Buy Now
-                    </button> */}
+
+                    {/* Image container with subtle reflection effect */}
+                    <div className="relative bg-gradient-to-b from-gray-50 to-gray-100 pt-8 pb-6 px-6">
+                      <div
+                        className={`relative transition-transform duration-500 ${
+                          isHovered ? "scale-110" : "scale-100"
+                        }`}
+                      >
+                        <img
+                          src={image}
+                          alt={name}
+                          className="mx-auto h-52 object-contain z-10 relative"
+                        />
+                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-3 bg-black/10 rounded-full blur-md"></div>
+                      </div>
+                    </div>
+
+                    {/* Content section */}
+                    <div className="p-6">
+                      {/* Product name */}
+                      <h3 className="text-xl font-bold text-[#081d1d] mb-4 text-center line-clamp-2">
+                        {name}
+                      </h3>
+
+                      {/* Price section */}
+                      <div className="flex items-center justify-between mb-4 px-2">
+                        <div className="flex flex-col items-start">
+                          <span className="text-xs uppercase">
+                            Regular Price
+                          </span>
+                          <span className="line-through  text-sm">
+                            ${originalPrice.toFixed(2)}
+                          </span>
+                        </div>
+                        <div className="flex flex-col items-end">
+                          <span className="text-xs uppercase">
+                            Sale Price
+                          </span>
+                          <span className="text-2xl font-bold text-third">
+                            ${discountPrice.toFixed(2)}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Savings badge */}
+                      <div className="flex justify-center mb-5">
+                        <div className="bg-[#C43A6C] text-white text-sm font-medium py-2 px-4 rounded-full shadow inline-flex items-center">
+                          <svg
+                            className="w-4 h-4 mr-1"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                            ></path>
+                          </svg>
+                          Save ${(originalPrice - discountPrice).toFixed(2)}!
+                        </div>
+                      </div>
+
+                      {/* Button */}
+                      <button className="w-full py-3 px-4  bg-[#3ECCC3]  text-white font-medium text-sm uppercase tracking-wider rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#3ECCC3] focus:ring-opacity-50">
+                        Add to Cart
+                      </button>
+
+                     
+                    </div>
                   </div>
                 </div>
               </SwiperSlide>
