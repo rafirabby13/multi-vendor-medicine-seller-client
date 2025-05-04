@@ -1,31 +1,46 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion"; // For animations
 
 /* eslint-disable react/prop-types */
 const BrandProductsCard = ({ product }) => {
-  // console.log(product);
-  const { image, currency, price,  title } = product;
+  const { image, currency, price, title } = product;
+
   return (
-    <div className="flex items-center bg-btns brand">
-      <div className="flex-1 p-4">
-        {/* <p className="text-sm text-gray-500">{category}</p> */}
-        <h3 className="text-xs md:text-2xl font-bold text-gray-800">{title}</h3>
-        <div className="flex flex-col-reverse md:flex-row gap-4 md:mt-4 ">
-          <Link to='/shop' className="btn-xs md:btn bg-third text-background text-sm font-medium  shadow-md hover:bg-blue-600 transition">
-            Shop Now
-          </Link>
-          <p className="text-2xl font-semibold text-gray-700">
-            {currency} {price}
-          </p>
-        </div>
-      </div>
-      <div className="w-1/2 p-4">
+    <motion.div
+      className="relative flex flex-col md:flex-row  rounded-2xl shadow-sm shadow-third overflow-hidden max-w-lg mx-auto transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.1 }}
+    >
+      {/* Image Section */}
+      <div className="w-full md:w-1/2 p-6 bg-white flex items-center justify-center">
         <img
           src={image}
           alt={title}
-          className="w-full h-24 sm:h-40  rounded-md"
+          className="w-full h-40 md:h-48 object-contain rounded-lg transition-transform duration-300 hover:scale-105"
         />
       </div>
-    </div>
+
+      {/* Content Section */}
+      <div className="w-full md:w-1/2 p-6 flex flex-col justify-between">
+        <h3 className="text-lg md:text-2xl font-serif font-bold text-gray-900 mb-3 tracking-tight line-clamp-2">
+          {title}
+        </h3>
+        <p className="text-xl md:text-2xl font-semibold text-third">
+          {currency}
+          {price}
+        </p>
+        <Link
+          to="/shop"
+          className="mt-4 inline-block px-6 py-2.5 bg-third text-white text-sm font-medium rounded-lg shadow-md hover:from-teal-600 hover:to-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-opacity-50 transition-all duration-300"
+        >
+          Shop Now
+        </Link>
+      </div>
+
+      {/* Decorative Element */}
+      <div className="absolute top-0 right-0 w-16 h-16 bg-teal-100 rounded-bl-full opacity-20" />
+    </motion.div>
   );
 };
 

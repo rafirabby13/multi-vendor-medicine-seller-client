@@ -19,6 +19,7 @@
     "clsx": "^2.1.1",
     "emailjs": "^4.0.3",
     "firebase": "^11.1.0",
+    "framer-motion": "^12.9.4",
     "lottie-react": "^2.4.0",
     "lucide-react": "^0.503.0",
     "mantine-datatable": "^7.15.1",
