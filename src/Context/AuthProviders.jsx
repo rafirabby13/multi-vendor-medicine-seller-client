@@ -54,22 +54,15 @@ const AuthProviders = ({ children }) => {
       setUser(currentUser);
       console.log("currentUser", currentUser);
       if (currentUser) {
-        // const userData = {
-        //   name: currentUser.displayName,
-        //   email: currentUser.email,
-        //   image: currentUser.photoURL,
-        //   role: "user",
-        // };
-        // axiosPublic.post("/users", userData).then((res) => {
-        //   // console.log(res.data);
-        // });
+      
 
         const userEmail = { email: currentUser.email };
+        // console.log(currentUser, userEmail)
 
-        axiosPublic.post("/jwt", userEmail).then((res) => {
-          // console.log(res.data.token);
-          if (res.data.token) {
-            localStorage.setItem("access-token", res.data.token);
+        axiosPublic.post("/auth/jwt", userEmail).then((res) => {
+          // console.log(res?.data);
+          if (res?.data?.success) {
+            localStorage.setItem("access-token", res.data.data.token);
             setLoading(false);
           }
         });

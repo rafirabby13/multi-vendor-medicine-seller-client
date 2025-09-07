@@ -18,7 +18,7 @@ const useUsersRole = () => {
       if (loading) {
         return "<Loading/>";
       }
-      const res = await axiosSecure.get(`/users/role/?email=${user?.email}`);
+      const res = await axiosSecure.get(`/user/role/?email=${user?.email}`);
       // console.log(res.data);
       return res.data;
     },

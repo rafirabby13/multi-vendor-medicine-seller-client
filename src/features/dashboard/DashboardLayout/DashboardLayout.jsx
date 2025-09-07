@@ -5,6 +5,7 @@ import {
 } from '@ant-design/icons';
 import { Button, Layout } from 'antd';
 import Sidebar from './Sidebar';
+import { Outlet } from 'react-router-dom';
 const { Header,  Content } = Layout;
 const DashboardLayout = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -33,7 +34,7 @@ const DashboardLayout = () => {
             background: 'white',
           }}
         >
-          Content
+          <Outlet/>
         </Content>
       </Layout>
     </Layout>
