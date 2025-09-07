@@ -7,7 +7,7 @@ const useMedicineCategoryPublic = () => {
     const {data: medicineCategory=[], refetch} = useQuery({
         queryKey: ['category'],
         queryFn: async ()=>{
-            const res = await axiosPublic.get('/medicine-all-category')
+            const res = await axiosPublic.get('/category/medicine-all-category')
             return res.data
     
         }

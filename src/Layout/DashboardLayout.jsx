@@ -33,7 +33,7 @@ const navigate= useNavigate()
 
       <div className="lg:col-span-9 py-20 lg:py-0 lg:px-10">
         <div className="py-6 mb-20 px-8 flex items-center justify-between bg-btns rounded-lg shadow-md hidden lg:flex">
-          <h2 className="text-2xl font-semibold text-white">
+          <h2 className="text-2xl font-semibold text-prime">
             Welcome,{" "}
             <span className="text-fuchsia-800">
               {user?.displayName || "User"}

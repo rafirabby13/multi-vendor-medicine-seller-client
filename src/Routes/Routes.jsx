@@ -7,10 +7,8 @@ import Shop from "../Pages/Shop/Shop.jsx";
 import MedicineDetail from "../Pages/MedicineDetail/MedicineDetail.jsx";
 import Cart from "../Pages/Cart/Cart.jsx";
 import Payment from "../Pages/Payment/Payment.jsx";
-import DashboardLayout from "../Layout/DashboardLayout.jsx";
 import PrivateRoute from "./PrivateRoute.jsx";
 import AskBannerAd from "../Pages/Dashboard/Seller/AskBanner/AskBannerAd.jsx";
-import AdminHome from "../Pages/Dashboard/Admin/AdminHome/AdminHome.jsx";
 import ManageUsers from "../Pages/Dashboard/Admin/ManageUsers/ManageUsers.jsx";
 import ManageBannerAd from "../Pages/Dashboard/Admin/BannerAdvertise/ManageBannerAd.jsx";
 import ManageCategory from "../Pages/Dashboard/Admin/ManageCategory/ManageCategory.jsx";
@@ -26,6 +24,7 @@ import Error from "../Pages/Error/Error.jsx";
 import About from "../Pages/AboutUS/About.jsx";
 import ContactUs from "../Pages/Contact us/ContactUs.jsx";
 import DashboardHome from "../Pages/Dashboard/DashBoardHome/DashboardHome.jsx";
+import DashboardLayout from "../features/dashboard/DashboardLayout/DashboardLayout.jsx";
 
 export const router = createBrowserRouter([
     {

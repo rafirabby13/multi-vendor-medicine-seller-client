@@ -10,12 +10,12 @@ const MedicineCategory = () => {
   return (
     <div className="mt-20">
       <Header
-        title={" Find the Medicine You Need"}
+        title={"Find the Medicine You Need"}
         description={
           "  Discover an extensive collection of premium medicines designed to support your health and wellness.From daily essentials to specialized care, find everything you need in one place."
         }
       ></Header>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-1 md:gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-1 md:gap-4 mt-7">
         {medicineCategory?.map((data, i) => (
           <MedicineCategoryCard key={i} medicine={data}></MedicineCategoryCard>
         ))}

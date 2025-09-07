@@ -21,7 +21,7 @@ const BrandProducts = () => {
           "Discover a wide range of daily essentials designed to make your life easier and more convenient. From health products to household necessities, find everything you need to stay prepared and organized every day."
         }
       ></Header>
-      <Zoom delay={2000} duration={1000} triggerOnce fraction={0.5} cascade damping={0.2}>
+      <Zoom delay={200} duration={500} triggerOnce fraction={0.5} cascade damping={0.2}>
         <div className="grid md:grid-cols-2 gap-4">
           {brandProduct.map((product, i) => (
             <BrandProductsCard key={i} product={product}></BrandProductsCard>

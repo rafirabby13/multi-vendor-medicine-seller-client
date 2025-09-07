@@ -76,21 +76,8 @@ import {
       //     </nav>
       //   </footer>
       // </div>
-      <div className="w-full bg-btns foou mt-20">
-      {/* Top Banner with Logo */}
-      <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-second opacity-10 animate-pulse"></div>
-        <div className="text-center py-12 md:py-16 relative z-10">
-          <h1 
-            className="font-extrabold text-3xl md:text-7xl w-fit mx-auto p-3  tracking-wider"
-            style={{
-              textShadow: "0 0 15px rgba(255,255,255,0.5), 0 0 30px rgba(255,255,255,0.3)"
-            }}
-          >
-            MediMart
-          </h1>
-        </div>
-      </div>
+      <div className="w-full bg-prime text-light foou mt-20">
+     
       
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto">

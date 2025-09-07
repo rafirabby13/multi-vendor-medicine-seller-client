@@ -160,7 +160,7 @@ const Navbar = () => {
             </div>
             <JackInTheBox delay={2000}>
               <div className="hidden xl:block">
-                <h1 className="text-2xl xl:text-3xl 2xl:text-4xl font-black bg-gradient-to-r from-color-btns to-color-btn bg-clip-text text-transparent">
+                <h1 className="text-2xl xl:text-3xl 2xl:text-4xl font-bold text-light bg-gradient-to-r from-color-btns to-color-btn bg-clip-text ">
                   MediMart
                 </h1>
                 <p className="text-xs text-light /70 font-medium tracking-wide">Healthcare Made Easy</p>
