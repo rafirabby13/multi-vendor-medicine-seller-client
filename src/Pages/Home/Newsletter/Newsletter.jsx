@@ -8,9 +8,9 @@ import {
 import { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
-import Button from '../../../components/Button'
 
 import Swal from "sweetalert2";
+import Button from "../../../components/buttons/Button";
 const Newsletter = () => {
   const form = useRef();
   const sendEmail = (e) => {

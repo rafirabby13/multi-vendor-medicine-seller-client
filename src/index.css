@@ -9,7 +9,7 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Linefont:wght@4..1000&family=Sedan:ital@0;1&display=swap');
 @import "tailwindcss";
 @plugin "daisyui";
-@theme {
+/* @theme {
   --color-font: #1D1D1D;
   --color-background: #FFFFFF;
   --color-btns: #3ECCC3;
@@ -17,7 +17,10 @@
   --color-third: #C43A6C;
   --color-btn: #32B5B2;
 
-}
+} */
+
+
+
 body{
     /* font-family: "Philosopher", serif; */
     /* font-family: "Tilt Neon", serif; */
@@ -34,6 +37,15 @@ body{
 
 }
 
+@theme {
+  --color-background: #ffffff;  /* App background */
+  --color-text: #0a3632;        /* Main text color */
+  --color-prime: #115852;     /* Primary brand color */
+  --color-second: #237e76;   /* Secondary / accent */
+  --color-accent: #3ca99f;      /* Highlight / CTA */
+  --color-light: #c6efeb;  /* Light teal section background */
+
+}
 
 .foo {
     background: linear-gradient(to bottom, #38c8c6cb, #001b1af6),

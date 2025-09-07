@@ -4,7 +4,8 @@ import useAuth from "../hooks/useAuth.jsx";
 import { useEffect, useState } from "react";
 
 const axiosSecure = axios.create({
-  baseURL: "https://multi-vendor-medicine-selling-server-alpha.vercel.app",
+  // baseURL: "https://multi-vendor-medicine-selling-server-alpha.vercel.app",
+  baseURL: "http://localhost:5001/api/v1",
 });
 const useAxiosSecure = () => {
   const { logoutUser } = useAuth();

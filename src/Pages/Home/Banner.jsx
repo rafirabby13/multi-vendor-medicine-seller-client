@@ -9,7 +9,7 @@ import useManageBanner from "../../hooks/useManageBanner.jsx";
 import { Fade } from "react-awesome-reveal";
 import moment from "moment";
 import { Link } from "react-router-dom";
-import Button from "../../components/Button.jsx";
+import Button from "../../components/buttons/Button.jsx";
 const Banner = () => {
   const [bannerData, setBannerData] = useState([]);
   const axiosPublic = useAxiosPublic();
