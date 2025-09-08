@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import FeedbackCard from "./FeedbackCard.jsx";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
-import Header from "../../../components/Header.jsx";
+import Header from "../../../components/molecules/Header.jsx";
 
 const Feedback = () => {
   const [feedbacks, setFeedbacks] = useState([]);

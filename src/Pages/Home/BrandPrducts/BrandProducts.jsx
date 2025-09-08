@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import BrandProductsCard from "./BrandProductsCard.jsx";
-import Header from "../../../components/Header.jsx";
+import Header from "../../../components/molecules/Header.jsx";
 import { Fade, Roll, Zoom } from "react-awesome-reveal";
 
 const BrandProducts = () => {

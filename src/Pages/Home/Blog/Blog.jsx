@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
-import Header from "../../../components/Header.jsx";
+import Header from "../../../components/molecules/Header.jsx";
 import BlogCard from "./BlogCard.jsx";
 
 

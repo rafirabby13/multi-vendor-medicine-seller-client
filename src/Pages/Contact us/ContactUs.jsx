@@ -8,7 +8,7 @@ import {
   Truck,
   Users,
 } from "lucide-react";
-import Header from "../../components/Header";
+import Header from "../../components/molecules/Header";
 
 const ContactUs = () => {
   return (

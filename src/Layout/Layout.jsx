@@ -1,8 +1,9 @@
 import { Outlet, useLocation } from "react-router-dom";
-import Navbar from "../Shared/Navbar.jsx";
-import Footer from "../Shared/Footer.jsx";
+
 import useAuth from "../hooks/useAuth.jsx";
 import Banner2 from "../Pages/Home/Banner2.jsx";
+import Navbar from "../components/Shared/Navbar.jsx";
+import Footer from "../components/Shared/Footer.jsx";
 
 const Layout = () => {
   const {theme } = useAuth()

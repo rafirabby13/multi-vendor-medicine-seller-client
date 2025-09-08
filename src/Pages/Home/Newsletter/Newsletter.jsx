@@ -1,10 +1,4 @@
-import {
-  FaYoutube,
-  FaInstagram,
-  FaPinterest,
-  FaTwitter,
-  FaFacebookF,
-} from "react-icons/fa";
+
 import { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
@@ -120,19 +114,19 @@ const Newsletter = () => {
             required
           />
         </div>
-       <Button text='SUBSCRIBE'></Button>
+       <Button text='SUBSCRIBE' ></Button>
       </form>
 
       {/* Text Section */}
       <div className="text-center md:text-left mt-4 md:mt-0 md:ml-6">
-        <h2 className="text-lg md:text-xl font-serif font-semibold text-navy-900 tracking-tight">
+        <h2 className="text-lg md:text-xl font-serif font-semibold text-light tracking-tight">
           SIGN UP FOR NEWSLETTER
         </h2>
-        <p className="text-navy-700 text-sm mt-1 font-sans">
+        <p className="text-light text-sm mt-1 font-sans">
           Get <span className="text-gold-600 font-bold">30% OFF</span> coupon
           today subscribers
         </p>
-        <p className="text-navy-500 text-xs mt-1 font-serif italic opacity-70">
+        <p className="text-light text-xs mt-1 font-serif italic opacity-70">
           We respect your privacy
         </p>
       </div>

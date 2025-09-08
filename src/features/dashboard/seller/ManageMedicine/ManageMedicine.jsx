@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from "react";
 import useMedicineBySeller from "../../../../hooks/useMedicineBySeller.jsx";
-import { FaEye, FaPlus } from "react-icons/fa";
+import {  FaPlus } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../../../hooks/useAxiosPublic.jsx";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure.jsx";
 import { useForm } from "react-hook-form";
 import useAuth from "../../../../hooks/useAuth.jsx";
-import useMedicineCategory from "../../../../hooks/useMedicineCategory.jsx";
 import useMedicineCategoryPublic from "../../../../hooks/useMedicineCategoryPublic.jsx";
 import useCompany from "../../../../hooks/useCompany.jsx";
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
@@ -16,7 +14,7 @@ const ManageMedicine = () => {
   const [medicines, refetch] = useMedicineBySeller();
   const [medicineCategory] = useMedicineCategoryPublic()
   const [company] = useCompany()
-// console.log(company);
+console.log(medicines);
   const { register, handleSubmit, reset } = useForm();
   const axiosPublic = useAxiosPublic();
   const axiosSecure = useAxiosSecure();
@@ -75,9 +73,9 @@ const ManageMedicine = () => {
         <table className="table">
           {/* head */}
           <thead>
-            <tr>
+            <tr className="bg-light">
               <th>#</th>
-              <th>Image</th>
+              <th>Generic</th>
               <th>Name</th>
               <th>category</th>
               <th>price</th>
@@ -89,9 +87,9 @@ const ManageMedicine = () => {
           </thead>
           <tbody>
             {medicines?.map((product, i) => (
-              <tr key={i}>
+              <tr key={i} className={`${i%2==0? 'bg-light/30': 'bg-text/10'}`}>
                 <th>{i + 1}</th>
-                <td>
+                {/* <td>
                   <div className="flex items-center gap-3">
                     <div className="avatar">
                       <div className="mask mask-squircle h-12 w-12">
@@ -102,7 +100,8 @@ const ManageMedicine = () => {
                       </div>
                     </div>
                   </div>
-                </td>
+                </td> */}
+                <td>{product.generic}</td>
                 <td>{product.name}</td>
                 <td>{product.category}</td>
                 <th>

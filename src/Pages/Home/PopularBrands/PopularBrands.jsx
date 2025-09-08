@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import PoularBrandsCards from "./PoularBrandsCards.jsx";
 
 import Marquee from "react-fast-marquee";
-import Header from "../../../components/Header.jsx";
+import Header from "../../../components/molecules/Header.jsx";
 
 const PopularBrands = () => {
   const [brands, setBrands] = useState([]);

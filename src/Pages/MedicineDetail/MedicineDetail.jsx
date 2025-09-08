@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import useShop from "../../hooks/useShop.jsx";
-import MedicineDetailTable from "../../components/MedicineDetailTable.jsx";
-import Header from "../../components/Header.jsx";
+import Header from "../../components/molecules/Header.jsx";
+import MedicineDetailTable from "../../components/tables/MedicineDetailTable.jsx";
 
 const MedicineDetail = () => {
     const {category} = useParams()

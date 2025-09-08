@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Navigate, useLocation } from 'react-router-dom';
 import useAuth from '../hooks/useAuth.jsx';
-import Loading from '../components/Loading.jsx';
+import Loading from '../components/atoms/Loading.jsx';
 
 const PrivateRoute = ({children}) => {
      // const navigte = useNavigate()

@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import Header from "../../../components/Header.jsx";
+import Header from "../../../components/molecules/Header.jsx";
 
 const DiscountProducts = () => {
   const [discountProducts, setDiscountProducts] = useState([]);

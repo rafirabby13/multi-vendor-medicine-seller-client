@@ -7,7 +7,7 @@ import {
   AccordionItemPanel,
 } from "react-accessible-accordion";
 import { FaChevronDown } from "react-icons/fa";
-import Header from "../../components/Header";
+import Header from "../../components/molecules/Header";
 
 const Faq = () => {
   return (

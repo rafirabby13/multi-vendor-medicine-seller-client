@@ -1,7 +1,8 @@
+import Header from "../../components/molecules/Header.jsx";
+import MedicineDetailTable from "../../components/tables/MedicineDetailTable.jsx";
 import useShop from "../../hooks/useShop.jsx";
 
-import MedicineDetailTable from "../../components/MedicineDetailTable.jsx";
-import Header from "../../components/Header.jsx";
+
 import { Helmet } from "react-helmet";
 
 const Shop = () => {

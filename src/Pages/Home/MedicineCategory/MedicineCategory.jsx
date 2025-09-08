@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
 
-import MedicineCategoryCard from "./MedicineCategoryCard.jsx";
-import useMedicineCategory from "../../../hooks/useMedicineCategory.jsx";
+
+import Header from "../../../components/molecules/Header.jsx";
 import useMedicineCategoryPublic from "../../../hooks/useMedicineCategoryPublic.jsx";
-import Header from "../../../components/Header.jsx";
+import MedicineCategoryCard from "./MedicineCategoryCard.jsx";
 
 const MedicineCategory = () => {
   const [medicineCategory, refetch] = useMedicineCategoryPublic();

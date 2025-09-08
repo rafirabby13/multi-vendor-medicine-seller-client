@@ -2,17 +2,17 @@
 import {
   FaCartPlus,
 } from "react-icons/fa";
-import { Link, NavLink } from "react-router-dom";
-import useAuth from "../hooks/useAuth.jsx";
-import { useState } from "react";
-import useCart from "../hooks/useCart.jsx";
-import useUsersRole from "../hooks/useUsersRole.jsx";
 import logo from "/medicin.png";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
-import useAxiosPublic from "../hooks/useAxiosPublic.jsx";
 import { JackInTheBox } from "react-awesome-reveal";
-import Button from '../components/buttons/Button.jsx'
+import useAuth from "../../hooks/useAuth";
+import { useState } from "react";
+import useCart from "../../hooks/useCart";
+import useUsersRole from "../../hooks/useUsersRole";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { Link, NavLink } from "react-router-dom";
+import Button from "../buttons/Button";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -38,7 +38,7 @@ const Navbar = () => {
             }
           >
             <span className="relative">
-              {["Home", "Shop", "FAQ", "About Us", "Contact Us"][idx]}
+              {["Home", "Shop", "FAQ", "About", "Contact"][idx]}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-color-btn transition-all duration-300 group-hover:w-full"></span>
             </span>
           </NavLink>

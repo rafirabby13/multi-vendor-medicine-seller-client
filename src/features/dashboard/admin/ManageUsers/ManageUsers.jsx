@@ -1,4 +1,3 @@
-import { FaEye } from "react-icons/fa";
 import useManageUsers from "../../../../hooks/useManageUsers.jsx";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";

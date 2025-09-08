@@ -3,6 +3,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure.jsx";
 import { FaRegTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import Button from "../../components/buttons/Button.jsx";
 
 const Cart = () => {
   const [cart, refetch] = useCart();
@@ -73,7 +74,7 @@ const Cart = () => {
         confirmButtonText: "Yes, delete it!",
       }).then((result) => {
         if (result.isConfirmed) {
-          const cartId =  cart?.map(item=> item._id)
+          const cartId = cart?.map(item => item._id)
           axiosSecure.post("/cart/clearCart", cartId).then((res) => {
             if (res.data.deletedCount > 0) {
               refetch();
@@ -191,11 +192,15 @@ const Cart = () => {
           <h1>Total Amount:</h1>
           <h1>$ {totalPrice}</h1>
         </div>
-       
+
         {cart.length > 0 && (
           <div className="flex justify-center w-full">
-            <Link to="/payment" className="btn md:btn bg-btns md:bg-btns text-background  md:text-background">
-              Payment
+            <Link to="/payment" >
+              <Button text={"Payment"}>
+
+
+                
+              </Button>
             </Link>
           </div>
         )}

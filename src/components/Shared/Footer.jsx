@@ -1,14 +1,6 @@
-import { useState } from "react";
-import {
-    FaFacebook,
-    FaGithub,
-    FaInstagram,
-    FaLinkedin,
-    FaTwitter,
-  } from "react-icons/fa";
+
   
   const Footer = () => {
-    const [hovered, setHovered] = useState(false);
   const currentYear = new Date().getFullYear();
     return (
       // <div className="foo mt-20">

@@ -2,13 +2,13 @@
 /* eslint-disable react/prop-types */
 import { FaCartPlus, FaEye } from "react-icons/fa";
 import Swal from "sweetalert2";
-import useAuth from "../hooks/useAuth.jsx";
-import { useNavigate } from "react-router-dom";
-import useAxiosSecure from "../hooks/useAxiosSecure.jsx";
-import useCart from "../hooks/useCart.jsx";
-import useUsersRole from "../hooks/useUsersRole.jsx";
 import   DataTable,{defaultThemes } from "react-data-table-component";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import useCart from "../../hooks/useCart";
+import useUsersRole from "../../hooks/useUsersRole";
 
 const MedicineDetailTable = ({ products }) => {
   

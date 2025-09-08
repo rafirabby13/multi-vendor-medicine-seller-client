@@ -1,8 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../Layout/Layout.jsx";
 import Home from "../Pages/Home/Home.jsx";
-import Login from "../Pages/Login/Login.jsx";
-import Register from "../Pages/Register/Register.jsx";
 import Shop from "../Pages/Shop/Shop.jsx";
 import MedicineDetail from "../Pages/MedicineDetail/MedicineDetail.jsx";
 import Cart from "../Pages/Cart/Cart.jsx";
@@ -23,8 +21,9 @@ import Faq from "../Pages/faq/Faq.jsx";
 import Error from "../Pages/Error/Error.jsx";
 import About from "../Pages/AboutUS/About.jsx";
 import ContactUs from "../Pages/Contact us/ContactUs.jsx";
-import DashboardHome from "../Pages/Dashboard/DashBoardHome/DashboardHome.jsx";
 import DashboardLayout from "../features/dashboard/DashboardLayout/DashboardLayout.jsx";
+import Login from "../features/auth/Login/Login.jsx";
+import Register from "../features/auth/Register/Register.jsx";
 
 export const router = createBrowserRouter([
     {
@@ -79,10 +78,10 @@ export const router = createBrowserRouter([
         path: 'dashboard',
         element: <DashboardLayout/>,
         children: [
-            {
-                path: '',
-                element: <DashboardHome/>
-            },
+            // {
+            //     path: '',
+            //     element: <DashboardHome/>
+            // },
             {
                 path: 'users',
                 element: <ManageUsers/>
